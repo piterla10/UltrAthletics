@@ -277,7 +277,7 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM LineaPedidoEN self where SELECT lin FROM LineaPedidoEN as lin inner join lin.Pedido as pedi where pedi.Id = :ped ";
+                //String sql = @"FROM LineaPedidoEN self where FROM LineaPedidoEN as lin where lin.Pedido= :ped";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("LineaPedidoENverLineasPorPedidoHQL");
                 query.SetParameter ("ped", ped);

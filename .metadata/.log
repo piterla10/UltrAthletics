@@ -5725,3 +5725,9 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.ui 4 4 2022-10-22 15:28:57.437
 !MESSAGE Plug-in 'es.ua.dlsi.ooh.persistence.nHibernate.generator' contributed an invalid Menu Extension (Path: 'es.ua.dlsi.ooh.generator.menu' is invalid): es.ua.dlsi.ooh.persistence.nHibernate.generator.copyAction
+
+!ENTRY org.eclipse.ui 4 4 2022-10-22 15:43:25.424
+!MESSAGE Plug-in 'es.ua.dlsi.ooh.persistence.nHibernate.generator' contributed an invalid Menu Extension (Path: 'es.ua.dlsi.ooh.generator.menu' is invalid): es.ua.dlsi.ooh.persistence.nHibernate.generator.copyLibrariesAction
+
+!ENTRY org.eclipse.ui 4 4 2022-10-22 15:43:25.424
+!MESSAGE Plug-in 'es.ua.dlsi.ooh.persistence.nHibernate.generator' contributed an invalid Menu Extension (Path: 'es.ua.dlsi.ooh.generator.menu' is invalid): es.ua.dlsi.ooh.persistence.nHibernate.generator.copyAction

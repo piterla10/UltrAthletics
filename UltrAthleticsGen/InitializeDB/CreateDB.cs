@@ -121,16 +121,16 @@ public static void InitializeData ()
 
                 // PedidoEN ped = ped1.ReadOID(idped);
 
-               //IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido (lin.Pedido.Id);
-                IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido(idped);
+                //IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido (lin.Pedido.Id);
+                IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido (idped);
                 int x = 1;
-                  Console.WriteLine("Lineas del pedido ");
-                  foreach (LineaPedidoEN lon in listalienas)
-                  {
-                   Console.WriteLine("Linea "+x+" "+ lon.Id);
-                    x++;
-                  }
-                 
+                Console.WriteLine ("Lineas del pedido ");
+                foreach (LineaPedidoEN lon in listalienas) {
+                        Console.WriteLine ("Linea " + x + " " + lon.Id + " "+ lon.Pedido.Id);
+                   
+                        x++;
+                }
+
 
 
                 // p.e. CustomerCEN customer = new CustomerCEN();
