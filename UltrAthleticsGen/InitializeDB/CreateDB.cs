@@ -83,54 +83,54 @@ public static void InitializeData ()
                 UsuarioCEN abel = new UsuarioCEN ();
                 abel.CrearCuenta ("abel@prebombeo", "1234");
 
-              if(abel.IniciarSesion("abel@prebombeo", "1234") != null)
-                {
-                    Console.WriteLine("INICIO DE SESION CORRECTO");
+                if (abel.IniciarSesion ("abel@prebombeo", "1234") != null) {
+                        Console.WriteLine ("INICIO DE SESION CORRECTO");
                 }
 
-              //CREACION DE PRODUCTOS
+                //CREACION DE PRODUCTOS
 
-                ProductoCEN pro1 = new ProductoCEN();
-                int idpro1 = pro1.CrearProducto("dildo", "grande", 100, 5, 0, "gigawia");
-                ProductoCEN pro2 = new ProductoCEN();
-                int idpro2 = pro1.CrearProducto("mancuerna", "small", 30, 2, 0, "sasdas");
+                ProductoCEN pro1 = new ProductoCEN ();
+                int idpro1 = pro1.CrearProducto ("dildo", "grande", 100, 5, 0, "gigawia");
+                ProductoCEN pro2 = new ProductoCEN ();
+                int idpro2 = pro1.CrearProducto ("mancuerna", "small", 30, 2, 0, "sasdas");
 
 
                 //CREACION DE PEDIDO
                 PedidoCEN ped1 = new PedidoCEN ();
-                int idped=ped1.CrearPedido ("13-12-1222", "calle secuestro123", "12355551231231", EstadoPedidoEnum.carrito, "abel@prebombeo", 0);
+                int idped = ped1.CrearPedido ("13-12-1222", "calle secuestro123", "12355551231231", EstadoPedidoEnum.carrito, "abel@prebombeo", 0);
 
-                
+
                 LineaPedidoCEN lin1 = new LineaPedidoCEN ();
-                int idlin1 = lin1.CrearLinea(3, idped, 300, idpro1);
+                int idlin1 = lin1.CrearLinea (3, idped, 300, idpro1);
 
-                LineaPedidoEN lin = lin1.ReadOID(idlin1);
-                Console.WriteLine("Linea 1 " + lin.Pedido);
+                LineaPedidoEN lin = lin1.ReadOID (idlin1);
+                Console.WriteLine ("Linea 1 " + lin.Pedido.Id);
 
-                PedidoEN pedEN = ped1.ReadOID(idped);
-                Console.WriteLine("EL pedido");
+                PedidoEN pedEN = ped1.ReadOID (idped);
+                Console.WriteLine ("EL pedido");
 
-                LineaPedidoCEN lin2 = new LineaPedidoCEN();
-                int idlin2=lin1.CrearLinea(1, idped, 1050, idpro2);
-
-                lin = lin2.ReadOID(idlin2);
-                Console.WriteLine("Linea 2 " + lin);
-
-                pedEN = ped1.ReadOID(idped);
-                Console.WriteLine("EL pedido tiene el total");
+                LineaPedidoCEN lin2 = new LineaPedidoCEN ();
+                int idlin2 = lin1.CrearLinea (1, idped, 1050, idpro2);
 
 
 
-               // PedidoEN ped = ped1.ReadOID(idped);
-                /*
-                IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido(ped);
+                pedEN = ped1.ReadOID (idped);
+                Console.WriteLine ("EL pedido tiene el total");
 
-                Console.WriteLine("Lineas Lineas Lineas Lineas Lineas Lineas Lineas Lineas Lineas Lineas Lineas Lineas");
-                foreach (LineaPedidoEN lin in listalienas)
-                {
-                    Console.WriteLine("Linea " + lin.Producto);
-                }
-                */
+
+
+                // PedidoEN ped = ped1.ReadOID(idped);
+
+               //IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido (lin.Pedido.Id);
+                IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido(idped);
+                int x = 1;
+                  Console.WriteLine("Lineas del pedido ");
+                  foreach (LineaPedidoEN lon in listalienas)
+                  {
+                   Console.WriteLine("Linea "+x+" "+ lon.Id);
+                    x++;
+                  }
+                 
 
 
                 // p.e. CustomerCEN customer = new CustomerCEN();
@@ -139,7 +139,7 @@ public static void InitializeData ()
 
 
                 /*PROTECTED REGION END*/
-            }
+        }
         catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);

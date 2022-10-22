@@ -33,6 +33,6 @@ System.Collections.Generic.IList<LineaPedidoEN> ReadAll (int first, int size);
 
 
 
-System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> VerLineasPorPedido (UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN ped);
+System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> VerLineasPorPedido (int ped);
 }
 }

@@ -108,7 +108,7 @@ public System.Collections.Generic.IList<LineaPedidoEN> ReadAll (int first, int s
         list = _ILineaPedidoCAD.ReadAll (first, size);
         return list;
 }
-public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> VerLineasPorPedido (UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN ped)
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> VerLineasPorPedido (int ped)
 {
         return _ILineaPedidoCAD.VerLineasPorPedido (ped);
 }

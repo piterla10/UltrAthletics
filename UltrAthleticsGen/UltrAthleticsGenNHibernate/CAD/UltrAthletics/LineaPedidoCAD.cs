@@ -271,13 +271,13 @@ public System.Collections.Generic.IList<LineaPedidoEN> ReadAll (int first, int s
         return result;
 }
 
-public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> VerLineasPorPedido (UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN ped)
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> VerLineasPorPedido (int ped)
 {
         System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM LineaPedidoEN self where FROM LineaPedidoEN as lin where lin.Pedido=ped";
+                //String sql = @"FROM LineaPedidoEN self where SELECT lin FROM LineaPedidoEN as lin inner join lin.Pedido as pedi where pedi.Id = :ped ";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("LineaPedidoENverLineasPorPedidoHQL");
                 query.SetParameter ("ped", ped);
