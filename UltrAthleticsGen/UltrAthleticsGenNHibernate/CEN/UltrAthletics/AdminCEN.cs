@@ -39,7 +39,7 @@ public IAdminCAD get_IAdminCAD ()
         return this._IAdminCAD;
 }
 
-public string New_ (string p_email, String p_pass)
+public string CrearAdmin (string p_email, String p_pass)
 {
         AdminEN adminEN = null;
         string oid;
@@ -52,11 +52,11 @@ public string New_ (string p_email, String p_pass)
 
         //Call to AdminCAD
 
-        oid = _IAdminCAD.New_ (adminEN);
+        oid = _IAdminCAD.CrearAdmin (adminEN);
         return oid;
 }
 
-public void Modify (string p_Admin_OID, String p_pass)
+public void ModificarAdmin (string p_Admin_OID, String p_pass)
 {
         AdminEN adminEN = null;
 
@@ -66,13 +66,13 @@ public void Modify (string p_Admin_OID, String p_pass)
         adminEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
         //Call to AdminCAD
 
-        _IAdminCAD.Modify (adminEN);
+        _IAdminCAD.ModificarAdmin (adminEN);
 }
 
-public void Destroy (string email
-                     )
+public void Borrar (string email
+                    )
 {
-        _IAdminCAD.Destroy (email);
+        _IAdminCAD.Borrar (email);
 }
 
 public AdminEN ReadOID (string email

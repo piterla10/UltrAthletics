@@ -30,11 +30,11 @@ System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.Pro
 
 int CrearProducto (ProductoEN producto);
 
-void Modify (ProductoEN producto);
+void ModificarProducto (ProductoEN producto);
 
 
-void Destroy (int id
-              );
+void Borrar (int id
+             );
 
 
 void AsignarCategoria (int p_Producto_OID, System.Collections.Generic.IList<string> p_categoria_OIDs);

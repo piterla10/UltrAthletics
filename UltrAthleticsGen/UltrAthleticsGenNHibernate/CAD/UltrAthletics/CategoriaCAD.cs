@@ -115,7 +115,7 @@ public void ModifyDefault (CategoriaEN categoria)
 }
 
 
-public string New_ (CategoriaEN categoria)
+public string CrearCategoria (CategoriaEN categoria)
 {
         try
         {
@@ -141,7 +141,7 @@ public string New_ (CategoriaEN categoria)
         return categoria.Nombre;
 }
 
-public void Modify (CategoriaEN categoria)
+public void ModificarCategoria (CategoriaEN categoria)
 {
         try
         {
@@ -167,8 +167,8 @@ public void Modify (CategoriaEN categoria)
                 SessionClose ();
         }
 }
-public void Destroy (string nombre
-                     )
+public void Borrar (string nombre
+                    )
 {
         try
         {

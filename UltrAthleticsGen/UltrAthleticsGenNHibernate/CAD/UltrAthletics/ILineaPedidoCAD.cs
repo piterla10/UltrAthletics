@@ -18,11 +18,11 @@ System.Collections.Generic.IList<LineaPedidoEN> ReadAllDefault (int first, int s
 
 int CrearLinea (LineaPedidoEN lineaPedido);
 
-void Modify (LineaPedidoEN lineaPedido);
+void ModificarLinea (LineaPedidoEN lineaPedido);
 
 
-void Destroy (int id
-              );
+void Borrar (int id
+             );
 
 
 LineaPedidoEN ReadOID (int id

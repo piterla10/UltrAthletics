@@ -57,7 +57,7 @@ private UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario;
 /**
  *	Atributo descuento
  */
-private float descuento;
+private double descuento;
 
 
 
@@ -106,7 +106,7 @@ public virtual UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN Usuario {
 
 
 
-public virtual float Descuento {
+public virtual double Descuento {
         get { return descuento; } set { descuento = value;  }
 }
 
@@ -121,7 +121,7 @@ public PedidoEN()
 
 
 
-public PedidoEN(int id, string fecha, string direccion, string tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum estado, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario, float descuento
+public PedidoEN(int id, string fecha, string direccion, string tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum estado, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario, double descuento
                 )
 {
         this.init (Id, fecha, direccion, tarjeta, estado, lineaPedido, usuario, descuento);
@@ -134,7 +134,7 @@ public PedidoEN(PedidoEN pedido)
 }
 
 private void init (int id
-                   , string fecha, string direccion, string tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum estado, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario, float descuento)
+                   , string fecha, string direccion, string tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum estado, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario, double descuento)
 {
         this.Id = id;
 

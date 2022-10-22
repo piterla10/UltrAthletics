@@ -72,7 +72,7 @@ public int CrearLinea (int p_unidades, int p_pedido, float p_precio, int p_produ
         return oid;
 }
 
-public void Modify (int p_LineaPedido_OID, int p_unidades, float p_precio)
+public void ModificarLinea (int p_LineaPedido_OID, int p_unidades, float p_precio)
 {
         LineaPedidoEN lineaPedidoEN = null;
 
@@ -83,13 +83,13 @@ public void Modify (int p_LineaPedido_OID, int p_unidades, float p_precio)
         lineaPedidoEN.Precio = p_precio;
         //Call to LineaPedidoCAD
 
-        _ILineaPedidoCAD.Modify (lineaPedidoEN);
+        _ILineaPedidoCAD.ModificarLinea (lineaPedidoEN);
 }
 
-public void Destroy (int id
-                     )
+public void Borrar (int id
+                    )
 {
-        _ILineaPedidoCAD.Destroy (id);
+        _ILineaPedidoCAD.Borrar (id);
 }
 
 public LineaPedidoEN ReadOID (int id

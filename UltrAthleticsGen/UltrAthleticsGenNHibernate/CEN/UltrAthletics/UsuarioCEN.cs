@@ -50,7 +50,7 @@ public string IniciarSesion (string p_Usuario_OID, string p_pass)
         return result;
 }
 
-public string CrearCuenta (string p_email, String p_pass)
+public string CrearUsuario (string p_email, String p_pass)
 {
         UsuarioEN usuarioEN = null;
         string oid;
@@ -63,11 +63,11 @@ public string CrearCuenta (string p_email, String p_pass)
 
         //Call to UsuarioCAD
 
-        oid = _IUsuarioCAD.CrearCuenta (usuarioEN);
+        oid = _IUsuarioCAD.CrearUsuario (usuarioEN);
         return oid;
 }
 
-public void Modificar (string p_Usuario_OID, String p_pass)
+public void ModificarUsuario (string p_Usuario_OID, String p_pass)
 {
         UsuarioEN usuarioEN = null;
 
@@ -77,7 +77,7 @@ public void Modificar (string p_Usuario_OID, String p_pass)
         usuarioEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
         //Call to UsuarioCAD
 
-        _IUsuarioCAD.Modificar (usuarioEN);
+        _IUsuarioCAD.ModificarUsuario (usuarioEN);
 }
 
 public void Borrar (string email
@@ -102,11 +102,11 @@ public System.Collections.Generic.IList<UsuarioEN> DameUsuarioTodos (int first, 
         list = _IUsuarioCAD.DameUsuarioTodos (first, size);
         return list;
 }
-public void AnadirCategoria (string p_Usuario_OID, System.Collections.Generic.IList<string> p_categoria_OIDs)
+public void AnyadirCategoria (string p_Usuario_OID, System.Collections.Generic.IList<string> p_categoria_OIDs)
 {
         //Call to UsuarioCAD
 
-        _IUsuarioCAD.AnadirCategoria (p_Usuario_OID, p_categoria_OIDs);
+        _IUsuarioCAD.AnyadirCategoria (p_Usuario_OID, p_categoria_OIDs);
 }
 
 

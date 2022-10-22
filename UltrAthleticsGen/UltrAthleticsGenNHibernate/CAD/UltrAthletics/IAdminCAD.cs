@@ -15,13 +15,13 @@ System.Collections.Generic.IList<AdminEN> ReadAllDefault (int first, int size);
 
 
 
-string New_ (AdminEN admin);
+string CrearAdmin (AdminEN admin);
 
-void Modify (AdminEN admin);
+void ModificarAdmin (AdminEN admin);
 
 
-void Destroy (string email
-              );
+void Borrar (string email
+             );
 
 
 AdminEN ReadOID (string email

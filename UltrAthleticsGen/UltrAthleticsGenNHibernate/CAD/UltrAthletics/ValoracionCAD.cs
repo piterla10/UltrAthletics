@@ -117,7 +117,7 @@ public void ModifyDefault (ValoracionEN valoracion)
 }
 
 
-public int Crear (ValoracionEN valoracion)
+public int CrearValoracion (ValoracionEN valoracion)
 {
         try
         {
@@ -157,7 +157,7 @@ public int Crear (ValoracionEN valoracion)
         return valoracion.Id;
 }
 
-public void Modificar (ValoracionEN valoracion)
+public void ModificarValoracion (ValoracionEN valoracion)
 {
         try
         {
@@ -186,8 +186,8 @@ public void Modificar (ValoracionEN valoracion)
                 SessionClose ();
         }
 }
-public void Destroy (int id
-                     )
+public void Borrar (int id
+                    )
 {
         try
         {

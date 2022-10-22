@@ -84,7 +84,7 @@ public int CrearProducto (string p_nombre, string p_descripcion, float p_precio,
         return oid;
 }
 
-public void Modify (int p_Producto_OID, string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, string p_imagen)
+public void ModificarProducto (int p_Producto_OID, string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, string p_imagen)
 {
         ProductoEN productoEN = null;
 
@@ -99,13 +99,13 @@ public void Modify (int p_Producto_OID, string p_nombre, string p_descripcion, f
         productoEN.Imagen = p_imagen;
         //Call to ProductoCAD
 
-        _IProductoCAD.Modify (productoEN);
+        _IProductoCAD.ModificarProducto (productoEN);
 }
 
-public void Destroy (int id
-                     )
+public void Borrar (int id
+                    )
 {
-        _IProductoCAD.Destroy (id);
+        _IProductoCAD.Borrar (id);
 }
 
 public void AsignarCategoria (int p_Producto_OID, System.Collections.Generic.IList<string> p_categoria_OIDs)

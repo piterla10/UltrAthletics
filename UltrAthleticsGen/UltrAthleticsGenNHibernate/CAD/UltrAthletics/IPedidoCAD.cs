@@ -19,11 +19,11 @@ int CrearPedido (PedidoEN pedido);
 
 
 
-void Modify (PedidoEN pedido);
+void ModificarPedido (PedidoEN pedido);
 
 
-void Destroy (int id
-              );
+void Borrar (int id
+             );
 
 
 PedidoEN ReadOID (int id

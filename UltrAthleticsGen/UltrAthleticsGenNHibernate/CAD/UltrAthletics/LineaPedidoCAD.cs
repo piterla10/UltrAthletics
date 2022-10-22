@@ -157,7 +157,7 @@ public int CrearLinea (LineaPedidoEN lineaPedido)
         return lineaPedido.Id;
 }
 
-public void Modify (LineaPedidoEN lineaPedido)
+public void ModificarLinea (LineaPedidoEN lineaPedido)
 {
         try
         {
@@ -186,8 +186,8 @@ public void Modify (LineaPedidoEN lineaPedido)
                 SessionClose ();
         }
 }
-public void Destroy (int id
-                     )
+public void Borrar (int id
+                    )
 {
         try
         {

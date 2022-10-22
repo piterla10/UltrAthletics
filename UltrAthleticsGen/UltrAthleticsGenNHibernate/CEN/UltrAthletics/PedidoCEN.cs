@@ -39,7 +39,7 @@ public IPedidoCAD get_IPedidoCAD ()
         return this._IPedidoCAD;
 }
 
-public int CrearPedido (string p_fecha, string p_direccion, string p_tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum p_estado, string p_usuario, float p_descuento)
+public int CrearPedido (string p_fecha, string p_direccion, string p_tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum p_estado, string p_usuario, double p_descuento)
 {
         PedidoEN pedidoEN = null;
         int oid;
@@ -70,7 +70,7 @@ public int CrearPedido (string p_fecha, string p_direccion, string p_tarjeta, Ul
         return oid;
 }
 
-public void Modify (int p_Pedido_OID, string p_fecha, string p_direccion, string p_tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum p_estado, float p_descuento)
+public void ModificarPedido (int p_Pedido_OID, string p_fecha, string p_direccion, string p_tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum p_estado, double p_descuento)
 {
         PedidoEN pedidoEN = null;
 
@@ -84,13 +84,13 @@ public void Modify (int p_Pedido_OID, string p_fecha, string p_direccion, string
         pedidoEN.Descuento = p_descuento;
         //Call to PedidoCAD
 
-        _IPedidoCAD.Modify (pedidoEN);
+        _IPedidoCAD.ModificarPedido (pedidoEN);
 }
 
-public void Destroy (int id
-                     )
+public void Borrar (int id
+                    )
 {
-        _IPedidoCAD.Destroy (id);
+        _IPedidoCAD.Borrar (id);
 }
 
 public PedidoEN ReadOID (int id

@@ -15,13 +15,13 @@ System.Collections.Generic.IList<CategoriaEN> ReadAllDefault (int first, int siz
 
 
 
-string New_ (CategoriaEN categoria);
+string CrearCategoria (CategoriaEN categoria);
 
-void Modify (CategoriaEN categoria);
+void ModificarCategoria (CategoriaEN categoria);
 
 
-void Destroy (string nombre
-              );
+void Borrar (string nombre
+             );
 
 
 CategoriaEN ReadOID (string nombre

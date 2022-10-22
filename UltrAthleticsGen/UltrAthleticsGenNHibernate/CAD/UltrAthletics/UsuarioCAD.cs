@@ -158,7 +158,7 @@ public void ModifyDefault (UsuarioEN usuario)
 }
 
 
-public string CrearCuenta (UsuarioEN usuario)
+public string CrearUsuario (UsuarioEN usuario)
 {
         try
         {
@@ -184,7 +184,7 @@ public string CrearCuenta (UsuarioEN usuario)
         return usuario.Email;
 }
 
-public void Modificar (UsuarioEN usuario)
+public void ModificarUsuario (UsuarioEN usuario)
 {
         try
         {
@@ -295,7 +295,7 @@ public System.Collections.Generic.IList<UsuarioEN> DameUsuarioTodos (int first, 
         return result;
 }
 
-public void AnadirCategoria (string p_Usuario_OID, System.Collections.Generic.IList<string> p_categoria_OIDs)
+public void AnyadirCategoria (string p_Usuario_OID, System.Collections.Generic.IList<string> p_categoria_OIDs)
 {
         UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuarioEN = null;
         try

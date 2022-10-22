@@ -16,11 +16,11 @@ System.Collections.Generic.IList<UsuarioEN> ReadAllDefault (int first, int size)
 
 
 
-string CrearCuenta (UsuarioEN usuario);
+string CrearUsuario (UsuarioEN usuario);
 
 
 
-void Modificar (UsuarioEN usuario);
+void ModificarUsuario (UsuarioEN usuario);
 
 
 void Borrar (string email
@@ -35,6 +35,6 @@ System.Collections.Generic.IList<UsuarioEN> DameUsuarioTodos (int first, int siz
 
 
 
-void AnadirCategoria (string p_Usuario_OID, System.Collections.Generic.IList<string> p_categoria_OIDs);
+void AnyadirCategoria (string p_Usuario_OID, System.Collections.Generic.IList<string> p_categoria_OIDs);
 }
 }

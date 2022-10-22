@@ -159,7 +159,7 @@ public int CrearPedido (PedidoEN pedido)
         return pedido.Id;
 }
 
-public void Modify (PedidoEN pedido)
+public void ModificarPedido (PedidoEN pedido)
 {
         try
         {
@@ -197,8 +197,8 @@ public void Modify (PedidoEN pedido)
                 SessionClose ();
         }
 }
-public void Destroy (int id
-                     )
+public void Borrar (int id
+                    )
 {
         try
         {

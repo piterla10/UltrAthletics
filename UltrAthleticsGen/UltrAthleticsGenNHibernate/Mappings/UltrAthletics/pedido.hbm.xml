@@ -24,7 +24,7 @@
 					<property name="Estado" > 
 						<column name="estado"  not-null="true"/>
 					</property>
-					<property name="Descuento" type="float"> 
+					<property name="Descuento" type="double"> 
 						<column name="descuento"  not-null="true"/>
 					</property>
 			

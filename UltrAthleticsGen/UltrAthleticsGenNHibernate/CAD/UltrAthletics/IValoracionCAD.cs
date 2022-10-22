@@ -15,13 +15,13 @@ System.Collections.Generic.IList<ValoracionEN> ReadAllDefault (int first, int si
 
 
 
-int Crear (ValoracionEN valoracion);
+int CrearValoracion (ValoracionEN valoracion);
 
-void Modificar (ValoracionEN valoracion);
+void ModificarValoracion (ValoracionEN valoracion);
 
 
-void Destroy (int id
-              );
+void Borrar (int id
+             );
 
 
 ValoracionEN DameValoracionOID (int id

@@ -252,7 +252,7 @@ public int CrearProducto (ProductoEN producto)
         return producto.Id;
 }
 
-public void Modify (ProductoEN producto)
+public void ModificarProducto (ProductoEN producto)
 {
         try
         {
@@ -293,8 +293,8 @@ public void Modify (ProductoEN producto)
                 SessionClose ();
         }
 }
-public void Destroy (int id
-                     )
+public void Borrar (int id
+                    )
 {
         try
         {

@@ -15,13 +15,13 @@ System.Collections.Generic.IList<EventoEN> ReadAllDefault (int first, int size);
 
 
 
-int New_ (EventoEN evento);
+int CrearCategoria (EventoEN evento);
 
-void Modify (EventoEN evento);
+void ModificarCategoria (EventoEN evento);
 
 
-void Destroy (int id
-              );
+void Borrar (int id
+             );
 
 
 EventoEN ReadOID (int id

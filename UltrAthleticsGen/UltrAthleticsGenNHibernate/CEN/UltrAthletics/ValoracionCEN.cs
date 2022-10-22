@@ -39,7 +39,7 @@ public IValoracionCAD get_IValoracionCAD ()
         return this._IValoracionCAD;
 }
 
-public int Crear (string p_comentario, int p_valor, string p_usuario, int p_producto)
+public int CrearValoracion (string p_comentario, int p_valor, string p_usuario, int p_producto)
 {
         ValoracionEN valoracionEN = null;
         int oid;
@@ -68,11 +68,11 @@ public int Crear (string p_comentario, int p_valor, string p_usuario, int p_prod
 
         //Call to ValoracionCAD
 
-        oid = _IValoracionCAD.Crear (valoracionEN);
+        oid = _IValoracionCAD.CrearValoracion (valoracionEN);
         return oid;
 }
 
-public void Modificar (int p_Valoracion_OID, string p_comentario, int p_valor)
+public void ModificarValoracion (int p_Valoracion_OID, string p_comentario, int p_valor)
 {
         ValoracionEN valoracionEN = null;
 
@@ -83,13 +83,13 @@ public void Modificar (int p_Valoracion_OID, string p_comentario, int p_valor)
         valoracionEN.Valor = p_valor;
         //Call to ValoracionCAD
 
-        _IValoracionCAD.Modificar (valoracionEN);
+        _IValoracionCAD.ModificarValoracion (valoracionEN);
 }
 
-public void Destroy (int id
-                     )
+public void Borrar (int id
+                    )
 {
-        _IValoracionCAD.Destroy (id);
+        _IValoracionCAD.Borrar (id);
 }
 
 public ValoracionEN DameValoracionOID (int id

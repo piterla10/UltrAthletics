@@ -122,7 +122,7 @@ public void ModifyDefault (EventoEN evento)
 }
 
 
-public int New_ (EventoEN evento)
+public int CrearCategoria (EventoEN evento)
 {
         try
         {
@@ -148,7 +148,7 @@ public int New_ (EventoEN evento)
         return evento.Id;
 }
 
-public void Modify (EventoEN evento)
+public void ModificarCategoria (EventoEN evento)
 {
         try
         {
@@ -183,8 +183,8 @@ public void Modify (EventoEN evento)
                 SessionClose ();
         }
 }
-public void Destroy (int id
-                     )
+public void Borrar (int id
+                    )
 {
         try
         {

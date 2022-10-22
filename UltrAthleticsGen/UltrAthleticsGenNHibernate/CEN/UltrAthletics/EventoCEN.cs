@@ -39,7 +39,7 @@ public IEventoCAD get_IEventoCAD ()
         return this._IEventoCAD;
 }
 
-public int New_ (Nullable<DateTime> p_fecha, string p_url, string p_imagen, string p_nombre)
+public int CrearCategoria (Nullable<DateTime> p_fecha, string p_url, string p_imagen, string p_nombre)
 {
         EventoEN eventoEN = null;
         int oid;
@@ -56,11 +56,11 @@ public int New_ (Nullable<DateTime> p_fecha, string p_url, string p_imagen, stri
 
         //Call to EventoCAD
 
-        oid = _IEventoCAD.New_ (eventoEN);
+        oid = _IEventoCAD.CrearCategoria (eventoEN);
         return oid;
 }
 
-public void Modify (int p_Evento_OID, Nullable<DateTime> p_fecha, string p_url, string p_imagen, string p_nombre)
+public void ModificarCategoria (int p_Evento_OID, Nullable<DateTime> p_fecha, string p_url, string p_imagen, string p_nombre)
 {
         EventoEN eventoEN = null;
 
@@ -73,13 +73,13 @@ public void Modify (int p_Evento_OID, Nullable<DateTime> p_fecha, string p_url, 
         eventoEN.Nombre = p_nombre;
         //Call to EventoCAD
 
-        _IEventoCAD.Modify (eventoEN);
+        _IEventoCAD.ModificarCategoria (eventoEN);
 }
 
-public void Destroy (int id
-                     )
+public void Borrar (int id
+                    )
 {
-        _IEventoCAD.Destroy (id);
+        _IEventoCAD.Borrar (id);
 }
 
 public EventoEN ReadOID (int id

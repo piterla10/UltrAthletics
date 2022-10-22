@@ -81,7 +81,7 @@ public static void InitializeData ()
                 // Insert the initilizations of entities using the CEN classes
 
                 UsuarioCEN abel = new UsuarioCEN ();
-                abel.CrearCuenta ("abel@prebombeo", "1234");
+                abel.CrearUsuario ("abel@prebombeo", "1234");
 
                 if (abel.IniciarSesion ("abel@prebombeo", "1234") != null) {
                         Console.WriteLine ("INICIO DE SESION CORRECTO");
@@ -97,7 +97,7 @@ public static void InitializeData ()
 
                 //CREACION DE PEDIDO
                 PedidoCEN ped1 = new PedidoCEN ();
-                int idped = ped1.CrearPedido ("13-12-1222", "calle secuestro123", "12355551231231", EstadoPedidoEnum.enCamino, "abel@prebombeo", 0);
+                int idped = ped1.CrearPedido ("13-12-1222", "calle secuestro123", "12355551231231", EstadoPedidoEnum.enCamino, "abel@prebombeo", 0.3);
 
                 PedidoEN pedEN = ped1.ReadOID (idped);
                 Console.WriteLine ("EL pedido");
@@ -126,13 +126,16 @@ public static void InitializeData ()
                 int x = 1;
                 Console.WriteLine ("Lineas del pedido ");
                 foreach (LineaPedidoEN lon in listalienas) {
-                        Console.WriteLine ("Linea " + x + " " + lon.Id + " "+ lon.Pedido.Id);
-                   
+                        Console.WriteLine ("Linea " + x + " " + lon.Id + " " + lon.Pedido.Id);
+
                         x++;
                 }
 
 
-                ped1.GetTotal(idped);
+                lin1.GetTotalLinea (idlin1);
+                ped1.GetTotal (idped);
+                ped1.AplicarDescuento (idped);
+
 
 
 

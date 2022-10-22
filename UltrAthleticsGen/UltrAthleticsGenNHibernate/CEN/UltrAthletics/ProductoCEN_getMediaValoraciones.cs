@@ -19,7 +19,7 @@ namespace UltrAthleticsGenNHibernate.CEN.UltrAthletics
 {
 public partial class ProductoCEN
 {
-public void GetMediaValoraciones (int p_oid)
+public float GetMediaValoraciones (int p_oid)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Producto_getMediaValoraciones) ENABLED START*/
 

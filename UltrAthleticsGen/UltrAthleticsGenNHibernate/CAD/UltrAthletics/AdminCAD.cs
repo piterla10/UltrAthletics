@@ -109,7 +109,7 @@ public void ModifyDefault (AdminEN admin)
 }
 
 
-public string New_ (AdminEN admin)
+public string CrearAdmin (AdminEN admin)
 {
         try
         {
@@ -135,7 +135,7 @@ public string New_ (AdminEN admin)
         return admin.Email;
 }
 
-public void Modify (AdminEN admin)
+public void ModificarAdmin (AdminEN admin)
 {
         try
         {
@@ -161,8 +161,8 @@ public void Modify (AdminEN admin)
                 SessionClose ();
         }
 }
-public void Destroy (string email
-                     )
+public void Borrar (string email
+                    )
 {
         try
         {
