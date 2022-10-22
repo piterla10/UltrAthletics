@@ -97,20 +97,20 @@ public static void InitializeData ()
 
                 //CREACION DE PEDIDO
                 PedidoCEN ped1 = new PedidoCEN ();
-                int idped = ped1.CrearPedido ("13-12-1222", "calle secuestro123", "12355551231231", EstadoPedidoEnum.carrito, "abel@prebombeo", 0);
-
-
-                LineaPedidoCEN lin1 = new LineaPedidoCEN ();
-                int idlin1 = lin1.CrearLinea (3, idped, 300, idpro1);
-
-                LineaPedidoEN lin = lin1.ReadOID (idlin1);
-                Console.WriteLine ("Linea 1 " + lin.Pedido.Id);
+                int idped = ped1.CrearPedido ("13-12-1222", "calle secuestro123", "12355551231231", EstadoPedidoEnum.enCamino, "abel@prebombeo", 0);
 
                 PedidoEN pedEN = ped1.ReadOID (idped);
                 Console.WriteLine ("EL pedido");
 
+
+                LineaPedidoCEN lin1 = new LineaPedidoCEN ();
+                int idlin1 = lin1.CrearLinea (3, idped, 100, idpro1);
+
+                LineaPedidoEN lin = lin1.ReadOID (idlin1);
+                Console.WriteLine ("Linea 1 " + lin.Pedido.Id);
+
                 LineaPedidoCEN lin2 = new LineaPedidoCEN ();
-                int idlin2 = lin1.CrearLinea (1, idped, 1050, idpro2);
+                int idlin2 = lin1.CrearLinea (1, idped, 30, idpro2);
 
 
 
@@ -130,6 +130,9 @@ public static void InitializeData ()
                    
                         x++;
                 }
+
+
+                ped1.GetTotal(idped);
 
 
 
