@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="UltrAthleticsGenNHibernate"
+		                   namespace="UltrAthleticsGenNHibernate.EN.UltrAthletics">
+		    
+		    
+			
+				<class name="EventoEN" table="Evento"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Url" type="string"> 
+						<column name="url"  not-null="true"/>
+					</property>
+					<property name="Imagen" type="string"> 
+						<column name="imagen"  not-null="true"/>
+					</property>
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Categoria" table="[categoria_evento]" inverse="true" >
+							<key>
+								
+									<column name="FK_id_idEvento"/> 
+							</key>
+      						<many-to-many class="UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN">
+									<column name="FK_nombre_idCategoria"/> 
+      						</many-to-many>
+    					</bag>
+			
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="EventoENReadAllHQL">from EventoEN</query>
+		</hibernate-mapping>
+	

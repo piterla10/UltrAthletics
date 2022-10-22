@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="UltrAthleticsGenNHibernate"
+		                   namespace="UltrAthleticsGenNHibernate.EN.UltrAthletics">
+		    
+		    
+			
+				<class name="UsuarioEN" table="Usuario"> 
+						<id name="Email" column="email"/> 
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre" />
+					</property>
+					<property name="FechaNac" type="date"> 
+						<column name="fechaNac" />
+					</property>
+					<property name="Altura" type="float"> 
+						<column name="altura" />
+					</property>
+					<property name="Peso" type="float"> 
+						<column name="peso" />
+					</property>
+					<property name="Imc" type="float"> 
+						<column name="imc" />
+					</property>
+					<property name="Estilo" > 
+						<column name="estilo" />
+					</property>
+					<property name="Telefono" type="string"> 
+						<column name="telefono" />
+					</property>
+					<bag name="Direccion" table="direccion"> 
+						<key>
+						</key>
+						<element column="Direccion" type="string"/> 
+    				</bag>
+					<bag name="Tarjeta" table="tarjeta"> 
+						<key>
+						</key>
+						<element column="Tarjeta" type="string"/> 
+    				</bag>
+					<property name="Pass" type="string"> 
+						<column name="pass"  not-null="true"/>
+					</property>
+					<property name="Proteinas" type="float"> 
+						<column name="proteinas" />
+					</property>
+					<property name="Hidratos" type="float"> 
+						<column name="hidratos" />
+					</property>
+					<property name="Grasas" type="float"> 
+						<column name="grasas" />
+					</property>
+					<property name="Calorias" type="float"> 
+						<column name="calorias" />
+					</property>
+					<property name="Objetivo" > 
+						<column name="objetivo" />
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Valoracion" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario"/>
+					      	</key>
+							<one-to-many class="UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Pedido" >
+							<key>
+							
+								
+								<column name="FK_email_idUsuario"/>
+					      	</key>
+							<one-to-many class="UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Categoria" table="[categoria_usuario]" inverse="true" >
+							<key>
+								
+									<column name="FK_email_idUsuario"/> 
+							</key>
+      						<many-to-many class="UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN">
+									<column name="FK_nombre_idCategoria"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="ListaDeseados" table="[producto_usuario]" inverse="true" >
+							<key>
+								
+									<column name="FK_email_idUsuario"/> 
+							</key>
+      						<many-to-many class="UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN">
+									<column name="FK_id_idListaDeseados"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		</hibernate-mapping>
+	
