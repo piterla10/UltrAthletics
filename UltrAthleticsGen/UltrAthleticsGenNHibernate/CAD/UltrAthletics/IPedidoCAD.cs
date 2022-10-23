@@ -26,8 +26,8 @@ void Borrar (int id
              );
 
 
-PedidoEN ReadOID (int id
-                  );
+PedidoEN DamePedidoOID (int id
+                        );
 
 
 System.Collections.Generic.IList<PedidoEN> ReadAll (int first, int size);

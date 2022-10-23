@@ -99,7 +99,7 @@ public static void InitializeData ()
                 PedidoCEN ped1 = new PedidoCEN ();
                 int idped = ped1.CrearPedido ("13-12-1222", "calle secuestro123", "12355551231231", EstadoPedidoEnum.enCamino, "abel@prebombeo", 0.3);
 
-                PedidoEN pedEN = ped1.ReadOID (idped);
+                PedidoEN pedEN = ped1.DamePedidoOID (idped);
                 Console.WriteLine ("EL pedido");
 
 
@@ -114,12 +114,12 @@ public static void InitializeData ()
 
 
 
-                pedEN = ped1.ReadOID (idped);
+                pedEN = ped1.DamePedidoOID (idped);
                 Console.WriteLine ("EL pedido tiene el total");
 
 
 
-                // PedidoEN ped = ped1.ReadOID(idped);
+                // PedidoEN ped = ped1.DamePedidoOID(idped);
 
                 //IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido (lin.Pedido.Id);
                 IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido (idped);

@@ -27,13 +27,12 @@ public double AplicarDescuento (int p_oid)
 
         //PRECONDICIONES
 
-        if (p_oid == null)
-                throw new Exception ("Ningun pedido proporcionado");
 
-        if (ped1.ReadOID (p_oid) == null)
+
+        if (ped1.DamePedidoOID (p_oid) == null)
                 throw new Exception ("El pedido " + p_oid + " no existe");
 
-        PedidoEN pedEN = ped1.ReadOID (p_oid);
+        PedidoEN pedEN = ped1.DamePedidoOID (p_oid);
 
         if (pedEN.Descuento == 0)
                 throw new Exception ("DESCUENTO NO APLICABLE");
@@ -43,16 +42,14 @@ public double AplicarDescuento (int p_oid)
         float aux = 0;
         aux = ped1.GetTotal (p_oid);
         descontar = aux * pedEN.Descuento;
-        total =  aux-descontar;
+        total = aux - descontar;
 
-            Console.WriteLine(" DESCUENTO: " + pedEN.Descuento*100);
+        Console.WriteLine (" DESCUENTO: " + pedEN.Descuento * 100);
 
-            Console.WriteLine ("PRECIO TOTAL CON DESCUENTO: " + total);
+        Console.WriteLine ("PRECIO TOTAL CON DESCUENTO: " + total);
 
         return total;
 
-        if (total == 0)
-                throw new NotImplementedException ("Method AplicarDescuento() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

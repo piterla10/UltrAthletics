@@ -93,12 +93,12 @@ public void Borrar (int id
         _IPedidoCAD.Borrar (id);
 }
 
-public PedidoEN ReadOID (int id
-                         )
+public PedidoEN DamePedidoOID (int id
+                               )
 {
         PedidoEN pedidoEN = null;
 
-        pedidoEN = _IPedidoCAD.ReadOID (id);
+        pedidoEN = _IPedidoCAD.DamePedidoOID (id);
         return pedidoEN;
 }
 

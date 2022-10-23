@@ -16,3 +16,4 @@ C:\Users\Jorge\Desktop\DSM\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHiber
 C:\Users\Jorge\Desktop\DSM\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.CopyComplete
 C:\Users\Jorge\Desktop\DSM\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.dll
 C:\Users\Jorge\Desktop\DSM\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.pdb
+C:\Users\Jorge\Desktop\DSM\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.AssemblyReference.cache

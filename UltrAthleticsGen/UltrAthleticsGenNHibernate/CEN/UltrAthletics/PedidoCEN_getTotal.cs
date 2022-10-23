@@ -29,13 +29,12 @@ public float GetTotal (int p_oid)
 
         //PRECONDICIONES
 
-        if (p_oid == null)
-                throw new Exception ("Ning�n pedido proporcionado");
 
-        if (ped1.ReadOID (p_oid) == null)
+
+        if (ped1.DamePedidoOID (p_oid) == null)
                 throw new Exception ("El pedido " + p_oid + " no existe");
 
-        PedidoEN pedEN = ped1.ReadOID (p_oid);
+        PedidoEN pedEN = ped1.DamePedidoOID (p_oid);
         LineaPedidoCEN lin1 = new LineaPedidoCEN ();
         IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido (p_oid);
         int x = 1;
@@ -66,8 +65,7 @@ public float GetTotal (int p_oid)
 
         return total;
 
-        if (p_oid == null)
-                throw new NotImplementedException ("Method GetTotal() not yet implemented.");
+
 
         /*PROTECTED REGION END*/
 }

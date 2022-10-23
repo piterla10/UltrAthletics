@@ -222,10 +222,10 @@ public void Borrar (int id
         }
 }
 
-//Sin e: ReadOID
+//Sin e: DamePedidoOID
 //Con e: PedidoEN
-public PedidoEN ReadOID (int id
-                         )
+public PedidoEN DamePedidoOID (int id
+                               )
 {
         PedidoEN pedidoEN = null;
 
