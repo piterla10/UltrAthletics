@@ -122,7 +122,7 @@ public void ModifyDefault (EventoEN evento)
 }
 
 
-public int CrearCategoria (EventoEN evento)
+public int CrearEvento (EventoEN evento)
 {
         try
         {
@@ -148,7 +148,7 @@ public int CrearCategoria (EventoEN evento)
         return evento.Id;
 }
 
-public void ModificarCategoria (EventoEN evento)
+public void ModificarEvento (EventoEN evento)
 {
         try
         {
@@ -183,8 +183,8 @@ public void ModificarCategoria (EventoEN evento)
                 SessionClose ();
         }
 }
-public void Borrar (int id
-                    )
+public void BorrarEvento (int id
+                          )
 {
         try
         {
@@ -208,10 +208,10 @@ public void Borrar (int id
         }
 }
 
-//Sin e: ReadOID
+//Sin e: DameEventoOID
 //Con e: EventoEN
-public EventoEN ReadOID (int id
-                         )
+public EventoEN DameEventoOID (int id
+                               )
 {
         EventoEN eventoEN = null;
 
@@ -238,7 +238,7 @@ public EventoEN ReadOID (int id
         return eventoEN;
 }
 
-public System.Collections.Generic.IList<EventoEN> ReadAll (int first, int size)
+public System.Collections.Generic.IList<EventoEN> DameEventoTodos (int first, int size)
 {
         System.Collections.Generic.IList<EventoEN> result = null;
         try

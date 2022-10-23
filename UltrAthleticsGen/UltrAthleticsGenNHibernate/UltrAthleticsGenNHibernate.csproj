@@ -127,16 +127,11 @@
 			
 			
 			
-			<Compile Include="CEN\UltrAthletics\UsuarioCEN_RecuperarContrasnya.cs" />
+			<Compile Include="CEN\UltrAthletics\UsuarioCEN_RecuperarContrasenya.cs" />
 			
 			
-	<Compile Include="EN\UltrAthletics\AdminEN.cs" />
-	<Compile Include="CEN\UltrAthletics\AdminCEN.cs" />
-	<Compile Include="CAD\UltrAthletics\IAdminCAD.cs" />
-	<Compile Include="CAD\UltrAthletics\AdminCAD.cs" />
-	<Compile Include="CP\UltrAthletics\AdminCP.cs" />
 			
-			
+			<Compile Include="CEN\UltrAthletics\UsuarioCEN_DameDeseados.cs" />
 			
 			
 			
@@ -148,21 +143,26 @@
 			
 			<Compile Include="CEN\UltrAthletics\PedidoCEN_PagarPedido.cs" />
 			
-			<Compile Include="CEN\UltrAthletics\PedidoCEN_AplicarDescuento.cs" />
-			
 			
 			
 			
 			
 			<Compile Include="CEN\UltrAthletics\PedidoCEN_GetTotal.cs" />
 			
+			<Compile Include="CEN\UltrAthletics\PedidoCEN_GetEstado.cs" />
+			
+			
+			<Compile Include="CEN\UltrAthletics\PedidoCEN_GenerarFactura.cs" />
+			
+			<Compile Include="CEN\UltrAthletics\PedidoCEN_GetCodigoLocalizacion.cs" />
+			
+			<Compile Include="CEN\UltrAthletics\PedidoCEN_GetCodigoDevolucion.cs" />
+			
 	<Compile Include="EN\UltrAthletics\LineaPedidoEN.cs" />
 	<Compile Include="CEN\UltrAthletics\LineaPedidoCEN.cs" />
 	<Compile Include="CAD\UltrAthletics\ILineaPedidoCAD.cs" />
 	<Compile Include="CAD\UltrAthletics\LineaPedidoCAD.cs" />
 	<Compile Include="CP\UltrAthletics\LineaPedidoCP.cs" />
-			<Compile Include="CEN\UltrAthletics\LineaPedidoCEN_AnyadirProducto.cs" />
-			
 			
 			
 			
@@ -176,8 +176,6 @@
 	<Compile Include="CAD\UltrAthletics\IProductoCAD.cs" />
 	<Compile Include="CAD\UltrAthletics\ProductoCAD.cs" />
 	<Compile Include="CP\UltrAthletics\ProductoCP.cs" />
-			<Compile Include="CEN\UltrAthletics\ProductoCEN_ADeseados.cs" />
-			
 			<Compile Include="CEN\UltrAthletics\ProductoCEN_IncrementarStock.cs" />
 			
 			<Compile Include="CEN\UltrAthletics\ProductoCEN_DecrementarStock.cs" />
@@ -193,6 +191,10 @@
 			<Compile Include="CEN\UltrAthletics\ProductoCEN_GetTotalValoraciones.cs" />
 			
 			<Compile Include="CEN\UltrAthletics\ProductoCEN_GetMediaValoraciones.cs" />
+			
+			
+			
+			
 			
 	<Compile Include="EN\UltrAthletics\CategoriaEN.cs" />
 	<Compile Include="CEN\UltrAthletics\CategoriaCEN.cs" />
@@ -224,11 +226,30 @@
 			
 			
 			
+	<Compile Include="EN\UltrAthletics\SaborEN.cs" />
+	<Compile Include="CEN\UltrAthletics\SaborCEN.cs" />
+	<Compile Include="CAD\UltrAthletics\ISaborCAD.cs" />
+	<Compile Include="CAD\UltrAthletics\SaborCAD.cs" />
+	<Compile Include="CP\UltrAthletics\SaborCP.cs" />
+			
+			
+			
+			
+			
+	<Compile Include="EN\UltrAthletics\PesoEN.cs" />
+	<Compile Include="CEN\UltrAthletics\PesoCEN.cs" />
+	<Compile Include="CAD\UltrAthletics\IPesoCAD.cs" />
+	<Compile Include="CAD\UltrAthletics\PesoCAD.cs" />
+	<Compile Include="CP\UltrAthletics\PesoCP.cs" />
+			
+			
+			
+			
+			
 	<Compile Include="Enumerated\UltrAthletics\EstiloVidaEnum.cs" />
 	<Compile Include="Enumerated\UltrAthletics\EstadoPedidoEnum.cs" />
-	<Compile Include="Enumerated\UltrAthletics\PesoEnum.cs" />
-	<Compile Include="Enumerated\UltrAthletics\SaborEnum.cs" />
 	<Compile Include="Enumerated\UltrAthletics\ObjetivosEnum.cs" />
+	<Compile Include="Enumerated\UltrAthletics\RolesEnum.cs" />
 	
 	
 
@@ -245,13 +266,14 @@
 		  <ItemGroup>
 		  
 	<EmbeddedResource Include="Mappings\UltrAthletics\usuario.hbm.xml" />
-	<EmbeddedResource Include="Mappings\UltrAthletics\admin.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UltrAthletics\pedido.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UltrAthletics\lineapedido.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UltrAthletics\producto.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UltrAthletics\categoria.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UltrAthletics\valoracion.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UltrAthletics\evento.hbm.xml" />
+	<EmbeddedResource Include="Mappings\UltrAthletics\sabor.hbm.xml" />
+	<EmbeddedResource Include="Mappings\UltrAthletics\peso.hbm.xml" />
 	
 	
 

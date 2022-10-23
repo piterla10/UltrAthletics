@@ -197,8 +197,8 @@ public void ModificarPedido (PedidoEN pedido)
                 SessionClose ();
         }
 }
-public void Borrar (int id
-                    )
+public void BorrarPedido (int id
+                          )
 {
         try
         {
@@ -252,7 +252,7 @@ public PedidoEN DamePedidoOID (int id
         return pedidoEN;
 }
 
-public System.Collections.Generic.IList<PedidoEN> ReadAll (int first, int size)
+public System.Collections.Generic.IList<PedidoEN> DamePedidoTodos (int first, int size)
 {
         System.Collections.Generic.IList<PedidoEN> result = null;
         try
@@ -263,6 +263,37 @@ public System.Collections.Generic.IList<PedidoEN> ReadAll (int first, int size)
                                  SetFirstResult (first).SetMaxResults (size).List<PedidoEN>();
                 else
                         result = session.CreateCriteria (typeof(PedidoEN)).List<PedidoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in PedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> DamePedidoUsuario (string usuario)
+{
+        System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PedidoEN self where FROM PedidoEN as ped WHERE ped.Usuario.Email = :usuario";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENdamePedidoUsuarioHQL");
+                query.SetParameter ("usuario", usuario);
+
+                result = query.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN>();
                 SessionCommit ();
         }
 

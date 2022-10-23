@@ -39,7 +39,7 @@ public IEventoCAD get_IEventoCAD ()
         return this._IEventoCAD;
 }
 
-public int CrearCategoria (Nullable<DateTime> p_fecha, string p_url, string p_imagen, string p_nombre)
+public int CrearEvento (Nullable<DateTime> p_fecha, string p_url, string p_imagen, string p_nombre)
 {
         EventoEN eventoEN = null;
         int oid;
@@ -56,11 +56,11 @@ public int CrearCategoria (Nullable<DateTime> p_fecha, string p_url, string p_im
 
         //Call to EventoCAD
 
-        oid = _IEventoCAD.CrearCategoria (eventoEN);
+        oid = _IEventoCAD.CrearEvento (eventoEN);
         return oid;
 }
 
-public void ModificarCategoria (int p_Evento_OID, Nullable<DateTime> p_fecha, string p_url, string p_imagen, string p_nombre)
+public void ModificarEvento (int p_Evento_OID, Nullable<DateTime> p_fecha, string p_url, string p_imagen, string p_nombre)
 {
         EventoEN eventoEN = null;
 
@@ -73,29 +73,29 @@ public void ModificarCategoria (int p_Evento_OID, Nullable<DateTime> p_fecha, st
         eventoEN.Nombre = p_nombre;
         //Call to EventoCAD
 
-        _IEventoCAD.ModificarCategoria (eventoEN);
+        _IEventoCAD.ModificarEvento (eventoEN);
 }
 
-public void Borrar (int id
-                    )
+public void BorrarEvento (int id
+                          )
 {
-        _IEventoCAD.Borrar (id);
+        _IEventoCAD.BorrarEvento (id);
 }
 
-public EventoEN ReadOID (int id
-                         )
+public EventoEN DameEventoOID (int id
+                               )
 {
         EventoEN eventoEN = null;
 
-        eventoEN = _IEventoCAD.ReadOID (id);
+        eventoEN = _IEventoCAD.DameEventoOID (id);
         return eventoEN;
 }
 
-public System.Collections.Generic.IList<EventoEN> ReadAll (int first, int size)
+public System.Collections.Generic.IList<EventoEN> DameEventoTodos (int first, int size)
 {
         System.Collections.Generic.IList<EventoEN> list = null;
 
-        list = _IEventoCAD.ReadAll (first, size);
+        list = _IEventoCAD.DameEventoTodos (first, size);
         return list;
 }
 }

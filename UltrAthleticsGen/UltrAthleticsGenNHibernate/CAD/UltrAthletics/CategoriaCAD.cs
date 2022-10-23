@@ -167,8 +167,8 @@ public void ModificarCategoria (CategoriaEN categoria)
                 SessionClose ();
         }
 }
-public void Borrar (string nombre
-                    )
+public void BorrarCategoria (string nombre
+                             )
 {
         try
         {
@@ -192,10 +192,10 @@ public void Borrar (string nombre
         }
 }
 
-//Sin e: ReadOID
+//Sin e: DameCategoriaOID
 //Con e: CategoriaEN
-public CategoriaEN ReadOID (string nombre
-                            )
+public CategoriaEN DameCategoriaOID (string nombre
+                                     )
 {
         CategoriaEN categoriaEN = null;
 
@@ -222,7 +222,7 @@ public CategoriaEN ReadOID (string nombre
         return categoriaEN;
 }
 
-public System.Collections.Generic.IList<CategoriaEN> ReadAll (int first, int size)
+public System.Collections.Generic.IList<CategoriaEN> DameCategoriaTodos (int first, int size)
 {
         System.Collections.Generic.IList<CategoriaEN> result = null;
         try

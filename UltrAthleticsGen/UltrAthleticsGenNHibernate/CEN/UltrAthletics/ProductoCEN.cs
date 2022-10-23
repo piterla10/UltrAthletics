@@ -48,18 +48,18 @@ public ProductoEN DameProductoOID (int id
         return productoEN;
 }
 
-public System.Collections.Generic.IList<ProductoEN> DameTodos (int first, int size)
+public System.Collections.Generic.IList<ProductoEN> DameProductoTodos (int first, int size)
 {
         System.Collections.Generic.IList<ProductoEN> list = null;
 
-        list = _IProductoCAD.DameTodos (first, size);
+        list = _IProductoCAD.DameProductoTodos (first, size);
         return list;
 }
-public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorFiltro ()
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorFiltro (string articulo)
 {
-        return _IProductoCAD.DameProductoPorFiltro ();
+        return _IProductoCAD.DameProductoPorFiltro (articulo);
 }
-public int CrearProducto (string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, string p_imagen)
+public int CrearProducto (string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, System.Collections.Generic.IList<string> p_imagen)
 {
         ProductoEN productoEN = null;
         int oid;
@@ -84,7 +84,7 @@ public int CrearProducto (string p_nombre, string p_descripcion, float p_precio,
         return oid;
 }
 
-public void ModificarProducto (int p_Producto_OID, string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, string p_imagen)
+public void ModificarProducto (int p_Producto_OID, string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, System.Collections.Generic.IList<string> p_imagen)
 {
         ProductoEN productoEN = null;
 
@@ -102,10 +102,10 @@ public void ModificarProducto (int p_Producto_OID, string p_nombre, string p_des
         _IProductoCAD.ModificarProducto (productoEN);
 }
 
-public void Borrar (int id
-                    )
+public void BorrarProducto (int id
+                            )
 {
-        _IProductoCAD.Borrar (id);
+        _IProductoCAD.BorrarProducto (id);
 }
 
 public void AsignarCategoria (int p_Producto_OID, System.Collections.Generic.IList<string> p_categoria_OIDs)
@@ -119,6 +119,30 @@ public void DesasignarCategoria (int p_Producto_OID, System.Collections.Generic.
         //Call to ProductoCAD
 
         _IProductoCAD.DesasignarCategoria (p_Producto_OID, p_categoria_OIDs);
+}
+public void AnyadirPeso (int p_Producto_OID, System.Collections.Generic.IList<string> p_peso_OIDs)
+{
+        //Call to ProductoCAD
+
+        _IProductoCAD.AnyadirPeso (p_Producto_OID, p_peso_OIDs);
+}
+public void AnyadirSabor (int p_Producto_OID, System.Collections.Generic.IList<string> p_sabor_OIDs)
+{
+        //Call to ProductoCAD
+
+        _IProductoCAD.AnyadirSabor (p_Producto_OID, p_sabor_OIDs);
+}
+public void EliminarPeso (int p_Producto_OID, System.Collections.Generic.IList<string> p_peso_OIDs)
+{
+        //Call to ProductoCAD
+
+        _IProductoCAD.EliminarPeso (p_Producto_OID, p_peso_OIDs);
+}
+public void EliminarSabor (int p_Producto_OID, System.Collections.Generic.IList<string> p_sabor_OIDs)
+{
+        //Call to ProductoCAD
+
+        _IProductoCAD.EliminarSabor (p_Producto_OID, p_sabor_OIDs);
 }
 }
 }

@@ -17,15 +17,14 @@ System.Collections.Generic.IList<ProductoEN> ReadAllDefault (int first, int size
 
 
 
-
 ProductoEN DameProductoOID (int id
                             );
 
 
-System.Collections.Generic.IList<ProductoEN> DameTodos (int first, int size);
+System.Collections.Generic.IList<ProductoEN> DameProductoTodos (int first, int size);
 
 
-System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorFiltro ();
+System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorFiltro (string articulo);
 
 
 int CrearProducto (ProductoEN producto);
@@ -33,12 +32,22 @@ int CrearProducto (ProductoEN producto);
 void ModificarProducto (ProductoEN producto);
 
 
-void Borrar (int id
-             );
+void BorrarProducto (int id
+                     );
 
 
 void AsignarCategoria (int p_Producto_OID, System.Collections.Generic.IList<string> p_categoria_OIDs);
 
 void DesasignarCategoria (int p_Producto_OID, System.Collections.Generic.IList<string> p_categoria_OIDs);
+
+
+
+void AnyadirPeso (int p_Producto_OID, System.Collections.Generic.IList<string> p_peso_OIDs);
+
+void AnyadirSabor (int p_Producto_OID, System.Collections.Generic.IList<string> p_sabor_OIDs);
+
+void EliminarPeso (int p_Producto_OID, System.Collections.Generic.IList<string> p_peso_OIDs);
+
+void EliminarSabor (int p_Producto_OID, System.Collections.Generic.IList<string> p_sabor_OIDs);
 }
 }

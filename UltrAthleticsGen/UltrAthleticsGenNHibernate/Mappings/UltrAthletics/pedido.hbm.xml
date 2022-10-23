@@ -63,5 +63,6 @@
 		 </class>	
 		  
 		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
+		  <query name="PedidoENdamePedidoUsuarioHQL"><![CDATA[FROM PedidoEN as ped WHERE ped.Usuario.Email = :usuario]]></query>
 		</hibernate-mapping>
 	

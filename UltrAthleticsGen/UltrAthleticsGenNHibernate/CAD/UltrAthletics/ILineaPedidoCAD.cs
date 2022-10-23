@@ -15,21 +15,20 @@ System.Collections.Generic.IList<LineaPedidoEN> ReadAllDefault (int first, int s
 
 
 
-
 int CrearLinea (LineaPedidoEN lineaPedido);
 
 void ModificarLinea (LineaPedidoEN lineaPedido);
 
 
-void Borrar (int id
-             );
+void BorrarLineaPedido (int id
+                        );
 
 
-LineaPedidoEN ReadOID (int id
-                       );
+LineaPedidoEN DameLineaPedidoOID (int id
+                                  );
 
 
-System.Collections.Generic.IList<LineaPedidoEN> ReadAll (int first, int size);
+System.Collections.Generic.IList<LineaPedidoEN> DameLineaPedidoTodos (int first, int size);
 
 
 

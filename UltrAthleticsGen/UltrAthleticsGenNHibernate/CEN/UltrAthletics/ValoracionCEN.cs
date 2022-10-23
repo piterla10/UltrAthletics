@@ -86,10 +86,10 @@ public void ModificarValoracion (int p_Valoracion_OID, string p_comentario, int 
         _IValoracionCAD.ModificarValoracion (valoracionEN);
 }
 
-public void Borrar (int id
-                    )
+public void BorrarValoracion (int id
+                              )
 {
-        _IValoracionCAD.Borrar (id);
+        _IValoracionCAD.BorrarValoracion (id);
 }
 
 public ValoracionEN DameValoracionOID (int id
@@ -101,11 +101,11 @@ public ValoracionEN DameValoracionOID (int id
         return valoracionEN;
 }
 
-public System.Collections.Generic.IList<ValoracionEN> DameTodosValoraciones (int first, int size)
+public System.Collections.Generic.IList<ValoracionEN> DameValoracionTodos (int first, int size)
 {
         System.Collections.Generic.IList<ValoracionEN> list = null;
 
-        list = _IValoracionCAD.DameTodosValoraciones (first, size);
+        list = _IValoracionCAD.DameValoracionTodos (first, size);
         return list;
 }
 }

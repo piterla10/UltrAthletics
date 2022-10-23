@@ -50,7 +50,7 @@ public string IniciarSesion (string p_Usuario_OID, string p_pass)
         return result;
 }
 
-public string CrearUsuario (string p_email, String p_pass)
+public string CrearUsuario (string p_email, String p_pass, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.RolesEnum p_rol)
 {
         UsuarioEN usuarioEN = null;
         string oid;
@@ -61,13 +61,15 @@ public string CrearUsuario (string p_email, String p_pass)
 
         usuarioEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
 
+        usuarioEN.Rol = p_rol;
+
         //Call to UsuarioCAD
 
         oid = _IUsuarioCAD.CrearUsuario (usuarioEN);
         return oid;
 }
 
-public void ModificarUsuario (string p_Usuario_OID, String p_pass)
+public void ModificarUsuario (string p_Usuario_OID, String p_pass, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.RolesEnum p_rol)
 {
         UsuarioEN usuarioEN = null;
 
@@ -75,23 +77,24 @@ public void ModificarUsuario (string p_Usuario_OID, String p_pass)
         usuarioEN = new UsuarioEN ();
         usuarioEN.Email = p_Usuario_OID;
         usuarioEN.Pass = Utils.Util.GetEncondeMD5 (p_pass);
+        usuarioEN.Rol = p_rol;
         //Call to UsuarioCAD
 
         _IUsuarioCAD.ModificarUsuario (usuarioEN);
 }
 
-public void Borrar (string email
-                    )
+public void BorrarUsuario (string email
+                           )
 {
-        _IUsuarioCAD.Borrar (email);
+        _IUsuarioCAD.BorrarUsuario (email);
 }
 
-public UsuarioEN DameUsuariosOID (string email
-                                  )
+public UsuarioEN DameUsuarioOID (string email
+                                 )
 {
         UsuarioEN usuarioEN = null;
 
-        usuarioEN = _IUsuarioCAD.DameUsuariosOID (email);
+        usuarioEN = _IUsuarioCAD.DameUsuarioOID (email);
         return usuarioEN;
 }
 
@@ -102,11 +105,29 @@ public System.Collections.Generic.IList<UsuarioEN> DameUsuarioTodos (int first, 
         list = _IUsuarioCAD.DameUsuarioTodos (first, size);
         return list;
 }
-public void AnyadirCategoria (string p_Usuario_OID, System.Collections.Generic.IList<string> p_categoria_OIDs)
+public void AnyadirCategoriaPreferencia (string p_Usuario_OID, System.Collections.Generic.IList<string> p_categoria_OIDs)
 {
         //Call to UsuarioCAD
 
-        _IUsuarioCAD.AnyadirCategoria (p_Usuario_OID, p_categoria_OIDs);
+        _IUsuarioCAD.AnyadirCategoriaPreferencia (p_Usuario_OID, p_categoria_OIDs);
+}
+public void EliminarCategoriaPreferencia (string p_Usuario_OID, System.Collections.Generic.IList<string> p_categoria_OIDs)
+{
+        //Call to UsuarioCAD
+
+        _IUsuarioCAD.EliminarCategoriaPreferencia (p_Usuario_OID, p_categoria_OIDs);
+}
+public void AnyadirDeseado (string p_Usuario_OID, System.Collections.Generic.IList<int> p_listaDeseados_OIDs)
+{
+        //Call to UsuarioCAD
+
+        _IUsuarioCAD.AnyadirDeseado (p_Usuario_OID, p_listaDeseados_OIDs);
+}
+public void EliminarDeseado (string p_Usuario_OID, System.Collections.Generic.IList<int> p_listaDeseados_OIDs)
+{
+        //Call to UsuarioCAD
+
+        _IUsuarioCAD.EliminarDeseado (p_Usuario_OID, p_listaDeseados_OIDs);
 }
 
 

@@ -69,26 +69,26 @@ public void ModificarCategoria (string p_Categoria_OID, string p_descripcion)
         _ICategoriaCAD.ModificarCategoria (categoriaEN);
 }
 
-public void Borrar (string nombre
-                    )
+public void BorrarCategoria (string nombre
+                             )
 {
-        _ICategoriaCAD.Borrar (nombre);
+        _ICategoriaCAD.BorrarCategoria (nombre);
 }
 
-public CategoriaEN ReadOID (string nombre
-                            )
+public CategoriaEN DameCategoriaOID (string nombre
+                                     )
 {
         CategoriaEN categoriaEN = null;
 
-        categoriaEN = _ICategoriaCAD.ReadOID (nombre);
+        categoriaEN = _ICategoriaCAD.DameCategoriaOID (nombre);
         return categoriaEN;
 }
 
-public System.Collections.Generic.IList<CategoriaEN> ReadAll (int first, int size)
+public System.Collections.Generic.IList<CategoriaEN> DameCategoriaTodos (int first, int size)
 {
         System.Collections.Generic.IList<CategoriaEN> list = null;
 
-        list = _ICategoriaCAD.ReadAll (first, size);
+        list = _ICategoriaCAD.DameCategoriaTodos (first, size);
         return list;
 }
 }

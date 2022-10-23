@@ -18,18 +18,22 @@ System.Collections.Generic.IList<PedidoEN> ReadAllDefault (int first, int size);
 int CrearPedido (PedidoEN pedido);
 
 
-
 void ModificarPedido (PedidoEN pedido);
 
 
-void Borrar (int id
-             );
+void BorrarPedido (int id
+                   );
 
 
 PedidoEN DamePedidoOID (int id
                         );
 
 
-System.Collections.Generic.IList<PedidoEN> ReadAll (int first, int size);
+System.Collections.Generic.IList<PedidoEN> DamePedidoTodos (int first, int size);
+
+
+
+
+System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> DamePedidoUsuario (string usuario);
 }
 }

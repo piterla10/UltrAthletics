@@ -86,26 +86,26 @@ public void ModificarLinea (int p_LineaPedido_OID, int p_unidades, float p_preci
         _ILineaPedidoCAD.ModificarLinea (lineaPedidoEN);
 }
 
-public void Borrar (int id
-                    )
+public void BorrarLineaPedido (int id
+                               )
 {
-        _ILineaPedidoCAD.Borrar (id);
+        _ILineaPedidoCAD.BorrarLineaPedido (id);
 }
 
-public LineaPedidoEN ReadOID (int id
-                              )
+public LineaPedidoEN DameLineaPedidoOID (int id
+                                         )
 {
         LineaPedidoEN lineaPedidoEN = null;
 
-        lineaPedidoEN = _ILineaPedidoCAD.ReadOID (id);
+        lineaPedidoEN = _ILineaPedidoCAD.DameLineaPedidoOID (id);
         return lineaPedidoEN;
 }
 
-public System.Collections.Generic.IList<LineaPedidoEN> ReadAll (int first, int size)
+public System.Collections.Generic.IList<LineaPedidoEN> DameLineaPedidoTodos (int first, int size)
 {
         System.Collections.Generic.IList<LineaPedidoEN> list = null;
 
-        list = _ILineaPedidoCAD.ReadAll (first, size);
+        list = _ILineaPedidoCAD.DameLineaPedidoTodos (first, size);
         return list;
 }
 public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> VerLineasPorPedido (int ped)

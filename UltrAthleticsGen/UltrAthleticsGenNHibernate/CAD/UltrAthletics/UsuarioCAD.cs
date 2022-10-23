@@ -139,6 +139,9 @@ public void ModifyDefault (UsuarioEN usuario)
 
 
 
+
+                usuarioEN.Rol = usuario.Rol;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -193,6 +196,9 @@ public void ModificarUsuario (UsuarioEN usuario)
 
                 usuarioEN.Pass = usuario.Pass;
 
+
+                usuarioEN.Rol = usuario.Rol;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }
@@ -210,8 +216,8 @@ public void ModificarUsuario (UsuarioEN usuario)
                 SessionClose ();
         }
 }
-public void Borrar (string email
-                    )
+public void BorrarUsuario (string email
+                           )
 {
         try
         {
@@ -235,10 +241,10 @@ public void Borrar (string email
         }
 }
 
-//Sin e: DameUsuariosOID
+//Sin e: DameUsuarioOID
 //Con e: UsuarioEN
-public UsuarioEN DameUsuariosOID (string email
-                                  )
+public UsuarioEN DameUsuarioOID (string email
+                                 )
 {
         UsuarioEN usuarioEN = null;
 
@@ -295,7 +301,7 @@ public System.Collections.Generic.IList<UsuarioEN> DameUsuarioTodos (int first, 
         return result;
 }
 
-public void AnyadirCategoria (string p_Usuario_OID, System.Collections.Generic.IList<string> p_categoria_OIDs)
+public void AnyadirCategoriaPreferencia (string p_Usuario_OID, System.Collections.Generic.IList<string> p_categoria_OIDs)
 {
         UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuarioEN = null;
         try
@@ -315,6 +321,122 @@ public void AnyadirCategoria (string p_Usuario_OID, System.Collections.Generic.I
                         usuarioEN.Categoria.Add (categoriaENAux);
                 }
 
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void EliminarCategoriaPreferencia (string p_Usuario_OID, System.Collections.Generic.IList<string> p_categoria_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuarioEN = null;
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
+
+                UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN categoriaENAux = null;
+                if (usuarioEN.Categoria != null) {
+                        foreach (string item in p_categoria_OIDs) {
+                                categoriaENAux = (UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN)session.Load (typeof(UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN), item);
+                                if (usuarioEN.Categoria.Contains (categoriaENAux) == true) {
+                                        usuarioEN.Categoria.Remove (categoriaENAux);
+                                        categoriaENAux.Usuario.Remove (usuarioEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_categoria_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
+                        }
+                }
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void AnyadirDeseado (string p_Usuario_OID, System.Collections.Generic.IList<int> p_listaDeseados_OIDs)
+{
+        UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuarioEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
+                UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN listaDeseadosENAux = null;
+                if (usuarioEN.ListaDeseados == null) {
+                        usuarioEN.ListaDeseados = new System.Collections.Generic.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN>();
+                }
+
+                foreach (int item in p_listaDeseados_OIDs) {
+                        listaDeseadosENAux = new UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN ();
+                        listaDeseadosENAux = (UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN)session.Load (typeof(UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN), item);
+                        listaDeseadosENAux.Usuario.Add (usuarioEN);
+
+                        usuarioEN.ListaDeseados.Add (listaDeseadosENAux);
+                }
+
+
+                session.Update (usuarioEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void EliminarDeseado (string p_Usuario_OID, System.Collections.Generic.IList<int> p_listaDeseados_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuarioEN = null;
+                usuarioEN = (UsuarioEN)session.Load (typeof(UsuarioEN), p_Usuario_OID);
+
+                UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN listaDeseadosENAux = null;
+                if (usuarioEN.ListaDeseados != null) {
+                        foreach (int item in p_listaDeseados_OIDs) {
+                                listaDeseadosENAux = (UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN)session.Load (typeof(UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN), item);
+                                if (usuarioEN.ListaDeseados.Contains (listaDeseadosENAux) == true) {
+                                        usuarioEN.ListaDeseados.Remove (listaDeseadosENAux);
+                                        listaDeseadosENAux.Usuario.Remove (usuarioEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_listaDeseados_OIDs you are trying to unrelationer, doesn't exist in UsuarioEN");
+                        }
+                }
 
                 session.Update (usuarioEN);
                 SessionCommit ();

@@ -113,10 +113,6 @@ public void ModifyDefault (ProductoEN producto)
 
 
 
-                productoEN.Peso = producto.Peso;
-
-
-                productoEN.Sabor = producto.Sabor;
 
                 session.Update (productoEN);
                 SessionCommit ();
@@ -167,7 +163,7 @@ public ProductoEN DameProductoOID (int id
         return productoEN;
 }
 
-public System.Collections.Generic.IList<ProductoEN> DameTodos (int first, int size)
+public System.Collections.Generic.IList<ProductoEN> DameProductoTodos (int first, int size)
 {
         System.Collections.Generic.IList<ProductoEN> result = null;
         try
@@ -197,15 +193,16 @@ public System.Collections.Generic.IList<ProductoEN> DameTodos (int first, int si
         return result;
 }
 
-public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorFiltro ()
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorFiltro (string articulo)
 {
         System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where FROM ProductoEN";
+                //String sql = @"FROM ProductoEN self where FROM ProductoEN as pro WHERE pro.Nombre = :articulo";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENdameProductoPorFiltroHQL");
+                query.SetParameter ("articulo", articulo);
 
                 result = query.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN>();
                 SessionCommit ();
@@ -293,8 +290,8 @@ public void ModificarProducto (ProductoEN producto)
                 SessionClose ();
         }
 }
-public void Borrar (int id
-                    )
+public void BorrarProducto (int id
+                            )
 {
         try
         {
@@ -375,6 +372,160 @@ public void DesasignarCategoria (int p_Producto_OID, System.Collections.Generic.
                                 }
                                 else
                                         throw new ModelException ("The identifier " + item + " in p_categoria_OIDs you are trying to unrelationer, doesn't exist in ProductoEN");
+                        }
+                }
+
+                session.Update (productoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void AnyadirPeso (int p_Producto_OID, System.Collections.Generic.IList<string> p_peso_OIDs)
+{
+        UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN productoEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                productoEN = (ProductoEN)session.Load (typeof(ProductoEN), p_Producto_OID);
+                UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN pesoENAux = null;
+                if (productoEN.Peso == null) {
+                        productoEN.Peso = new System.Collections.Generic.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN>();
+                }
+
+                foreach (string item in p_peso_OIDs) {
+                        pesoENAux = new UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN ();
+                        pesoENAux = (UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN)session.Load (typeof(UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN), item);
+                        pesoENAux.Producto.Add (productoEN);
+
+                        productoEN.Peso.Add (pesoENAux);
+                }
+
+
+                session.Update (productoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void AnyadirSabor (int p_Producto_OID, System.Collections.Generic.IList<string> p_sabor_OIDs)
+{
+        UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN productoEN = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                productoEN = (ProductoEN)session.Load (typeof(ProductoEN), p_Producto_OID);
+                UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN saborENAux = null;
+                if (productoEN.Sabor == null) {
+                        productoEN.Sabor = new System.Collections.Generic.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN>();
+                }
+
+                foreach (string item in p_sabor_OIDs) {
+                        saborENAux = new UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN ();
+                        saborENAux = (UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN)session.Load (typeof(UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN), item);
+                        saborENAux.Producto.Add (productoEN);
+
+                        productoEN.Sabor.Add (saborENAux);
+                }
+
+
+                session.Update (productoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+
+public void EliminarPeso (int p_Producto_OID, System.Collections.Generic.IList<string> p_peso_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN productoEN = null;
+                productoEN = (ProductoEN)session.Load (typeof(ProductoEN), p_Producto_OID);
+
+                UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN pesoENAux = null;
+                if (productoEN.Peso != null) {
+                        foreach (string item in p_peso_OIDs) {
+                                pesoENAux = (UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN)session.Load (typeof(UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN), item);
+                                if (productoEN.Peso.Contains (pesoENAux) == true) {
+                                        productoEN.Peso.Remove (pesoENAux);
+                                        pesoENAux.Producto.Remove (productoEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_peso_OIDs you are trying to unrelationer, doesn't exist in ProductoEN");
+                        }
+                }
+
+                session.Update (productoEN);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+}
+public void EliminarSabor (int p_Producto_OID, System.Collections.Generic.IList<string> p_sabor_OIDs)
+{
+        try
+        {
+                SessionInitializeTransaction ();
+                UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN productoEN = null;
+                productoEN = (ProductoEN)session.Load (typeof(ProductoEN), p_Producto_OID);
+
+                UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN saborENAux = null;
+                if (productoEN.Sabor != null) {
+                        foreach (string item in p_sabor_OIDs) {
+                                saborENAux = (UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN)session.Load (typeof(UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN), item);
+                                if (productoEN.Sabor.Contains (saborENAux) == true) {
+                                        productoEN.Sabor.Remove (saborENAux);
+                                        saborENAux.Producto.Remove (productoEN);
+                                }
+                                else
+                                        throw new ModelException ("The identifier " + item + " in p_sabor_OIDs you are trying to unrelationer, doesn't exist in ProductoEN");
                         }
                 }
 

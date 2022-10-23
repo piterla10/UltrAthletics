@@ -32,10 +32,10 @@ public float GetTotalLinea (int p_oid)
         if (p_oid == null)
                 throw new Exception ("Ninguna linea proporcionado");
 
-        if (lin1.ReadOID (p_oid) == null)
+        if (lin1.DameLineaPedidoOID (p_oid) == null)
                 throw new Exception ("La  linea de pedido " + p_oid + " no existe");
 
-        LineaPedidoEN linEN = lin1.ReadOID (p_oid);
+        LineaPedidoEN linEN = lin1.DameLineaPedidoOID (p_oid);
 
         float total = 0;
 

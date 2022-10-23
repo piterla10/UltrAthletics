@@ -20,14 +20,14 @@ int CrearValoracion (ValoracionEN valoracion);
 void ModificarValoracion (ValoracionEN valoracion);
 
 
-void Borrar (int id
-             );
+void BorrarValoracion (int id
+                       );
 
 
 ValoracionEN DameValoracionOID (int id
                                 );
 
 
-System.Collections.Generic.IList<ValoracionEN> DameTodosValoraciones (int first, int size);
+System.Collections.Generic.IList<ValoracionEN> DameValoracionTodos (int first, int size);
 }
 }

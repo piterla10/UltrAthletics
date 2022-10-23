@@ -50,7 +50,7 @@ private float descuento;
 /**
  *	Atributo imagen
  */
-private string imagen;
+private System.Collections.Generic.IList<string> imagen;
 
 
 
@@ -85,14 +85,14 @@ private System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthle
 /**
  *	Atributo peso
  */
-private UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.PesoEnum peso;
+private System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN> peso;
 
 
 
 /**
  *	Atributo sabor
  */
-private UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.SaborEnum sabor;
+private System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN> sabor;
 
 
 
@@ -135,7 +135,7 @@ public virtual float Descuento {
 
 
 
-public virtual string Imagen {
+public virtual System.Collections.Generic.IList<string> Imagen {
         get { return imagen; } set { imagen = value;  }
 }
 
@@ -165,13 +165,13 @@ public virtual System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.Ul
 
 
 
-public virtual UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.PesoEnum Peso {
+public virtual System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN> Peso {
         get { return peso; } set { peso = value;  }
 }
 
 
 
-public virtual UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.SaborEnum Sabor {
+public virtual System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN> Sabor {
         get { return sabor; } set { sabor = value;  }
 }
 
@@ -185,11 +185,13 @@ public ProductoEN()
         valoracion = new System.Collections.Generic.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN>();
         lineaPedido = new System.Collections.Generic.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN>();
         usuario = new System.Collections.Generic.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN>();
+        peso = new System.Collections.Generic.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN>();
+        sabor = new System.Collections.Generic.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN>();
 }
 
 
 
-public ProductoEN(int id, string nombre, string descripcion, float precio, int stock, float descuento, string imagen, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN> categoria, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN> valoracion, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> usuario, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.PesoEnum peso, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.SaborEnum sabor
+public ProductoEN(int id, string nombre, string descripcion, float precio, int stock, float descuento, System.Collections.Generic.IList<string> imagen, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN> categoria, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN> valoracion, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> usuario, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN> peso, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN> sabor
                   )
 {
         this.init (Id, nombre, descripcion, precio, stock, descuento, imagen, categoria, valoracion, lineaPedido, usuario, peso, sabor);
@@ -202,7 +204,7 @@ public ProductoEN(ProductoEN producto)
 }
 
 private void init (int id
-                   , string nombre, string descripcion, float precio, int stock, float descuento, string imagen, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN> categoria, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN> valoracion, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> usuario, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.PesoEnum peso, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.SaborEnum sabor)
+                   , string nombre, string descripcion, float precio, int stock, float descuento, System.Collections.Generic.IList<string> imagen, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN> categoria, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN> valoracion, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> usuario, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN> peso, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN> sabor)
 {
         this.Id = id;
 

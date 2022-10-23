@@ -87,10 +87,10 @@ public void ModificarPedido (int p_Pedido_OID, string p_fecha, string p_direccio
         _IPedidoCAD.ModificarPedido (pedidoEN);
 }
 
-public void Borrar (int id
-                    )
+public void BorrarPedido (int id
+                          )
 {
-        _IPedidoCAD.Borrar (id);
+        _IPedidoCAD.BorrarPedido (id);
 }
 
 public PedidoEN DamePedidoOID (int id
@@ -102,12 +102,16 @@ public PedidoEN DamePedidoOID (int id
         return pedidoEN;
 }
 
-public System.Collections.Generic.IList<PedidoEN> ReadAll (int first, int size)
+public System.Collections.Generic.IList<PedidoEN> DamePedidoTodos (int first, int size)
 {
         System.Collections.Generic.IList<PedidoEN> list = null;
 
-        list = _IPedidoCAD.ReadAll (first, size);
+        list = _IPedidoCAD.DamePedidoTodos (first, size);
         return list;
+}
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> DamePedidoUsuario (string usuario)
+{
+        return _IPedidoCAD.DamePedidoUsuario (usuario);
 }
 }
 }

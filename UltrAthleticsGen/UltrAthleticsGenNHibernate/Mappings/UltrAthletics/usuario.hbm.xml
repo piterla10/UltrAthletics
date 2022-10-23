@@ -58,6 +58,9 @@
 					<property name="Objetivo" > 
 						<column name="objetivo" />
 					</property>
+					<property name="Rol" > 
+						<column name="rol"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -119,6 +122,8 @@
 									<column name="FK_id_idListaDeseados"/> 
       						</many-to-many>
     					</bag>
+			
+					
 					
 					
 					

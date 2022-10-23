@@ -20,14 +20,14 @@ string CrearCategoria (CategoriaEN categoria);
 void ModificarCategoria (CategoriaEN categoria);
 
 
-void Borrar (string nombre
-             );
+void BorrarCategoria (string nombre
+                      );
 
 
-CategoriaEN ReadOID (string nombre
-                     );
+CategoriaEN DameCategoriaOID (string nombre
+                              );
 
 
-System.Collections.Generic.IList<CategoriaEN> ReadAll (int first, int size);
+System.Collections.Generic.IList<CategoriaEN> DameCategoriaTodos (int first, int size);
 }
 }

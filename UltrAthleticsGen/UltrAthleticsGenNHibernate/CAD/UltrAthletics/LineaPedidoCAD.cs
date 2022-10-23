@@ -186,8 +186,8 @@ public void ModificarLinea (LineaPedidoEN lineaPedido)
                 SessionClose ();
         }
 }
-public void Borrar (int id
-                    )
+public void BorrarLineaPedido (int id
+                               )
 {
         try
         {
@@ -211,10 +211,10 @@ public void Borrar (int id
         }
 }
 
-//Sin e: ReadOID
+//Sin e: DameLineaPedidoOID
 //Con e: LineaPedidoEN
-public LineaPedidoEN ReadOID (int id
-                              )
+public LineaPedidoEN DameLineaPedidoOID (int id
+                                         )
 {
         LineaPedidoEN lineaPedidoEN = null;
 
@@ -241,7 +241,7 @@ public LineaPedidoEN ReadOID (int id
         return lineaPedidoEN;
 }
 
-public System.Collections.Generic.IList<LineaPedidoEN> ReadAll (int first, int size)
+public System.Collections.Generic.IList<LineaPedidoEN> DameLineaPedidoTodos (int first, int size)
 {
         System.Collections.Generic.IList<LineaPedidoEN> result = null;
         try

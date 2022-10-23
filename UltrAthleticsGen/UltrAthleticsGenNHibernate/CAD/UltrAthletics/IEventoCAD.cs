@@ -15,19 +15,19 @@ System.Collections.Generic.IList<EventoEN> ReadAllDefault (int first, int size);
 
 
 
-int CrearCategoria (EventoEN evento);
+int CrearEvento (EventoEN evento);
 
-void ModificarCategoria (EventoEN evento);
-
-
-void Borrar (int id
-             );
+void ModificarEvento (EventoEN evento);
 
 
-EventoEN ReadOID (int id
-                  );
+void BorrarEvento (int id
+                   );
 
 
-System.Collections.Generic.IList<EventoEN> ReadAll (int first, int size);
+EventoEN DameEventoOID (int id
+                        );
+
+
+System.Collections.Generic.IList<EventoEN> DameEventoTodos (int first, int size);
 }
 }

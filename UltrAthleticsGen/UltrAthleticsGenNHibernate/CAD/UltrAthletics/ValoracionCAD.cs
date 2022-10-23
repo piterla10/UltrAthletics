@@ -186,8 +186,8 @@ public void ModificarValoracion (ValoracionEN valoracion)
                 SessionClose ();
         }
 }
-public void Borrar (int id
-                    )
+public void BorrarValoracion (int id
+                              )
 {
         try
         {
@@ -241,7 +241,7 @@ public ValoracionEN DameValoracionOID (int id
         return valoracionEN;
 }
 
-public System.Collections.Generic.IList<ValoracionEN> DameTodosValoraciones (int first, int size)
+public System.Collections.Generic.IList<ValoracionEN> DameValoracionTodos (int first, int size)
 {
         System.Collections.Generic.IList<ValoracionEN> result = null;
         try

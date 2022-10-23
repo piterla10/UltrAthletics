@@ -81,7 +81,7 @@ public static void InitializeData ()
                 // Insert the initilizations of entities using the CEN classes
 
                 UsuarioCEN abel = new UsuarioCEN ();
-                abel.CrearUsuario ("abel@prebombeo", "1234");
+                abel.CrearUsuario ("abel@prebombeo", "1234",RolesEnum.admin);
 
                 if (abel.IniciarSesion ("abel@prebombeo", "1234") != null) {
                         Console.WriteLine ("INICIO DE SESION CORRECTO");
@@ -90,9 +90,9 @@ public static void InitializeData ()
                 //CREACION DE PRODUCTOS
 
                 ProductoCEN pro1 = new ProductoCEN ();
-                int idpro1 = pro1.CrearProducto ("dildo", "grande", 100, 5, 0, "gigawia");
+                int idpro1 = pro1.CrearProducto ("dildo", "grande", 100, 5, 0, null);
                 ProductoCEN pro2 = new ProductoCEN ();
-                int idpro2 = pro1.CrearProducto ("mancuerna", "small", 30, 2, 0, "sasdas");
+                int idpro2 = pro1.CrearProducto ("mancuerna", "small", 30, 2, 0, null);
 
 
                 //CREACION DE PEDIDO
@@ -106,7 +106,7 @@ public static void InitializeData ()
                 LineaPedidoCEN lin1 = new LineaPedidoCEN ();
                 int idlin1 = lin1.CrearLinea (3, idped, 100, idpro1);
 
-                LineaPedidoEN lin = lin1.ReadOID (idlin1);
+                LineaPedidoEN lin = lin1.DameLineaPedidoOID (idlin1);
                 Console.WriteLine ("Linea 1 " + lin.Pedido.Id);
 
                 LineaPedidoCEN lin2 = new LineaPedidoCEN ();
@@ -134,7 +134,6 @@ public static void InitializeData ()
 
                 lin1.GetTotalLinea (idlin1);
                 ped1.GetTotal (idped);
-                ped1.AplicarDescuento (idped);
 
 
 

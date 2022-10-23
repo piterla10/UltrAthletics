@@ -27,15 +27,11 @@
 					<property name="Descuento" type="float"> 
 						<column name="descuento"  not-null="true"/>
 					</property>
-					<property name="Imagen" type="string"> 
-						<column name="imagen"  not-null="true"/>
-					</property>
-					<property name="Peso" > 
-						<column name="peso" />
-					</property>
-					<property name="Sabor" > 
-						<column name="sabor" />
-					</property>
+					<bag name="Imagen" table="imagen"> 
+						<key>
+						</key>
+						<element column="Imagen" type="string"/> 
+    				</bag>
 			
 			
 			
@@ -89,7 +85,27 @@
       						</many-to-many>
     					</bag>
 			
+		  			
+						<bag name="Peso" table="[producto_peso_0]"  >
+							<key>
+								
+									<column name="FK_id_idProducto"/> 
+							</key>
+      						<many-to-many class="UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN">
+									<column name="FK_attribute_idPeso_0"/> 
+      						</many-to-many>
+    					</bag>
 			
+		  			
+						<bag name="Sabor" table="[producto_sabor]"  >
+							<key>
+								
+									<column name="FK_id_idProducto"/> 
+							</key>
+      						<many-to-many class="UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN">
+									<column name="FK_nombre_idSabor"/> 
+      						</many-to-many>
+    					</bag>
 					
 					
 					
@@ -107,6 +123,6 @@
 		 </class>	
 		  
 		  <query name="ProductoENReadAllHQL">from ProductoEN</query>
-		  <query name="ProductoENdameProductoPorFiltroHQL"><![CDATA[FROM ProductoEN]]></query>
+		  <query name="ProductoENdameProductoPorFiltroHQL"><![CDATA[FROM ProductoEN as pro WHERE pro.Nombre = :articulo]]></query>
 		</hibernate-mapping>
 	

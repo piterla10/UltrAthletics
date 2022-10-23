@@ -22,3 +22,27 @@ C:\Users\Jorge\Desktop\DSM\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug
 C:\Users\Jorge\Desktop\DSM\UltrAthletics\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
 C:\Users\Jorge\Desktop\DSM\UltrAthletics\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
 C:\Users\Jorge\Desktop\DSM\UltrAthletics\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.AssemblyReference.cache
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CoreCompileInputs.cache
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\hibernate.cfg.xml
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\InitializeDB.exe
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\InitializeDB.pdb
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\Antlr3.Runtime.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\Castle.DynamicProxy2.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\Iesi.Collections.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\LinFu.DynamicProxy.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\log4net.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\NHibernate.ByteCode.Castle.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\NHibernate.ByteCode.LinFu.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\NHibernate.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\nunit.core.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\nunit.framework.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\UltrAthleticsGenNHibernate.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\jose-jwt.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\Newtonsoft.Json.dll
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\UltrAthleticsGenNHibernate.pdb
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\bin\Debug\UltrAthleticsGenNHibernate.dll.config
+D:\Desktop\cosas chungas\OIDE\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
