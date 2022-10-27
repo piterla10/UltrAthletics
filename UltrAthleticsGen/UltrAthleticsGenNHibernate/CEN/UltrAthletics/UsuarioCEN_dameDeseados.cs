@@ -19,7 +19,7 @@ namespace UltrAthleticsGenNHibernate.CEN.UltrAthletics
 {
 public partial class UsuarioCEN
 {
-public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameDeseados (string usuario)
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> DameDeseados (string usuario)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Usuario_dameDeseados) ENABLED START*/
 
@@ -28,13 +28,13 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
         UsuarioEN usuarioEN = usuarioCEN.DameUsuarioOID (usuario);
 
         Console.WriteLine (usuarioEN.ListaDeseados);
-        Console.WriteLine("Lista de deseados de " + usuarioEN.Email);
+        Console.WriteLine ("Lista de deseados de " + usuarioEN.Email);
 
         foreach (ProductoEN pro in usuarioEN.ListaDeseados) {
                 Console.Write ("producto: " + pro.Nombre + " usuario: " + usuarioEN.Email);
         }
 
-            return usuarioEN.ListaDeseados;
+        return usuarioEN.ListaDeseados;
 
         /*PROTECTED REGION END*/
 }

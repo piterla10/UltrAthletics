@@ -19,7 +19,7 @@ namespace UltrAthleticsGenNHibernate.CEN.UltrAthletics
 {
 public partial class ProductoCEN
 {
-public void IncrementarStock (int p_oid, int cant)
+public void IncrementarStock (int p_oid)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Producto_incrementarStock) ENABLED START*/
 
