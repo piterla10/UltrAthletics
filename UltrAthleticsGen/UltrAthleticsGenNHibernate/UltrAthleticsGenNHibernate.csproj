@@ -160,6 +160,11 @@
 			
 			<Compile Include="CEN\UltrAthletics\PedidoCEN_GenerarCodigoLocalizacion.cs" />
 			
+			
+			<Compile Include="CEN\UltrAthletics\PedidoCEN_EnviarPedido.cs" />
+			
+			<Compile Include="CEN\UltrAthletics\PedidoCEN_EntregarPedido.cs" />
+			
 	<Compile Include="EN\UltrAthletics\LineaPedidoEN.cs" />
 	<Compile Include="CEN\UltrAthletics\LineaPedidoCEN.cs" />
 	<Compile Include="CAD\UltrAthletics\ILineaPedidoCAD.cs" />
@@ -198,6 +203,9 @@
 			
 			
 			
+			
+			
+			
 	<Compile Include="EN\UltrAthletics\CategoriaEN.cs" />
 	<Compile Include="CEN\UltrAthletics\CategoriaCEN.cs" />
 	<Compile Include="CAD\UltrAthletics\ICategoriaCAD.cs" />
@@ -228,6 +236,7 @@
 			
 			
 			
+			
 	<Compile Include="EN\UltrAthletics\SaborEN.cs" />
 	<Compile Include="CEN\UltrAthletics\SaborCEN.cs" />
 	<Compile Include="CAD\UltrAthletics\ISaborCAD.cs" />
@@ -248,10 +257,27 @@
 			
 			
 			
+	<Compile Include="EN\UltrAthletics\FacturaEN.cs" />
+	<Compile Include="CEN\UltrAthletics\FacturaCEN.cs" />
+	<Compile Include="CAD\UltrAthletics\IFacturaCAD.cs" />
+	<Compile Include="CAD\UltrAthletics\FacturaCAD.cs" />
+	<Compile Include="CP\UltrAthletics\FacturaCP.cs" />
+			
+			
+			
+	<Compile Include="EN\UltrAthletics\DevolverEN.cs" />
+	<Compile Include="CEN\UltrAthletics\DevolverCEN.cs" />
+	<Compile Include="CAD\UltrAthletics\IDevolverCAD.cs" />
+	<Compile Include="CAD\UltrAthletics\DevolverCAD.cs" />
+	<Compile Include="CP\UltrAthletics\DevolverCP.cs" />
+			
+			
+			
 	<Compile Include="Enumerated\UltrAthletics\EstiloVidaEnum.cs" />
 	<Compile Include="Enumerated\UltrAthletics\EstadoPedidoEnum.cs" />
 	<Compile Include="Enumerated\UltrAthletics\ObjetivosEnum.cs" />
 	<Compile Include="Enumerated\UltrAthletics\RolesEnum.cs" />
+	<Compile Include="Enumerated\UltrAthletics\SexoEnum.cs" />
 	
 	
 
@@ -276,6 +302,8 @@
 	<EmbeddedResource Include="Mappings\UltrAthletics\evento.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UltrAthletics\sabor.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UltrAthletics\peso.hbm.xml" />
+	<EmbeddedResource Include="Mappings\UltrAthletics\factura.hbm.xml" />
+	<EmbeddedResource Include="Mappings\UltrAthletics\devolver.hbm.xml" />
 	
 	
 

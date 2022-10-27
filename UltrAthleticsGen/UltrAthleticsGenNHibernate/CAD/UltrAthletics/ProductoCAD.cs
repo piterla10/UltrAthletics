@@ -114,6 +114,9 @@ public void ModifyDefault (ProductoEN producto)
 
 
 
+
+                productoEN.MediaValoracion = producto.MediaValoracion;
+
                 session.Update (productoEN);
                 SessionCommit ();
         }
@@ -272,6 +275,9 @@ public void ModificarProducto (ProductoEN producto)
 
 
                 productoEN.Imagen = producto.Imagen;
+
+
+                productoEN.MediaValoracion = producto.MediaValoracion;
 
                 session.Update (productoEN);
                 SessionCommit ();
@@ -545,6 +551,96 @@ public void EliminarSabor (int p_Producto_OID, System.Collections.Generic.IList<
         {
                 SessionClose ();
         }
+}
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorCategoria (string categoria)
+{
+        System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ProductoEN self where SELECT pro FROM ProductoEN as pro INNER JOIN pro.Categoria as cat WHERE cat.Nombre = :categoria";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ProductoENdameProductoPorCategoriaHQL");
+                query.SetParameter ("categoria", categoria);
+
+                result = query.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorSabor (string sabo)
+{
+        System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ProductoEN self where SELECT pro FROM ProductoEN as pro INNER JOIN pro.Sabor as sab WHERE sab.Nombre = :sabor";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ProductoENdameProductoPorSaborHQL");
+                query.SetParameter ("sabo", sabo);
+
+                result = query.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorPeso (string peso)
+{
+        System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM ProductoEN self where SELECT pro FROM ProductoEN as pro INNER JOIN pro.Peso as pes WHERE pes.Cantidad = :peso";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("ProductoENdameProductoPorPesoHQL");
+                query.SetParameter ("peso", peso);
+
+                result = query.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in ProductoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
 }
 }
 }

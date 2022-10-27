@@ -32,6 +32,9 @@
 						</key>
 						<element column="Imagen" type="string"/> 
     				</bag>
+					<property name="MediaValoracion" type="float"> 
+						<column name="mediaValoracion"  not-null="true"/>
+					</property>
 			
 			
 			
@@ -106,6 +109,8 @@
 									<column name="FK_nombre_idSabor"/> 
       						</many-to-many>
     					</bag>
+			
+					
 					
 					
 					
@@ -124,5 +129,8 @@
 		  
 		  <query name="ProductoENReadAllHQL">from ProductoEN</query>
 		  <query name="ProductoENdameProductoPorFiltroHQL"><![CDATA[FROM ProductoEN as pro WHERE pro.Nombre = :articulo]]></query>
+		  <query name="ProductoENdameProductoPorCategoriaHQL"><![CDATA[SELECT pro FROM ProductoEN as pro INNER JOIN pro.Categoria as cat WHERE cat.Nombre = :categoria]]></query>
+		  <query name="ProductoENdameProductoPorSaborHQL"><![CDATA[SELECT pro FROM ProductoEN as pro INNER JOIN pro.Sabor as sab WHERE sab.Nombre = :sabor]]></query>
+		  <query name="ProductoENdameProductoPorPesoHQL"><![CDATA[SELECT pro FROM ProductoEN as pro INNER JOIN pro.Peso as pes WHERE pes.Cantidad = :peso]]></query>
 		</hibernate-mapping>
 	

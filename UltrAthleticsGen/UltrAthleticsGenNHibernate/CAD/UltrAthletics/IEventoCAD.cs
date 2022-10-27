@@ -29,5 +29,8 @@ EventoEN DameEventoOID (int id
 
 
 System.Collections.Generic.IList<EventoEN> DameEventoTodos (int first, int size);
+
+
+System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.EventoEN> DameEventoPorCategoria (string categ);
 }
 }

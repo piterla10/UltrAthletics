@@ -19,7 +19,7 @@ namespace UltrAthleticsGenNHibernate.CEN.UltrAthletics
 {
 public partial class UsuarioCEN
 {
-public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> DameDeseados (string usuario)
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameDeseados (string usuario)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Usuario_dameDeseados) ENABLED START*/
 

@@ -78,42 +78,42 @@ public static void InitializeData ()
         /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
         try
         {
-                // Insert the initilizations of entities using the CEN classes
+                //INICIALIZACI�N
 
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
-                UsuarioEN usuarioEN = new UsuarioEN ();
+                ProductoCEN pro = new ProductoCEN ();
 
-                usuarioCEN.CrearUsuario ("abel@prebombeo", "1234", RolesEnum.admin);
-                usuarioEN = usuarioCEN.DameUsuarioOID ("abel@prebombeo");
+                //CREACI�N
+                usuarioCEN.CrearUsuario ("usuarioCEN@correo", "1234", RolesEnum.admin);
+                UsuarioEN usuarioEN = new UsuarioEN ();
+                usuarioEN = usuarioCEN.DameUsuarioOID ("usuarioCEN@correo");
+
+                ProductoEN pro1EN = new ProductoEN ();
 
                 //abel.RecuperarContrasenya ("abel@prebombeo");
 
-                if (usuarioCEN.IniciarSesion ("abel@prebombeo", "1234") != null) {
-                        //Console.WriteLine ("INICIO DE SESION CORRECTO");
+                if (usuarioCEN.IniciarSesion ("usuarioCEN@correo", "1234") != null) {
+                        Console.WriteLine ("INICIO DE SESION CORRECTO");
                 }
 
                 //CREACION DE PRODUCTOS
+                int idpro1 = pro.CrearProducto ("proteina", "grande", 100, 5, 0, null,0);
+                pro1EN = pro.DameProductoOID (idpro1);
 
-                ProductoCEN pro1 = new ProductoCEN ();
-                ProductoEN pro1EN = new ProductoEN ();
-                int idpro1 = pro1.CrearProducto ("proteina", "grande", 100, 5, 0, null);
-                pro1EN = pro1.DameProductoOID (idpro1);
-
-                ProductoCEN pro2 = new ProductoCEN ();
                 ProductoEN pro2EN = new ProductoEN ();
-                int idpro2 = pro1.CrearProducto ("mancuerna", "small", 30, 2, 0, null);
-                pro2EN = pro2.DameProductoOID (idpro2);
+                int idpro2 = pro.CrearProducto ("mancuerna", "pequeña", 30, 2, 0, null,0);
+                pro2EN = pro.DameProductoOID (idpro2);
 
                 // Console.WriteLine("Producto : " + pro1EN.Nombre + " Stock " + pro1EN.Stock);
-                pro1.DecrementarStock (idpro1, 3);
-                pro1EN = pro1.DameProductoOID (idpro1);
+                pro.DecrementarStock (idpro1, 3);
+                pro1EN = pro.DameProductoOID (idpro1);
                 // Console.WriteLine("Producto : " + pro1EN.Nombre + " Stock " + pro1EN.Stock);
 
                 CategoriaCEN catCen = new CategoriaCEN ();
                 CategoriaEN catEn = new CategoriaEN ();
-                catEn = catCen.DameCategoriaOID (catCen.CrearCategoria ("enanos", "deportes de enanos"));
-                pro1.AsignarCategoria (idpro1, new List<String>{ "enanos" });
-                pro1.AsignarCategoria (idpro2, new List<String> { "enanos" });
+                catEn = catCen.DameCategoriaOID (catCen.CrearCategoria ("natación", "deportes de natación"));
+                pro.AsignarCategoria (idpro1, new List<String>{ "natación" });
+                pro.AsignarCategoria (idpro2, new List<String> { "natación" });
 
                 Random rdn = new Random ();
                 string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890%$#@";
@@ -128,35 +128,14 @@ public static void InitializeData ()
 
                 Console.WriteLine (nuevopass);
 
-                //ESPACIO SIN ARREGLAR
-                // Insert the initilizations of entities using the CEN classes
-
-                string idUsario1 = usuarioCEN.CrearUsuario ("usuarioCEN@prebombeo", "1234", RolesEnum.admin);
-
-                if (usuarioCEN.IniciarSesion ("usuarioCEN@prebombeo", "1234") != null) {
-                        Console.WriteLine ("INICIO DE SESION CORRECTO");
-                }
-
-                //CREACION DE PRODUCTOS
-                ProductoCEN productoCEN = new ProductoCEN ();
-
-
-                ProductoEN pro1EN = new ProductoEN ();
-                ProductoEN pro2EN = new ProductoEN ();
-                int idPro1 = productoCEN.CrearProducto ("proteina", "grande", 100, 5, 0, null);
-                pro1EN = productoCEN.DameProductoOID (idPro1);
-
-                int idPro2 = productoCEN.CrearProducto ("mantequilla", "grande", 20, 3, 0, null);
-                pro2EN = productoCEN.DameProductoOID (idPro2);
-
                 //uso calcular macronutrientes
-                usuarioCEN.CalcularMacronutrientes (EstiloVidaEnum.fuerte, ObjetivosEnum.volumen, 92, 180, SexoEnum.hombre, idUsario1, 21);
+                usuarioCEN.CalcularMacronutrientes (EstiloVidaEnum.fuerte, ObjetivosEnum.volumen, 92, 180, SexoEnum.hombre, "usuarioCEN@correo", 21);
 
 
                 //anyadienco productos a deseados
-                usuarioCEN.AnyadirDeseado (idUsario1, new List<int> { idPro1, idPro2 });
+                usuarioCEN.AnyadirDeseado ("usuarioCEN@correo", new List<int> { idpro1, idpro2 });
 
-                usuarioCEN.DameDeseados (idUsario1);
+                //usuarioCEN.DameDeseados ("usuarioCEN@correo");
 
 
 

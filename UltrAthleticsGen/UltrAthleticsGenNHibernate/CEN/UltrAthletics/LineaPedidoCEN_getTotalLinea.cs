@@ -29,7 +29,7 @@ public float GetTotalLinea (int p_oid)
 
         //PRECONDICIONES
 
-        if (p_oid == null)
+        if (p_oid == 0)
                 throw new Exception ("Ninguna linea proporcionado");
 
         if (lin1.DameLineaPedidoOID (p_oid) == null)

@@ -24,7 +24,7 @@ public UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum GetE
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Pedido_getEstado) ENABLED START*/
 
         // Write here your custom code...
-        if (p_oid == null)
+        if (p_oid == 0)
                 throw new Exception ("No hay estado disponible");
         PedidoEN ped = _IPedidoCAD.ReadOIDDefault (p_oid);
         //Console.WriteLine("El estado del pedido " + ped.Id + " es " + ped.Estado);

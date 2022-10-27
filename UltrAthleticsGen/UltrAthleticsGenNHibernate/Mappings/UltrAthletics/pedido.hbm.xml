@@ -13,19 +13,22 @@
 			
 					
 					<property name="Fecha" type="string"> 
-						<column name="fecha"  not-null="true"/>
+						<column name="fecha" />
 					</property>
 					<property name="Direccion" type="string"> 
-						<column name="direccion"  not-null="true"/>
+						<column name="direccion" />
 					</property>
 					<property name="Tarjeta" type="string"> 
-						<column name="tarjeta"  not-null="true"/>
+						<column name="tarjeta" />
 					</property>
 					<property name="Estado" > 
 						<column name="estado"  not-null="true"/>
 					</property>
 					<property name="Descuento" type="double"> 
-						<column name="descuento"  not-null="true"/>
+						<column name="descuento" />
+					</property>
+					<property name="Seguimiento" type="string"> 
+						<column name="seguimiento" />
 					</property>
 			
 			
@@ -51,6 +54,27 @@
 						</many-to-one>
 											 					
 			
+			
+			
+		  			
+					
+							   <one-to-one name="Factura" class="UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN" property-ref="Pedido" />							
+					 
+						
+			
+		  			
+						<bag name="Devolver" >
+							<key>
+							
+								
+								<column name="FK_id_idPedido"/>
+					      	</key>
+							<one-to-many class="UltrAthleticsGenNHibernate.EN.UltrAthletics.DevolverEN"/>
+					    </bag>
+					
+					
+					
+					
 					
 					
 					
@@ -64,5 +88,6 @@
 		  
 		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
 		  <query name="PedidoENdamePedidoUsuarioHQL"><![CDATA[FROM PedidoEN as ped WHERE ped.Usuario.Email = :usuario]]></query>
+		  <query name="PedidoENverCarritoHQL"><![CDATA[SELECT ped FROM PedidoEN as ped INNER JOIN ped.Usuario usu WHERE ped.Estado = 4 AND usu.Email = :usu]]></query>
 		</hibernate-mapping>
 	

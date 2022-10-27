@@ -51,5 +51,6 @@
 		 </class>	
 		  
 		  <query name="EventoENReadAllHQL">from EventoEN</query>
+		  <query name="EventoENdameEventoPorCategoriaHQL"><![CDATA[SELECT ev FROM EventoEN as ev INNER JOIN ev.Categoria as cate where cate.Nombre = :categ]]></query>
 		</hibernate-mapping>
 	

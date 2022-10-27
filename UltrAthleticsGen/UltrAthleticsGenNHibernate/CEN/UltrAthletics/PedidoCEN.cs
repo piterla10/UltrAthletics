@@ -39,19 +39,13 @@ public IPedidoCAD get_IPedidoCAD ()
         return this._IPedidoCAD;
 }
 
-public int CrearPedido (string p_fecha, string p_direccion, string p_tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum p_estado, string p_usuario, double p_descuento)
+public int CrearPedido (UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum p_estado, string p_usuario, int p_factura)
 {
         PedidoEN pedidoEN = null;
         int oid;
 
         //Initialized PedidoEN
         pedidoEN = new PedidoEN ();
-        pedidoEN.Fecha = p_fecha;
-
-        pedidoEN.Direccion = p_direccion;
-
-        pedidoEN.Tarjeta = p_tarjeta;
-
         pedidoEN.Estado = p_estado;
 
 
@@ -62,7 +56,13 @@ public int CrearPedido (string p_fecha, string p_direccion, string p_tarjeta, Ul
                 pedidoEN.Usuario.Email = p_usuario;
         }
 
-        pedidoEN.Descuento = p_descuento;
+
+        if (p_factura != -1) {
+                // El argumento p_factura -> Property factura es oid = false
+                // Lista de oids id
+                pedidoEN.Factura = new UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN ();
+                pedidoEN.Factura.Id = p_factura;
+        }
 
         //Call to PedidoCAD
 
@@ -70,18 +70,14 @@ public int CrearPedido (string p_fecha, string p_direccion, string p_tarjeta, Ul
         return oid;
 }
 
-public void ModificarPedido (int p_Pedido_OID, string p_fecha, string p_direccion, string p_tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum p_estado, double p_descuento)
+public void ModificarPedido (int p_Pedido_OID, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum p_estado)
 {
         PedidoEN pedidoEN = null;
 
         //Initialized PedidoEN
         pedidoEN = new PedidoEN ();
         pedidoEN.Id = p_Pedido_OID;
-        pedidoEN.Fecha = p_fecha;
-        pedidoEN.Direccion = p_direccion;
-        pedidoEN.Tarjeta = p_tarjeta;
         pedidoEN.Estado = p_estado;
-        pedidoEN.Descuento = p_descuento;
         //Call to PedidoCAD
 
         _IPedidoCAD.ModificarPedido (pedidoEN);
@@ -112,6 +108,10 @@ public System.Collections.Generic.IList<PedidoEN> DamePedidoTodos (int first, in
 public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> DamePedidoUsuario (string usuario)
 {
         return _IPedidoCAD.DamePedidoUsuario (usuario);
+}
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> VerCarrito (string usu)
+{
+        return _IPedidoCAD.VerCarrito (usu);
 }
 }
 }

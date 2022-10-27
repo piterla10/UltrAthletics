@@ -49,5 +49,13 @@ void AnyadirSabor (int p_Producto_OID, System.Collections.Generic.IList<string> 
 void EliminarPeso (int p_Producto_OID, System.Collections.Generic.IList<string> p_peso_OIDs);
 
 void EliminarSabor (int p_Producto_OID, System.Collections.Generic.IList<string> p_sabor_OIDs);
+
+System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorCategoria (string categoria);
+
+
+System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorSabor (string sabo);
+
+
+System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorPeso (string peso);
 }
 }

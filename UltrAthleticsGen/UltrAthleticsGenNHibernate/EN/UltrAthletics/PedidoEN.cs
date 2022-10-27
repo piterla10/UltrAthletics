@@ -61,6 +61,27 @@ private double descuento;
 
 
 
+/**
+ *	Atributo seguimiento
+ */
+private string seguimiento;
+
+
+
+/**
+ *	Atributo factura
+ */
+private UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN factura;
+
+
+
+/**
+ *	Atributo devolver
+ */
+private System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.DevolverEN> devolver;
+
+
+
 
 
 
@@ -112,29 +133,48 @@ public virtual double Descuento {
 
 
 
+public virtual string Seguimiento {
+        get { return seguimiento; } set { seguimiento = value;  }
+}
+
+
+
+public virtual UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN Factura {
+        get { return factura; } set { factura = value;  }
+}
+
+
+
+public virtual System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.DevolverEN> Devolver {
+        get { return devolver; } set { devolver = value;  }
+}
+
+
+
 
 
 public PedidoEN()
 {
         lineaPedido = new System.Collections.Generic.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN>();
+        devolver = new System.Collections.Generic.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.DevolverEN>();
 }
 
 
 
-public PedidoEN(int id, string fecha, string direccion, string tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum estado, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario, double descuento
+public PedidoEN(int id, string fecha, string direccion, string tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum estado, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario, double descuento, string seguimiento, UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN factura, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.DevolverEN> devolver
                 )
 {
-        this.init (Id, fecha, direccion, tarjeta, estado, lineaPedido, usuario, descuento);
+        this.init (Id, fecha, direccion, tarjeta, estado, lineaPedido, usuario, descuento, seguimiento, factura, devolver);
 }
 
 
 public PedidoEN(PedidoEN pedido)
 {
-        this.init (Id, pedido.Fecha, pedido.Direccion, pedido.Tarjeta, pedido.Estado, pedido.LineaPedido, pedido.Usuario, pedido.Descuento);
+        this.init (Id, pedido.Fecha, pedido.Direccion, pedido.Tarjeta, pedido.Estado, pedido.LineaPedido, pedido.Usuario, pedido.Descuento, pedido.Seguimiento, pedido.Factura, pedido.Devolver);
 }
 
 private void init (int id
-                   , string fecha, string direccion, string tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum estado, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario, double descuento)
+                   , string fecha, string direccion, string tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum estado, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario, double descuento, string seguimiento, UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN factura, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.DevolverEN> devolver)
 {
         this.Id = id;
 
@@ -152,6 +192,12 @@ private void init (int id
         this.Usuario = usuario;
 
         this.Descuento = descuento;
+
+        this.Seguimiento = seguimiento;
+
+        this.Factura = factura;
+
+        this.Devolver = devolver;
 }
 
 public override bool Equals (object obj)

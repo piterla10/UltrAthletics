@@ -267,5 +267,36 @@ public System.Collections.Generic.IList<EventoEN> DameEventoTodos (int first, in
 
         return result;
 }
+
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.EventoEN> DameEventoPorCategoria (string categ)
+{
+        System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.EventoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM EventoEN self where SELECT ev FROM EventoEN as ev INNER JOIN ev.Categoria as cate where cate.Nombre = :categ";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("EventoENdameEventoPorCategoriaHQL");
+                query.SetParameter ("categ", categ);
+
+                result = query.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.EventoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in EventoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

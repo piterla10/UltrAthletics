@@ -59,7 +59,7 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
 {
         return _IProductoCAD.DameProductoPorFiltro (articulo);
 }
-public int CrearProducto (string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, System.Collections.Generic.IList<string> p_imagen)
+public int CrearProducto (string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, System.Collections.Generic.IList<string> p_imagen, float p_mediaValoracion)
 {
         ProductoEN productoEN = null;
         int oid;
@@ -78,13 +78,15 @@ public int CrearProducto (string p_nombre, string p_descripcion, float p_precio,
 
         productoEN.Imagen = p_imagen;
 
+        productoEN.MediaValoracion = p_mediaValoracion;
+
         //Call to ProductoCAD
 
         oid = _IProductoCAD.CrearProducto (productoEN);
         return oid;
 }
 
-public void ModificarProducto (int p_Producto_OID, string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, System.Collections.Generic.IList<string> p_imagen)
+public void ModificarProducto (int p_Producto_OID, string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, System.Collections.Generic.IList<string> p_imagen, float p_mediaValoracion)
 {
         ProductoEN productoEN = null;
 
@@ -97,6 +99,7 @@ public void ModificarProducto (int p_Producto_OID, string p_nombre, string p_des
         productoEN.Stock = p_stock;
         productoEN.Descuento = p_descuento;
         productoEN.Imagen = p_imagen;
+        productoEN.MediaValoracion = p_mediaValoracion;
         //Call to ProductoCAD
 
         _IProductoCAD.ModificarProducto (productoEN);
@@ -143,6 +146,18 @@ public void EliminarSabor (int p_Producto_OID, System.Collections.Generic.IList<
         //Call to ProductoCAD
 
         _IProductoCAD.EliminarSabor (p_Producto_OID, p_sabor_OIDs);
+}
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorCategoria (string categoria)
+{
+        return _IProductoCAD.DameProductoPorCategoria (categoria);
+}
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorSabor (string sabo)
+{
+        return _IProductoCAD.DameProductoPorSabor (sabo);
+}
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorPeso (string peso)
+{
+        return _IProductoCAD.DameProductoPorPeso (peso);
 }
 }
 }

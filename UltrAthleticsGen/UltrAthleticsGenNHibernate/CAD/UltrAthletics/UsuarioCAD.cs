@@ -142,6 +142,12 @@ public void ModifyDefault (UsuarioEN usuario)
 
                 usuarioEN.Rol = usuario.Rol;
 
+
+                usuarioEN.Sexo = usuario.Sexo;
+
+
+                usuarioEN.Edad = usuario.Edad;
+
                 session.Update (usuarioEN);
                 SessionCommit ();
         }

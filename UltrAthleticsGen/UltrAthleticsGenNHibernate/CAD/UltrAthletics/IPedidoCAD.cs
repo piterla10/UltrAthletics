@@ -35,5 +35,12 @@ System.Collections.Generic.IList<PedidoEN> DamePedidoTodos (int first, int size)
 
 
 System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> DamePedidoUsuario (string usuario);
+
+
+
+
+
+
+System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> VerCarrito (string usu);
 }
 }

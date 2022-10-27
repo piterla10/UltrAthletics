@@ -107,6 +107,11 @@ public void ModifyDefault (PedidoEN pedido)
 
                 pedidoEN.Descuento = pedido.Descuento;
 
+
+                pedidoEN.Seguimiento = pedido.Seguimiento;
+
+
+
                 session.Update (pedidoEN);
                 SessionCommit ();
         }
@@ -138,6 +143,13 @@ public int CrearPedido (PedidoEN pedido)
                         pedido.Usuario.Pedido
                         .Add (pedido);
                 }
+                if (pedido.Factura != null) {
+                        // Argumento OID y no colección.
+                        pedido.Factura = (UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN)session.Load (typeof(UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN), pedido.Factura.Id);
+
+                        pedido.Factura.Pedido
+                                = pedido;
+                }
 
                 session.Save (pedido);
                 SessionCommit ();
@@ -166,19 +178,7 @@ public void ModificarPedido (PedidoEN pedido)
                 SessionInitializeTransaction ();
                 PedidoEN pedidoEN = (PedidoEN)session.Load (typeof(PedidoEN), pedido.Id);
 
-                pedidoEN.Fecha = pedido.Fecha;
-
-
-                pedidoEN.Direccion = pedido.Direccion;
-
-
-                pedidoEN.Tarjeta = pedido.Tarjeta;
-
-
                 pedidoEN.Estado = pedido.Estado;
-
-
-                pedidoEN.Descuento = pedido.Descuento;
 
                 session.Update (pedidoEN);
                 SessionCommit ();
@@ -292,6 +292,36 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PedidoENdamePedidoUsuarioHQL");
                 query.SetParameter ("usuario", usuario);
+
+                result = query.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in PedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> VerCarrito (string usu)
+{
+        System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PedidoEN self where SELECT ped FROM PedidoEN as ped INNER JOIN ped.Usuario usu WHERE ped.Estado = 4 AND usu.Email = :usu";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENverCarritoHQL");
+                query.SetParameter ("usu", usu);
 
                 result = query.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN>();
                 SessionCommit ();

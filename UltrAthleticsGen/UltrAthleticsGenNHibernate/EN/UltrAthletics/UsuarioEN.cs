@@ -152,6 +152,20 @@ private UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.RolesEnum rol;
 
 
 
+/**
+ *	Atributo sexo
+ */
+private UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.SexoEnum sexo;
+
+
+
+/**
+ *	Atributo edad
+ */
+private int edad;
+
+
+
 
 
 
@@ -281,6 +295,18 @@ public virtual UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.RolesEnum Rol
 
 
 
+public virtual UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.SexoEnum Sexo {
+        get { return sexo; } set { sexo = value;  }
+}
+
+
+
+public virtual int Edad {
+        get { return edad; } set { edad = value;  }
+}
+
+
+
 
 
 public UsuarioEN()
@@ -293,20 +319,20 @@ public UsuarioEN()
 
 
 
-public UsuarioEN(string email, string nombre, Nullable<DateTime> fechaNac, float altura, float peso, float imc, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstiloVidaEnum estilo, string telefono, System.Collections.Generic.IList<string> direccion, System.Collections.Generic.IList<string> tarjeta, String pass, float proteinas, float hidratos, float grasas, float calorias, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.ObjetivosEnum objetivo, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN> valoracion, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> pedido, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN> categoria, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> listaDeseados, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.RolesEnum rol
+public UsuarioEN(string email, string nombre, Nullable<DateTime> fechaNac, float altura, float peso, float imc, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstiloVidaEnum estilo, string telefono, System.Collections.Generic.IList<string> direccion, System.Collections.Generic.IList<string> tarjeta, String pass, float proteinas, float hidratos, float grasas, float calorias, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.ObjetivosEnum objetivo, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN> valoracion, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> pedido, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN> categoria, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> listaDeseados, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.RolesEnum rol, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.SexoEnum sexo, int edad
                  )
 {
-        this.init (Email, nombre, fechaNac, altura, peso, imc, estilo, telefono, direccion, tarjeta, pass, proteinas, hidratos, grasas, calorias, objetivo, valoracion, pedido, categoria, listaDeseados, rol);
+        this.init (Email, nombre, fechaNac, altura, peso, imc, estilo, telefono, direccion, tarjeta, pass, proteinas, hidratos, grasas, calorias, objetivo, valoracion, pedido, categoria, listaDeseados, rol, sexo, edad);
 }
 
 
 public UsuarioEN(UsuarioEN usuario)
 {
-        this.init (Email, usuario.Nombre, usuario.FechaNac, usuario.Altura, usuario.Peso, usuario.Imc, usuario.Estilo, usuario.Telefono, usuario.Direccion, usuario.Tarjeta, usuario.Pass, usuario.Proteinas, usuario.Hidratos, usuario.Grasas, usuario.Calorias, usuario.Objetivo, usuario.Valoracion, usuario.Pedido, usuario.Categoria, usuario.ListaDeseados, usuario.Rol);
+        this.init (Email, usuario.Nombre, usuario.FechaNac, usuario.Altura, usuario.Peso, usuario.Imc, usuario.Estilo, usuario.Telefono, usuario.Direccion, usuario.Tarjeta, usuario.Pass, usuario.Proteinas, usuario.Hidratos, usuario.Grasas, usuario.Calorias, usuario.Objetivo, usuario.Valoracion, usuario.Pedido, usuario.Categoria, usuario.ListaDeseados, usuario.Rol, usuario.Sexo, usuario.Edad);
 }
 
 private void init (string email
-                   , string nombre, Nullable<DateTime> fechaNac, float altura, float peso, float imc, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstiloVidaEnum estilo, string telefono, System.Collections.Generic.IList<string> direccion, System.Collections.Generic.IList<string> tarjeta, String pass, float proteinas, float hidratos, float grasas, float calorias, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.ObjetivosEnum objetivo, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN> valoracion, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> pedido, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN> categoria, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> listaDeseados, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.RolesEnum rol)
+                   , string nombre, Nullable<DateTime> fechaNac, float altura, float peso, float imc, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstiloVidaEnum estilo, string telefono, System.Collections.Generic.IList<string> direccion, System.Collections.Generic.IList<string> tarjeta, String pass, float proteinas, float hidratos, float grasas, float calorias, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.ObjetivosEnum objetivo, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN> valoracion, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> pedido, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN> categoria, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> listaDeseados, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.RolesEnum rol, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.SexoEnum sexo, int edad)
 {
         this.Email = email;
 
@@ -350,6 +376,10 @@ private void init (string email
         this.ListaDeseados = listaDeseados;
 
         this.Rol = rol;
+
+        this.Sexo = sexo;
+
+        this.Edad = edad;
 }
 
 public override bool Equals (object obj)

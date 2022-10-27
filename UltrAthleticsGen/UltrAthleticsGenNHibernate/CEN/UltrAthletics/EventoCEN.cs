@@ -98,5 +98,9 @@ public System.Collections.Generic.IList<EventoEN> DameEventoTodos (int first, in
         list = _IEventoCAD.DameEventoTodos (first, size);
         return list;
 }
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.EventoEN> DameEventoPorCategoria (string categ)
+{
+        return _IEventoCAD.DameEventoPorCategoria (categ);
+}
 }
 }

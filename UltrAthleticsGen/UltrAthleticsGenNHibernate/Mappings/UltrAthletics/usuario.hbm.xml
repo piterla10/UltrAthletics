@@ -61,6 +61,12 @@
 					<property name="Rol" > 
 						<column name="rol"  not-null="true"/>
 					</property>
+					<property name="Sexo" > 
+						<column name="sexo" />
+					</property>
+					<property name="Edad" type="integer"> 
+						<column name="edad" />
+					</property>
 			
 			
 			
@@ -123,6 +129,10 @@
       						</many-to-many>
     					</bag>
 			
+			
+			
+					
+					
 					
 					
 					

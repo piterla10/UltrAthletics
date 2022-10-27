@@ -19,7 +19,7 @@ namespace UltrAthleticsGenNHibernate.CEN.UltrAthletics
 {
 public partial class UsuarioCEN
 {
-public void CalcularMacronutrientes (string p_oid)
+public UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN CalcularMacronutrientes (UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstiloVidaEnum estilo, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.ObjetivosEnum objetivo, float peso, float altura, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.SexoEnum sexo, string usuario_oid, int edad)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Usuario_calcularMacronutrientes) ENABLED START*/
 
