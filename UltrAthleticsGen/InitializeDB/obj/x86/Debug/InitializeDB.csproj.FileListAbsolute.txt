@@ -94,3 +94,27 @@ C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\obj\x86\D
 C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
 C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
 C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\hibernate.cfg.xml
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\InitializeDB.exe
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\InitializeDB.pdb
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\Antlr3.Runtime.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\Castle.DynamicProxy2.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\Iesi.Collections.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\LinFu.DynamicProxy.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\log4net.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\NHibernate.ByteCode.Castle.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\NHibernate.ByteCode.LinFu.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\NHibernate.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\nunit.core.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\nunit.framework.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\UltrAthleticsGenNHibernate.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\jose-jwt.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\Newtonsoft.Json.dll
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\UltrAthleticsGenNHibernate.pdb
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\bin\Debug\UltrAthleticsGenNHibernate.dll.config
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.AssemblyReference.cache
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CoreCompileInputs.cache
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb

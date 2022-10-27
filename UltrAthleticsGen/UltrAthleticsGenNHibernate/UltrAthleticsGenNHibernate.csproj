@@ -195,7 +195,7 @@
 			
 			
 			
-			<Compile Include="CEN\UltrAthletics\ProductoCEN_GetTotalValoraciones.cs" />
+			<Compile Include="CP\UltrAthletics\ProductoCP_GetTotalValoraciones.cs" />
 			
 			<Compile Include="CEN\UltrAthletics\ProductoCEN_GetMediaValoraciones.cs" />
 			
@@ -265,11 +265,15 @@
 			
 			
 			
-	<Compile Include="EN\UltrAthletics\DevolverEN.cs" />
-	<Compile Include="CEN\UltrAthletics\DevolverCEN.cs" />
-	<Compile Include="CAD\UltrAthletics\IDevolverCAD.cs" />
-	<Compile Include="CAD\UltrAthletics\DevolverCAD.cs" />
-	<Compile Include="CP\UltrAthletics\DevolverCP.cs" />
+			
+			
+	<Compile Include="EN\UltrAthletics\DevolucionEN.cs" />
+	<Compile Include="CEN\UltrAthletics\DevolucionCEN.cs" />
+	<Compile Include="CAD\UltrAthletics\IDevolucionCAD.cs" />
+	<Compile Include="CAD\UltrAthletics\DevolucionCAD.cs" />
+	<Compile Include="CP\UltrAthletics\DevolucionCP.cs" />
+			
+			
 			
 			
 			
@@ -303,7 +307,7 @@
 	<EmbeddedResource Include="Mappings\UltrAthletics\sabor.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UltrAthletics\peso.hbm.xml" />
 	<EmbeddedResource Include="Mappings\UltrAthletics\factura.hbm.xml" />
-	<EmbeddedResource Include="Mappings\UltrAthletics\devolver.hbm.xml" />
+	<EmbeddedResource Include="Mappings\UltrAthletics\devolucion.hbm.xml" />
 	
 	
 

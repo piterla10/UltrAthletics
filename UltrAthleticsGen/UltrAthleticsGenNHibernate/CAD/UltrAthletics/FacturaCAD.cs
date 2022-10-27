@@ -183,5 +183,65 @@ public void BorrarFactura (int id
                 SessionClose ();
         }
 }
+
+//Sin e: DameFacturaOID
+//Con e: FacturaEN
+public FacturaEN DameFacturaOID (int id
+                                 )
+{
+        FacturaEN facturaEN = null;
+
+        try
+        {
+                SessionInitializeTransaction ();
+                facturaEN = (FacturaEN)session.Get (typeof(FacturaEN), id);
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in FacturaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return facturaEN;
+}
+
+public System.Collections.Generic.IList<FacturaEN> DameFacturaTodos (int first, int size)
+{
+        System.Collections.Generic.IList<FacturaEN> result = null;
+        try
+        {
+                SessionInitializeTransaction ();
+                if (size > 0)
+                        result = session.CreateCriteria (typeof(FacturaEN)).
+                                 SetFirstResult (first).SetMaxResults (size).List<FacturaEN>();
+                else
+                        result = session.CreateCriteria (typeof(FacturaEN)).List<FacturaEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in FacturaCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

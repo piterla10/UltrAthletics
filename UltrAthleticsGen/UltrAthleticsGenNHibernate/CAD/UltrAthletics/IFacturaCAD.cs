@@ -22,5 +22,12 @@ void ModificarFactura (FacturaEN factura);
 
 void BorrarFactura (int id
                     );
+
+
+FacturaEN DameFacturaOID (int id
+                          );
+
+
+System.Collections.Generic.IList<FacturaEN> DameFacturaTodos (int first, int size);
 }
 }

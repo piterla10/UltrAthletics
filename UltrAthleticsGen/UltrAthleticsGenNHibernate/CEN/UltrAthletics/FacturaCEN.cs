@@ -69,5 +69,22 @@ public void BorrarFactura (int id
 {
         _IFacturaCAD.BorrarFactura (id);
 }
+
+public FacturaEN DameFacturaOID (int id
+                                 )
+{
+        FacturaEN facturaEN = null;
+
+        facturaEN = _IFacturaCAD.DameFacturaOID (id);
+        return facturaEN;
+}
+
+public System.Collections.Generic.IList<FacturaEN> DameFacturaTodos (int first, int size)
+{
+        System.Collections.Generic.IList<FacturaEN> list = null;
+
+        list = _IFacturaCAD.DameFacturaTodos (first, size);
+        return list;
+}
 }
 }

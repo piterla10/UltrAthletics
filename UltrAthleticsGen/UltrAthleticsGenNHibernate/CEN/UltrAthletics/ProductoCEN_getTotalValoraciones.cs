@@ -21,11 +21,13 @@ public partial class ProductoCEN
 {
 public int GetTotalValoraciones (int p_oid)
 {
-        /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Producto_getTotalValoraciones) ENABLED START*/
+            /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Producto_getTotalValoraciones) ENABLED START*/
 
-        // Write here your custom code...
+            ProductoEN proEN = _IProductoCAD.DameProductoOID(p_oid);
 
-        throw new NotImplementedException ("Method GetTotalValoraciones() not yet implemented.");
+            Console.WriteLine(proEN.Valoracion);
+
+            return proEN.Id;
 
         /*PROTECTED REGION END*/
 }

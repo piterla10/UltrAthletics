@@ -78,17 +78,33 @@ public static void InitializeData ()
         /*PROTECTED REGION ID(initializeDataMethod) ENABLED START*/
         try
         {
-                //INICIALIZACI�N
-
+                //creando objetos CEN
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
-                ProductoCEN pro = new ProductoCEN ();
+                ProductoCEN productoCEN = new ProductoCEN ();
+                ValoracionCEN valoracionCEN = new ValoracionCEN ();
 
-                //CREACI�N
-                usuarioCEN.CrearUsuario ("usuarioCEN@correo", "1234", RolesEnum.admin);
+                //creando usuarios de usuarios
+                String idUsuario = usuarioCEN.CrearUsuario ("usuarioCEN@correo", "1234", RolesEnum.admin);
+                String idJuan = usuarioCEN.CrearUsuario ("juan@correo", "1234", RolesEnum.cliente);
+
                 UsuarioEN usuarioEN = new UsuarioEN ();
-                usuarioEN = usuarioCEN.DameUsuarioOID ("usuarioCEN@correo");
+                usuarioEN = usuarioCEN.DameUsuarioOID (idUsuario);
 
+                UsuarioEN juanEN = new UsuarioEN ();
+                juanEN = usuarioCEN.DameUsuarioOID (idJuan);
+
+                //CREACION DE PRODUCTOS
                 ProductoEN pro1EN = new ProductoEN ();
+                int idpro1 = productoCEN.CrearProducto ("proteina", "grande", 100, 5, 0, null, 0);
+                pro1EN = productoCEN.DameProductoOID (idpro1);
+
+                ProductoEN pro2EN = new ProductoEN ();
+                int idpro2 = productoCEN.CrearProducto ("mancuerna", "pequeña", 30, 2, 0, null, 0);
+                pro2EN = productoCEN.DameProductoOID (idpro2);
+
+                //creando valoraciones
+                valoracionCEN.CrearValoracion ("muy bueno", 4, idUsuario, idpro1);
+                valoracionCEN.CrearValoracion ("perfecto", 5, idJuan, idpro1);
 
                 //abel.RecuperarContrasenya ("abel@prebombeo");
 
@@ -96,24 +112,24 @@ public static void InitializeData ()
                         Console.WriteLine ("INICIO DE SESION CORRECTO");
                 }
 
-                //CREACION DE PRODUCTOS
-                int idpro1 = pro.CrearProducto ("proteina", "grande", 100, 5, 0, null,0);
-                pro1EN = pro.DameProductoOID (idpro1);
 
-                ProductoEN pro2EN = new ProductoEN ();
-                int idpro2 = pro.CrearProducto ("mancuerna", "pequeña", 30, 2, 0, null,0);
-                pro2EN = pro.DameProductoOID (idpro2);
+                Console.WriteLine ("***********************************");
+                pro1EN = productoCEN.DameProductoOID (idpro1);
+                Console.WriteLine ("producto: " + pro1EN.Id + " " + pro1EN.Nombre);
+                Console.WriteLine (productoCEN.GetTotalValoraciones (idpro1));
+
+
 
                 // Console.WriteLine("Producto : " + pro1EN.Nombre + " Stock " + pro1EN.Stock);
-                pro.DecrementarStock (idpro1, 3);
-                pro1EN = pro.DameProductoOID (idpro1);
+                productoCEN.DecrementarStock (idpro1, 3);
+                pro1EN = productoCEN.DameProductoOID (idpro1);
                 // Console.WriteLine("Producto : " + pro1EN.Nombre + " Stock " + pro1EN.Stock);
 
                 CategoriaCEN catCen = new CategoriaCEN ();
                 CategoriaEN catEn = new CategoriaEN ();
                 catEn = catCen.DameCategoriaOID (catCen.CrearCategoria ("natación", "deportes de natación"));
-                pro.AsignarCategoria (idpro1, new List<String>{ "natación" });
-                pro.AsignarCategoria (idpro2, new List<String> { "natación" });
+                productoCEN.AsignarCategoria (idpro1, new List<String>{ "natación" });
+                productoCEN.AsignarCategoria (idpro2, new List<String> { "natación" });
 
                 Random rdn = new Random ();
                 string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890%$#@";
@@ -145,10 +161,10 @@ public static void InitializeData ()
                 /*
                  * IList<ProductoEN> lsta = pro1.DameProductoPorCategoria (catEn.Nombre);
                  *
-                 * foreach (ProductoEN pro in lsta) {
+                 * foreach (ProductoEN productoCEN in lsta) {
                  *      Console.WriteLine ("***********************************");
                  *
-                 *      Console.WriteLine ("Producto : " + pro.Nombre);
+                 *      Console.WriteLine ("Producto : " + productoCEN.Nombre);
                  *
                  *      Console.WriteLine ("***********************************");
                  * }
