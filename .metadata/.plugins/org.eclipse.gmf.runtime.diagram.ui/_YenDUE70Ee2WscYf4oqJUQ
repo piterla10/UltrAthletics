@@ -1,6 +1,6 @@
-#Sat Oct 22 17:23:48 CEST 2022
-viewport.x=182
-zoom=1.0
+#Thu Oct 27 03:19:12 CEST 2022
+viewport.x=0
+zoom=0.8
 print.margin.right=0.5
 rulergrid.rulerunit=1
 rulergrid.snaptogrid=true
@@ -16,4 +16,4 @@ rulergrid.gridlevel=true
 print.margin.top=0.5
 print.useMillim=true
 print.usePortrait=true
-viewport.y=-36
+viewport.y=177

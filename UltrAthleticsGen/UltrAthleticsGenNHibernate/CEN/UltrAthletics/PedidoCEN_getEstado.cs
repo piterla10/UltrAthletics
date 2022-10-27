@@ -19,13 +19,17 @@ namespace UltrAthleticsGenNHibernate.CEN.UltrAthletics
 {
 public partial class PedidoCEN
 {
-public void GetEstado (int p_oid)
+public UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum GetEstado (int p_oid)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Pedido_getEstado) ENABLED START*/
 
         // Write here your custom code...
-
-        throw new NotImplementedException ("Method GetEstado() not yet implemented.");
+        if (p_oid == null)
+                throw new Exception ("No hay estado disponible");
+        PedidoEN ped = _IPedidoCAD.ReadOIDDefault (p_oid);
+        //Console.WriteLine("El estado del pedido " + ped.Id + " es " + ped.Estado);
+        return ped.Estado;
+        throw new ModelException ("No se ha podido devolver el estado");
 
         /*PROTECTED REGION END*/
 }

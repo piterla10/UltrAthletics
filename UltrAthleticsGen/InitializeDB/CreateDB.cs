@@ -81,7 +81,7 @@ public static void InitializeData ()
                 // Insert the initilizations of entities using the CEN classes
 
                 UsuarioCEN abel = new UsuarioCEN ();
-                abel.CrearUsuario ("abel@prebombeo", "1234",RolesEnum.admin);
+                abel.CrearUsuario ("abel@prebombeo", "1234", RolesEnum.admin);
 
                 if (abel.IniciarSesion ("abel@prebombeo", "1234") != null) {
                         Console.WriteLine ("INICIO DE SESION CORRECTO");
@@ -102,6 +102,7 @@ public static void InitializeData ()
                 PedidoEN pedEN = ped1.DamePedidoOID (idped);
                 Console.WriteLine ("EL pedido");
 
+                Console.WriteLine("----" + ped1.GetEstado(idped) + "----");
 
                 LineaPedidoCEN lin1 = new LineaPedidoCEN ();
                 int idlin1 = lin1.CrearLinea (3, idped, 100, idpro1);
