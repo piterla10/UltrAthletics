@@ -53,3 +53,4 @@ C:\Users\Jose Manuel\Desktop\DSM\UltrAthletics\UltrAthleticsGen\UltrAthleticsGen
 C:\Users\Jose Manuel\Desktop\DSM\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.CopyComplete
 C:\Users\Jose Manuel\Desktop\DSM\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.dll
 C:\Users\Jose Manuel\Desktop\DSM\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.pdb
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.CoreCompileInputs.cache

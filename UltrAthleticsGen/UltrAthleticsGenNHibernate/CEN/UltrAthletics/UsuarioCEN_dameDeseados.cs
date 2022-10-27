@@ -19,13 +19,22 @@ namespace UltrAthleticsGenNHibernate.CEN.UltrAthletics
 {
 public partial class UsuarioCEN
 {
-public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> DameDeseados (string usuario)
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameDeseados (string usuario)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Usuario_dameDeseados) ENABLED START*/
 
-        // Write here your custom code...
+        UsuarioCEN usuarioCEN = new UsuarioCEN ();
 
-        throw new NotImplementedException ("Method DameDeseados() not yet implemented.");
+        UsuarioEN usuarioEN = usuarioCEN.DameUsuarioOID (usuario);
+
+        Console.WriteLine (usuarioEN.ListaDeseados);
+        Console.WriteLine("Lista de deseados de " + usuarioEN.Email);
+
+        foreach (ProductoEN pro in usuarioEN.ListaDeseados) {
+                Console.Write ("producto: " + pro.Nombre + " usuario: " + usuarioEN.Email);
+        }
+
+            return usuarioEN.ListaDeseados;
 
         /*PROTECTED REGION END*/
 }

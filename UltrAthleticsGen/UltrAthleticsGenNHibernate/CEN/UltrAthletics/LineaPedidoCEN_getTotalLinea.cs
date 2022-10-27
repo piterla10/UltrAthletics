@@ -35,18 +35,34 @@ public float GetTotalLinea (int p_oid)
         if (lin1.DameLineaPedidoOID (p_oid) == null)
                 throw new Exception ("La  linea de pedido " + p_oid + " no existe");
 
+
         LineaPedidoEN linEN = lin1.DameLineaPedidoOID (p_oid);
+
+        PedidoCEN pedCEN = new PedidoCEN ();
+        PedidoEN pedEN = pedCEN.DamePedidoOID (linEN.Pedido.Id);
+
+        ProductoCEN proAux = new ProductoCEN ();
+        ProductoEN proEN = new ProductoEN ();
+
+        proEN = proAux.DameProductoOID (linEN.Producto.Id);
 
         float total = 0;
 
-        total = linEN.Unidades * linEN.Precio;
+        if (pedEN.Estado == EstadoPedidoEnum.carrito) {
+                total = linEN.Unidades * proEN.Precio;
+        }
+        else{
+                total = linEN.Unidades * linEN.Precio;
+        }
+
 
         Console.WriteLine ("EL precio total de la linea es " + total);
 
-        return total;
-
         if (total == 0)
                 throw new NotImplementedException ("Method GetTotalLinea() not yet implemented.");
+
+        return total;
+
 
         /*PROTECTED REGION END*/
 }

@@ -19,13 +19,24 @@ namespace UltrAthleticsGenNHibernate.CEN.UltrAthletics
 {
 public partial class ProductoCEN
 {
-public void IncrementarStock (int p_oid)
+public void IncrementarStock (int p_oid, int cant)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Producto_incrementarStock) ENABLED START*/
 
         // Write here your custom code...
+        ProductoCAD proCAD = new ProductoCAD ();
 
-        throw new NotImplementedException ("Method IncrementarStock() not yet implemented.");
+        if (cant < 0) {
+                throw new Exception ("no se pueden a�adir cantidades negativas");
+        }
+
+        ProductoEN proEN = proCAD.DameProductoOID (p_oid);
+
+        int x = proEN.Stock + cant;
+        proEN.Stock = x;
+
+
+        proCAD.ModifyDefault (proEN);
 
         /*PROTECTED REGION END*/
 }

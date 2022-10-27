@@ -25,17 +25,7 @@ public string GetCodigoLocalizacion (int p_oid)
 
         // Write here your custom code...
 
-        PedidoCEN ped1 = new PedidoCEN ();
-        PedidoEN pedEN = ped1.DamePedidoOID (p_oid);
-
-        if (pedEN.Estado == Enumerated.UltrAthletics.EstadoPedidoEnum.carrito) {
-                throw new Exception ();
-        }
-
-        //AQUI UTILIZARIAMOS LA API DE ALGUNA EMPRESA DE MENSAJERIA
-        //SE SUSTITUYE POR UN CODIGO GENERADO
-
-        return pedEN.Seguimiento;
+        throw new NotImplementedException ("Method GetCodigoLocalizacion() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }

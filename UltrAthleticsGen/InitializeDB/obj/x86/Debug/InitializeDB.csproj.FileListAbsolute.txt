@@ -70,3 +70,27 @@ C:\Users\Jose Manuel\Desktop\DSM\UltrAthletics\UltrAthleticsGen\InitializeDB\obj
 C:\Users\Jose Manuel\Desktop\DSM\UltrAthletics\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
 C:\Users\Jose Manuel\Desktop\DSM\UltrAthletics\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
 C:\Users\Jose Manuel\Desktop\DSM\UltrAthletics\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\hibernate.cfg.xml
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\InitializeDB.exe.config
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\InitializeDB.exe
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\InitializeDB.pdb
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\Castle.DynamicProxy2.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\Iesi.Collections.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\LinFu.DynamicProxy.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\log4net.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\NHibernate.ByteCode.Castle.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\NHibernate.ByteCode.LinFu.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\NHibernate.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\nunit.core.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\nunit.framework.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\UltrAthleticsGenNHibernate.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\jose-jwt.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\UltrAthleticsGenNHibernate.pdb
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\bin\Debug\UltrAthleticsGenNHibernate.dll.config
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.csproj.CopyComplete
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.exe
+C:\Users\Usuario\Desktop\OOH4RIA\DSM2022\UltrAthleticsGen\InitializeDB\obj\x86\Debug\InitializeDB.pdb

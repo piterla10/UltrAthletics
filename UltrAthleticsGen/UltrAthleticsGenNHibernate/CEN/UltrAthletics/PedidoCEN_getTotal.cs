@@ -23,50 +23,42 @@ public partial class PedidoCEN
 public float GetTotal (int p_oid)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Pedido_getTotal) ENABLED START*/
-
         // Write here your custom code...
         PedidoCEN ped1 = new PedidoCEN ();
 
         //PRECONDICIONES
-
-
-
-        if (ped1.DamePedidoOID (p_oid) == null)
+        if (ped1.DamePedidoOID (p_oid) == null) {
                 throw new Exception ("El pedido " + p_oid + " no existe");
+        }
 
         PedidoEN pedEN = ped1.DamePedidoOID (p_oid);
+
         LineaPedidoCEN lin1 = new LineaPedidoCEN ();
         IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido (p_oid);
+
+        ProductoCEN proAux = new ProductoCEN ();
+        ProductoEN proEN = new ProductoEN ();
+
         int x = 1;
-        int total = 0;
-        int aux = 0;
-        if (pedEN.Estado == Enumerated.UltrAthletics.EstadoPedidoEnum.carrito) {
-                Console.WriteLine ("Lineas del pedido ");
-                foreach (LineaPedidoEN lon in listalienas) {
-                        Console.WriteLine ("Linea " + x + " " + lon.Id + " " + lon.Pedido.Id);
-                        // SI PONES PRODUCTO PETA  aux= (int)(lon.Producto.Precio * lon.Unidades);
-                        Console.WriteLine ("Precio de" + lon.Unidades + " " + lon.Producto.Precio + " " + aux);
-                        x++;
-                        total += aux;
-                }
+        float total = 0;
+        float aux = 0;
+
+
+
+        Console.WriteLine ("Lineas del pedido " + p_oid);
+        foreach (LineaPedidoEN lon in listalienas) {
+                proEN = proAux.DameProductoOID (lon.Producto.Id);
+                Console.WriteLine ("Linea " + x + " " + lon.Id + " Del pedido : " + lon.Pedido.Id);
+                aux = lin1.GetTotalLinea (lon.Id);
+                Console.WriteLine ("Precio de " + lon.Unidades + " unidades de producto: " + proEN.Nombre + " :" + aux);
+                x++;
+                total += aux;
         }
-        else{
-                Console.WriteLine ("Lineas del pedido ");
-                foreach (LineaPedidoEN lon in listalienas) {
-                        Console.WriteLine ("Linea " + x + " " + lon.Id + " " + lon.Pedido.Id);
-                        aux = (int)(lon.Precio * lon.Unidades);
-                        Console.WriteLine ("Precio de " + lon.Unidades + " unidades de producto: " + aux);
-                        x++;
-                        total += aux;
-                }
-        }
+
         Console.WriteLine ("*******************************************");
         Console.WriteLine ("Precio total " + total);
 
         return total;
-
-
-
         /*PROTECTED REGION END*/
 }
 }

@@ -158,6 +158,8 @@
 			
 			<Compile Include="CEN\UltrAthletics\PedidoCEN_GetCodigoDevolucion.cs" />
 			
+			<Compile Include="CEN\UltrAthletics\PedidoCEN_GenerarCodigoLocalizacion.cs" />
+			
 	<Compile Include="EN\UltrAthletics\LineaPedidoEN.cs" />
 	<Compile Include="CEN\UltrAthletics\LineaPedidoCEN.cs" />
 	<Compile Include="CAD\UltrAthletics\ILineaPedidoCAD.cs" />

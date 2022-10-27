@@ -13,9 +13,6 @@ using UltrAthleticsGenNHibernate.CAD.UltrAthletics;
 
 /*PROTECTED REGION ID(usingUltrAthleticsGenNHibernate.CEN.UltrAthletics_Pedido_getCodigoDevolucion) ENABLED START*/
 //  references to other libraries
-using IronBarCode;
-using System.IO;
-using System.Drawing;
 /*PROTECTED REGION END*/
 
 namespace UltrAthleticsGenNHibernate.CEN.UltrAthletics
@@ -28,26 +25,7 @@ public string GetCodigoDevolucion (int p_oid)
 
         // Write here your custom code...
 
-        PedidoCEN ped1 = new PedidoCEN ();
-        PedidoEN pedEN = ped1.DamePedidoOID (p_oid);
-
-        if (pedEN.Estado != Enumerated.UltrAthletics.EstadoPedidoEnum.entregado) {
-                throw new Exception ();
-        }
-
-        Image barritas = BarcodeWriter.CreateBarcode (p_oid.ToString (), BarcodeWriterEncoding.Code128).Image;
-
-        MemoryStream memoria = new MemoryStream ();
-
-        barritas.Save (memoria, barritas.RawFormat);
-
-        FileStream fs = new FileStream (p_oid + ".jpg", FileMode.Create, FileAccess.Write);
-
-        byte[] bytes = memoria.ToArray ();
-
-        fs.Write (bytes, 0, bytes.Length);
-
-        return p_oid + ".jpg";
+        throw new NotImplementedException ("Method GetCodigoDevolucion() not yet implemented.");
 
         /*PROTECTED REGION END*/
 }
