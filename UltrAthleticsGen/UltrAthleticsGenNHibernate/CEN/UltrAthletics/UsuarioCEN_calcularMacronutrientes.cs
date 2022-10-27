@@ -57,13 +57,12 @@ public UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN CalcularMacronutrie
         }
 
         //debug de la consola
-        Console.WriteLine ("**********************");
-        Console.WriteLine ("Pruebo el metodo calcularMacronutrientes");
         Console.WriteLine ("metabolismo basal: " + bmr);
 
         //ajustando calorias si quieres definir o ganar volumen
         if (objetivo == Enumerated.UltrAthletics.ObjetivosEnum.definicion) bmr -= 500;
         if (objetivo == Enumerated.UltrAthletics.ObjetivosEnum.volumen) bmr += 500;
+
 
         //calculando macros segun objetivo
         float grasas = 0;

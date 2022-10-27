@@ -39,7 +39,7 @@ public IPedidoCAD get_IPedidoCAD ()
         return this._IPedidoCAD;
 }
 
-public int CrearPedido (UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum p_estado, string p_usuario, int p_factura)
+public int CrearPedido (UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum p_estado, string p_usuario)
 {
         PedidoEN pedidoEN = null;
         int oid;
@@ -54,14 +54,6 @@ public int CrearPedido (UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.Esta
                 // Lista de oids id
                 pedidoEN.Usuario = new UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN ();
                 pedidoEN.Usuario.Email = p_usuario;
-        }
-
-
-        if (p_factura != -1) {
-                // El argumento p_factura -> Property factura es oid = false
-                // Lista de oids id
-                pedidoEN.Factura = new UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN ();
-                pedidoEN.Factura.Id = p_factura;
         }
 
         //Call to PedidoCAD

@@ -39,13 +39,21 @@ public IFacturaCAD get_IFacturaCAD ()
         return this._IFacturaCAD;
 }
 
-public int CrearFactura ()
+public int CrearFactura (int p_pedido)
 {
         FacturaEN facturaEN = null;
         int oid;
 
         //Initialized FacturaEN
         facturaEN = new FacturaEN ();
+
+        if (p_pedido != -1) {
+                // El argumento p_pedido -> Property pedido es oid = false
+                // Lista de oids id
+                facturaEN.Pedido = new UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN ();
+                facturaEN.Pedido.Id = p_pedido;
+        }
+
         //Call to FacturaCAD
 
         oid = _IFacturaCAD.CrearFactura (facturaEN);

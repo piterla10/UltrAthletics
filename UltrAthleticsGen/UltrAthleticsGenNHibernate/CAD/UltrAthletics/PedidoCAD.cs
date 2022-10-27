@@ -143,13 +143,6 @@ public int CrearPedido (PedidoEN pedido)
                         pedido.Usuario.Pedido
                         .Add (pedido);
                 }
-                if (pedido.Factura != null) {
-                        // Argumento OID y no colección.
-                        pedido.Factura = (UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN)session.Load (typeof(UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN), pedido.Factura.Id);
-
-                        pedido.Factura.Pedido
-                                = pedido;
-                }
 
                 session.Save (pedido);
                 SessionCommit ();

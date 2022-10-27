@@ -55,8 +55,8 @@ public float GetTotalLinea (int p_oid)
                 total = linEN.Unidades * linEN.Precio;
         }
 
+        Console.WriteLine (linEN.Unidades + " de " + proEN.Nombre + " EL precio total de la linea es: " + total);
 
-        Console.WriteLine ("EL precio total de la linea es " + total);
 
         if (total == 0)
                 throw new NotImplementedException ("Method GetTotalLinea() not yet implemented.");

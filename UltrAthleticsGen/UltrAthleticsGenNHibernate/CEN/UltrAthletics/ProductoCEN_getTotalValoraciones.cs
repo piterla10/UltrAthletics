@@ -23,11 +23,9 @@ public int GetTotalValoraciones (int p_oid)
 {
             /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Producto_getTotalValoraciones) ENABLED START*/
 
-            ProductoEN proEN = _IProductoCAD.DameProductoOID(p_oid);
+            
 
-            Console.WriteLine(proEN.Valoracion);
-
-            return proEN.Id;
+            return proEN.Valoracion;
 
         /*PROTECTED REGION END*/
 }

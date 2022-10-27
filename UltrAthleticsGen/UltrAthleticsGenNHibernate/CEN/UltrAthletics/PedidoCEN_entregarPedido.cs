@@ -9,6 +9,7 @@ using NHibernate.Exceptions;
 using UltrAthleticsGenNHibernate.Exceptions;
 using UltrAthleticsGenNHibernate.EN.UltrAthletics;
 using UltrAthleticsGenNHibernate.CAD.UltrAthletics;
+using UltrAthleticsGenNHibernate.Enumerated.UltrAthletics;
 
 
 /*PROTECTED REGION ID(usingUltrAthleticsGenNHibernate.CEN.UltrAthletics_Pedido_entregarPedido) ENABLED START*/
@@ -23,9 +24,14 @@ public void EntregarPedido (int p_oid)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Pedido_entregarPedido) ENABLED START*/
 
-        // Write here your custom code...
+        if (p_oid == 0) throw new Exception ("el oid del pedido no es valido");
+        PedidoEN pedEN = _IPedidoCAD.ReadOIDDefault (p_oid);
+        if (pedEN.Estado != EstadoPedidoEnum.enCamino) throw new Exception ("El estado del pedido no es enCamino");
 
-        throw new NotImplementedException ("Method EntregarPedido() not yet implemented.");
+        PedidoCEN pedidoCEN = new PedidoCEN ();
+
+        //postcondicion
+        pedidoCEN.ModificarPedido (p_oid, EstadoPedidoEnum.entregado);
 
         /*PROTECTED REGION END*/
 }

@@ -43,19 +43,16 @@ public float GetTotal (int p_oid)
         float total = 0;
         float aux = 0;
 
-
-
         Console.WriteLine ("Lineas del pedido " + p_oid);
         foreach (LineaPedidoEN lon in listalienas) {
                 proEN = proAux.DameProductoOID (lon.Producto.Id);
                 Console.WriteLine ("Linea " + x + " " + lon.Id + " Del pedido : " + lon.Pedido.Id);
                 aux = lin1.GetTotalLinea (lon.Id);
-                Console.WriteLine ("Precio de " + lon.Unidades + " unidades de producto: " + proEN.Nombre + " :" + aux);
                 x++;
                 total += aux;
         }
 
-        Console.WriteLine ("*******************************************");
+        Console.WriteLine ("******");
         Console.WriteLine ("Precio total " + total);
 
         return total;

@@ -131,7 +131,7 @@
 			
 			
 			
-			<Compile Include="CEN\UltrAthletics\UsuarioCEN_DameDeseados.cs" />
+			<Compile Include="CP\UltrAthletics\UsuarioCP_DameDeseados.cs" />
 			
 			
 			
@@ -197,7 +197,7 @@
 			
 			<Compile Include="CP\UltrAthletics\ProductoCP_GetTotalValoraciones.cs" />
 			
-			<Compile Include="CEN\UltrAthletics\ProductoCEN_GetMediaValoraciones.cs" />
+			<Compile Include="CP\UltrAthletics\ProductoCP_GetMediaValoraciones.cs" />
 			
 			
 			

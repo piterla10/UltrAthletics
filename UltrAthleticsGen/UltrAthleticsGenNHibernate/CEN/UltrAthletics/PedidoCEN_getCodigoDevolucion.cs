@@ -25,7 +25,26 @@ public string GetCodigoDevolucion (int p_oid)
 
         // Write here your custom code...
 
-        throw new NotImplementedException ("Method GetCodigoDevolucion() not yet implemented.");
+        /*PedidoCEN ped1 = new PedidoCEN ();
+         *  PedidoEN pedEN = ped1.DamePedidoOID (p_oid);
+         *
+         *  if (pedEN.Estado != Enumerated.UltrAthletics.EstadoPedidoEnum.entregado) {
+         *       throw new Exception ();
+         *  }
+         *
+         *  Image barritas = BarcodeWriter.CreateBarcode (p_oid.ToString (), BarcodeWriterEncoding.Code128).Image;
+         *
+         *  MemoryStream memoria = new MemoryStream ();
+         *
+         *  barritas.Save (memoria, barritas.RawFormat);
+         *
+         *  FileStream fs = new FileStream (p_oid + ".jpg", FileMode.Create, FileAccess.Write);
+         *
+         *  byte[] bytes = memoria.ToArray ();
+         *
+         *  fs.Write (bytes, 0, bytes.Length);*/
+
+        return p_oid + ".jpg";
 
         /*PROTECTED REGION END*/
 }

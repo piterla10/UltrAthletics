@@ -23,9 +23,18 @@ public void EnviarPedido (int p_oid)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Pedido_enviarPedido) ENABLED START*/
 
-        // Write here your custom code...
+        PedidoCEN pedicen = new PedidoCEN ();
+        PedidoEN pedien = pedicen.DamePedidoOID (p_oid);
 
-        throw new NotImplementedException ("Method EnviarPedido() not yet implemented.");
+        //precondiciones
+        if (pedien == null) throw new Exception ("El pedido " + p_oid + " no existe");
+        if (pedien.Estado != Enumerated.UltrAthletics.EstadoPedidoEnum.preparando) throw new Exception ("No se ha preparado el pedido" + p_oid);
+
+
+        pedien.Estado = Enumerated.UltrAthletics.EstadoPedidoEnum.enCamino;
+
+        //postcondicion
+        pedicen.ModificarPedido (pedien.Id, pedien.Estado);
 
         /*PROTECTED REGION END*/
 }

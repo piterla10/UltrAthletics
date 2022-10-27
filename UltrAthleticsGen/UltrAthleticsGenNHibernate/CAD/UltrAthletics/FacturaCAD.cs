@@ -115,6 +115,13 @@ public int CrearFactura (FacturaEN factura)
         try
         {
                 SessionInitializeTransaction ();
+                if (factura.Pedido != null) {
+                        // Argumento OID y no colección.
+                        factura.Pedido = (UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN)session.Load (typeof(UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN), factura.Pedido.Id);
+
+                        factura.Pedido.Factura
+                                = factura;
+                }
 
                 session.Save (factura);
                 SessionCommit ();

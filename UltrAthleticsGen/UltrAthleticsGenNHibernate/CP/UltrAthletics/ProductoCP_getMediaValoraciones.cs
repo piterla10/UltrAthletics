@@ -13,7 +13,7 @@ using UltrAthleticsGenNHibernate.CEN.UltrAthletics;
 
 
 
-/*PROTECTED REGION ID(usingUltrAthleticsGenNHibernate.CP.UltrAthletics_Producto_getTotalValoraciones) ENABLED START*/
+/*PROTECTED REGION ID(usingUltrAthleticsGenNHibernate.CP.UltrAthletics_Producto_getMediaValoraciones) ENABLED START*/
 //  references to other libraries
 /*PROTECTED REGION END*/
 
@@ -21,14 +21,14 @@ namespace UltrAthleticsGenNHibernate.CP.UltrAthletics
 {
 public partial class ProductoCP : BasicCP
 {
-public int GetTotalValoraciones (int p_oid)
+public float GetMediaValoraciones (int p_oid)
 {
-        /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CP.UltrAthletics_Producto_getTotalValoraciones) ENABLED START*/
+        /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CP.UltrAthletics_Producto_getMediaValoraciones) ENABLED START*/
 
         IProductoCAD productoCAD = null;
         ProductoCEN productoCEN = null;
 
-        int result = -1;
+        float result = 0;
 
 
         try
@@ -36,10 +36,24 @@ public int GetTotalValoraciones (int p_oid)
                 SessionInitializeTransaction ();
                 productoCAD = new ProductoCAD (session);
                 productoCEN = new  ProductoCEN (productoCAD);
+                int k = 0;
 
-                ProductoEN proEN = productoCEN.DameProductoOID (p_oid);
+                //precondicion
+                ProductoEN pro = productoCAD.DameProductoOID(p_oid);
+                if (pro == null) { throw new Exception("El producto no existe"); }
 
-                result = proEN.Valoracion.Count;
+                IList<ValoracionEN> valoraciones = pro.Valoracion;
+
+                if (valoraciones.Count != 0)
+                {
+                    foreach (ValoracionEN val in valoraciones)
+                    {
+                        result += val.Valor;
+                        k++;
+                    }
+
+                    result = result / k;
+                }
 
 
                 SessionCommit ();

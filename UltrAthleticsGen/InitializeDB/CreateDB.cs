@@ -8,6 +8,7 @@ using System.Data;
 using UltrAthleticsGenNHibernate.EN.UltrAthletics;
 using UltrAthleticsGenNHibernate.CEN.UltrAthletics;
 using UltrAthleticsGenNHibernate.CAD.UltrAthletics;
+using UltrAthleticsGenNHibernate.CP.UltrAthletics;
 using UltrAthleticsGenNHibernate.Enumerated.UltrAthletics;
 
 /*PROTECTED REGION END*/
@@ -82,8 +83,16 @@ public static void InitializeData ()
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
                 ProductoCEN productoCEN = new ProductoCEN ();
                 ValoracionCEN valoracionCEN = new ValoracionCEN ();
+                PedidoCEN pedidoCEN = new PedidoCEN ();
+                LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN ();
+                CategoriaCEN categoriaCEN = new CategoriaCEN ();
 
-                //creando usuarios de usuarios
+
+                //creamos todos los objetos CP
+                ProductoCP productoCP = new ProductoCP ();
+                UsuarioCP usuarioCP = new UsuarioCP ();
+
+                //creando usuarios
                 String idUsuario = usuarioCEN.CrearUsuario ("usuarioCEN@correo", "1234", RolesEnum.admin);
                 String idJuan = usuarioCEN.CrearUsuario ("juan@correo", "1234", RolesEnum.cliente);
 
@@ -93,7 +102,15 @@ public static void InitializeData ()
                 UsuarioEN juanEN = new UsuarioEN ();
                 juanEN = usuarioCEN.DameUsuarioOID (idJuan);
 
-                //CREACION DE PRODUCTOS
+
+                //Creando pedidos
+                int idped = pedidoCEN.CrearPedido (EstadoPedidoEnum.carrito, "usuarioCEN@correo");
+                PedidoEN pedEN = pedidoCEN.DamePedidoOID (idped);
+
+
+
+
+                //Creando productos
                 ProductoEN pro1EN = new ProductoEN ();
                 int idpro1 = productoCEN.CrearProducto ("proteina", "grande", 100, 5, 0, null, 0);
                 pro1EN = productoCEN.DameProductoOID (idpro1);
@@ -102,142 +119,144 @@ public static void InitializeData ()
                 int idpro2 = productoCEN.CrearProducto ("mancuerna", "pequeña", 30, 2, 0, null, 0);
                 pro2EN = productoCEN.DameProductoOID (idpro2);
 
+
+                //creando lineas de pedido
+                int idLinea1 = lineaPedidoCEN.CrearLinea (3, idped, 50, idpro1);
+                LineaPedidoEN linea1EN = lineaPedidoCEN.DameLineaPedidoOID (idLinea1);
+                int idLinea2 = lineaPedidoCEN.CrearLinea (1, idped, 15, idpro2);
+
+
                 //creando valoraciones
                 valoracionCEN.CrearValoracion ("muy bueno", 4, idUsuario, idpro1);
                 valoracionCEN.CrearValoracion ("perfecto", 5, idJuan, idpro1);
+                valoracionCEN.CrearValoracion("uma delisia", 5, "usuarioCEN@correo", idpro1);
+                valoracionCEN.CrearValoracion("uma delisia", 10, "usuarioCEN@correo", idpro1);
 
-                //abel.RecuperarContrasenya ("abel@prebombeo");
 
+                //creamos una categoria
+                CategoriaEN categoriaEN = new CategoriaEN ();
+                String idCategoria1 = categoriaCEN.CrearCategoria ("natación", "deportes de natación");
+                categoriaEN = categoriaCEN.DameCategoriaOID (idCategoria1);
+
+
+                //probamos el inicio de sesion
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos si se inicia sesion con el usuairo " + usuarioEN.Email);
                 if (usuarioCEN.IniciarSesion ("usuarioCEN@correo", "1234") != null) {
-                        Console.WriteLine ("INICIO DE SESION CORRECTO");
+                        Console.WriteLine ("Inicio de sesion correcto");
+                }
+
+
+                //probamos el total de las valoraciones
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos el metodo getTotalValoraciones");
+                pro1EN = productoCEN.DameProductoOID (idpro1);
+                Console.WriteLine ("producto: " + pro1EN.Id + " " + pro1EN.Nombre);
+                Console.WriteLine ("Total valoraciones: " + productoCP.GetTotalValoraciones (idpro1));
+
+
+                //decrementas el stock
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos el metodo decrementarStock y incrementarStock");
+
+                Console.WriteLine ("Producto: " + pro1EN.Nombre + " Stock inicial " + pro1EN.Stock);
+                productoCEN.DecrementarStock (idpro1, 3);
+                pro1EN = productoCEN.DameProductoOID (idpro1);
+                Console.WriteLine ("Producto : " + pro1EN.Nombre + " Stock decrementado (le hemos quitado 3) " + pro1EN.Stock);
+
+                productoCEN.IncrementarStock (idpro1, 6);
+                pro1EN = productoCEN.DameProductoOID (idpro1);
+                Console.WriteLine ("Producto : " + pro1EN.Nombre + " Stock incrementado (le hemos incrementado en 6) " + pro1EN.Stock);
+
+                //Probamos asignar categoria y los productos relacionados a esa categoria
+                productoCEN.AsignarCategoria (idpro1, new List<String>{ "natación" });
+                productoCEN.AsignarCategoria (idpro2, new List<String> { "natación" });
+
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos el metodo DameProductoPorCategoria con la categoria: " + categoriaEN.Nombre);
+                IList<ProductoEN> lsta = productoCEN.DameProductoPorCategoria (categoriaEN.Nombre);
+                foreach (ProductoEN pro in lsta) {
+                        Console.WriteLine ("Producto : " + pro.Nombre);
+                }
+
+                //uso calcular macronutrientes
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Pruebo el metodo calcularMacronutrientes");
+                usuarioCEN.CalcularMacronutrientes (EstiloVidaEnum.fuerte, ObjetivosEnum.volumen, 92, 180, SexoEnum.hombre, "usuarioCEN@correo", 21);
+
+
+                //anyadienco productos a deseados y los mostramos por pantalla
+                usuarioCEN.AnyadirDeseado ("usuarioCEN@correo", new List<int> { idpro1, idpro2 });
+
+                /*
+                 * Console.WriteLine("***********************************");
+                 * Console.WriteLine("Probamos el metodo dameDeseados para el usuario " + usuarioEN.Email);
+                 * IList<ProductoEN> listDeseados =  usuarioCP.DameDeseados(idUsuario);
+                 * foreach (ProductoEN pro in listDeseados)
+                 * {
+                 * Console.WriteLine("Producto : " + pro.Nombre);
+                 * }
+                 */
+
+                //probamos el metodo para RecuperarContrasenya
+                //Console.WriteLine("***********************************");
+                //usuarioCEN.RecuperarContrasenya(idUsuario);
+
+
+                pedEN = pedidoCEN.DamePedidoOID (idped);
+
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos el metodo VerLineasPorPedido");
+                IList<LineaPedidoEN> listalienas = lineaPedidoCEN.VerLineasPorPedido (idped);
+                int x = 1;
+                Console.WriteLine ("Lineas del pedido ");
+                foreach (LineaPedidoEN lon in listalienas) {
+                        Console.WriteLine ("Linea " + x + " " + lon.Id + " " + lon.Pedido.Id);
+
+                        x++;
                 }
 
 
                 Console.WriteLine ("***********************************");
-                pro1EN = productoCEN.DameProductoOID (idpro1);
-                Console.WriteLine ("producto: " + pro1EN.Id + " " + pro1EN.Nombre);
-                Console.WriteLine (productoCEN.GetTotalValoraciones (idpro1));
+                Console.WriteLine ("Probamos el metodo GetTotal del pedido anterior ");
+                pedidoCEN.GetTotal (idped);
 
 
-
-                // Console.WriteLine("Producto : " + pro1EN.Nombre + " Stock " + pro1EN.Stock);
-                productoCEN.DecrementarStock (idpro1, 3);
-                pro1EN = productoCEN.DameProductoOID (idpro1);
-                // Console.WriteLine("Producto : " + pro1EN.Nombre + " Stock " + pro1EN.Stock);
-
-                CategoriaCEN catCen = new CategoriaCEN ();
-                CategoriaEN catEn = new CategoriaEN ();
-                catEn = catCen.DameCategoriaOID (catCen.CrearCategoria ("natación", "deportes de natación"));
-                productoCEN.AsignarCategoria (idpro1, new List<String>{ "natación" });
-                productoCEN.AsignarCategoria (idpro2, new List<String> { "natación" });
-
-                Random rdn = new Random ();
-                string caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890%$#@";
-                int longitud = caracteres.Length;
-                char letra;
-                int longitudContrasenia = 10;
-                string nuevopass = string.Empty;
-                for (int i = 0; i < longitudContrasenia; i++) {
-                        letra = caracteres [rdn.Next (longitud)];
-                        nuevopass += letra.ToString ();
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos el metodo DamePedidoUsuario ");
+                IList<PedidoEN> listaPedEN = pedidoCEN.DamePedidoUsuario (idUsuario);
+                int y = 1;
+                Console.WriteLine ("pedidos de " + usuarioEN.Email);
+                foreach (PedidoEN ped in listaPedEN) {
+                        Console.WriteLine ("Pedido " + y + " " + ped.Id);
+                        y++;
                 }
 
-                Console.WriteLine (nuevopass);
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("El estado inicial del pedido es" + pedEN.Estado);
 
-                //uso calcular macronutrientes
-                usuarioCEN.CalcularMacronutrientes (EstiloVidaEnum.fuerte, ObjetivosEnum.volumen, 92, 180, SexoEnum.hombre, "usuarioCEN@correo", 21);
+                Console.WriteLine ("Probamos el metodo PagarPedido ");
+                pedidoCEN.PagarPedido (idped);
+                pedEN = pedidoCEN.DamePedidoOID (idped);
+                Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
 
+                Console.WriteLine ("Probamos el metodo EnviarPedido ");
+                pedidoCEN.EnviarPedido (idped);
+                pedEN = pedidoCEN.DamePedidoOID (idped);
+                Console.WriteLine ("El estado actual del pedido: " + pedEN.Estado);
 
-                //anyadienco productos a deseados
-                usuarioCEN.AnyadirDeseado ("usuarioCEN@correo", new List<int> { idpro1, idpro2 });
+                Console.WriteLine ("Probamos el metodo EntregarPedido ");
+                pedidoCEN.EntregarPedido (idped);
+                pedEN = pedidoCEN.DamePedidoOID (idped);
+                Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
 
-                //usuarioCEN.DameDeseados ("usuarioCEN@correo");
-
-
-
-
-
-
-                /*
-                 * IList<ProductoEN> lsta = pro1.DameProductoPorCategoria (catEn.Nombre);
-                 *
-                 * foreach (ProductoEN productoCEN in lsta) {
-                 *      Console.WriteLine ("***********************************");
-                 *
-                 *      Console.WriteLine ("Producto : " + productoCEN.Nombre);
-                 *
-                 *      Console.WriteLine ("***********************************");
-                 * }
-                 */
-                // abel.RecuperarContrasenya("abel@prebombeo");
-
-
-
-
-
-
-                /*
-                 * //CREACION DE PEDIDO
-                 * PedidoCEN ped1 = new PedidoCEN ();
-                 * int idped = ped1.CrearPedido ("13-12-1222", "calle gooku", "12355551231231", EstadoPedidoEnum.enCamino, "abel@prebombeo", 0.3);
-                 *
-                 * PedidoEN pedEN = ped1.DamePedidoOID (idped);
-                 * // Console.WriteLine ("EL pedido");
-                 *
-                 *
-                 * LineaPedidoCEN lin1 = new LineaPedidoCEN ();
-                 * int idlin1 = lin1.CrearLinea (3, idped, 50, idpro1);
-                 *
-                 * LineaPedidoEN lin = lin1.DameLineaPedidoOID (idlin1);
-                 * //Console.WriteLine ("Linea 1 " + lin.Pedido.Id);
-                 *
-                 * LineaPedidoCEN lin2 = new LineaPedidoCEN ();
-                 * int idlin2 = lin1.CrearLinea (1, idped, 15, idpro2);
-                 *
-                 *
-                 *
-                 * pedEN = ped1.DamePedidoOID (idped);
-                 * // Console.WriteLine ("EL pedido tiene el total");
-                 *
-                 *
-                 *
-                 * // PedidoEN ped = ped1.DamePedidoOID(idped);
-                 * /*
-                 * //IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido (lin.Pedido.Id);
-                 * IList<LineaPedidoEN> listalienas = lin1.VerLineasPorPedido (idped);
-                 * int x = 1;
-                 * Console.WriteLine ("Lineas del pedido ");
-                 * foreach (LineaPedidoEN lon in listalienas) {
-                 *      Console.WriteLine ("Linea " + x + " " + lon.Id + " " + lon.Pedido.Id);
-                 *
-                 *      x++;
-                 * }
-                 *
-                 */
-
-                //lin1.GetTotalLinea (idlin1);
-                //ped1.GetTotal (idped);
-
-                /*
-                 * IList<PedidoEN> listaPedEN = ped1.DamePedidoUsuario("abel@prebombeo");
-                 * int y = 1;
-                 * Console.WriteLine ("pedidos de "+abelEN.Email);
-                 * foreach (PedidoEN ped in listaPedEN)
-                 * {
-                 *   Console.WriteLine ("Pedido " + y + " " + ped.Id);
-                 *   Console.WriteLine("***********************************");
-                 *
-                 *  ped1.GetTotal(ped.Id);
-                 *
-                 *  Console.WriteLine("***********************************");
-                 *  y++;
-                 * }
-                 */
-
-
+                Console.WriteLine("***********************************");
+                Console.WriteLine("Probamos el metodo GetMediaValoraciones");
+                Console.WriteLine("Media de valoraciones:");
+                Console.WriteLine(productoCP.GetMediaValoraciones(idpro1));
 
                 /*PROTECTED REGION END*/
-        }
+            }
         catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);
