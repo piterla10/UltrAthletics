@@ -23,7 +23,7 @@ public void GenerarCodigoLocalizacion (int p_oid)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Pedido_generarCodigoLocalizacion) ENABLED START*/
 
-
+        PedidoCAD pedCAD = new PedidoCAD ();
         PedidoCEN ped1 = new PedidoCEN ();
         PedidoEN pedEN = ped1.DamePedidoOID (p_oid);
 
@@ -42,7 +42,7 @@ public void GenerarCodigoLocalizacion (int p_oid)
         string generada = new string(caracteres);
 
         pedEN.Seguimiento = generada;
-        _IPedidoCAD.ModificarPedido (pedEN);
+        pedCAD.ModifyDefault (pedEN);
 
         /*PROTECTED REGION END*/
 }

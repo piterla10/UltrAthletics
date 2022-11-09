@@ -39,20 +39,20 @@ public float GetMediaValoraciones (int p_oid)
                 int k = 0;
 
                 //precondicion
-                ProductoEN pro = productoCAD.DameProductoOID(p_oid);
-                if (pro == null) { throw new Exception("El producto no existe"); }
+                ProductoEN pro = productoCAD.DameProductoOID (p_oid);
+                if (pro == null) {
+                        throw new Exception ("El producto no existe");
+                }
 
                 IList<ValoracionEN> valoraciones = pro.Valoracion;
 
-                if (valoraciones.Count != 0)
-                {
-                    foreach (ValoracionEN val in valoraciones)
-                    {
-                        result += val.Valor;
-                        k++;
-                    }
+                if (valoraciones.Count != 0) {
+                        foreach (ValoracionEN val in valoraciones) {
+                                result += val.Valor;
+                                k++;
+                        }
 
-                    result = result / k;
+                        result = result / k;
                 }
 
 

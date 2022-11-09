@@ -39,59 +39,6 @@ public IValoracionCAD get_IValoracionCAD ()
         return this._IValoracionCAD;
 }
 
-public int CrearValoracion (string p_comentario, int p_valor, string p_usuario, int p_producto)
-{
-        ValoracionEN valoracionEN = null;
-        int oid;
-
-        //Initialized ValoracionEN
-        valoracionEN = new ValoracionEN ();
-        valoracionEN.Comentario = p_comentario;
-
-        valoracionEN.Valor = p_valor;
-
-
-        if (p_usuario != null) {
-                // El argumento p_usuario -> Property usuario es oid = false
-                // Lista de oids id
-                valoracionEN.Usuario = new UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN ();
-                valoracionEN.Usuario.Email = p_usuario;
-        }
-
-
-        if (p_producto != -1) {
-                // El argumento p_producto -> Property producto es oid = false
-                // Lista de oids id
-                valoracionEN.Producto = new UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN ();
-                valoracionEN.Producto.Id = p_producto;
-        }
-
-        //Call to ValoracionCAD
-
-        oid = _IValoracionCAD.CrearValoracion (valoracionEN);
-        return oid;
-}
-
-public void ModificarValoracion (int p_Valoracion_OID, string p_comentario, int p_valor)
-{
-        ValoracionEN valoracionEN = null;
-
-        //Initialized ValoracionEN
-        valoracionEN = new ValoracionEN ();
-        valoracionEN.Id = p_Valoracion_OID;
-        valoracionEN.Comentario = p_comentario;
-        valoracionEN.Valor = p_valor;
-        //Call to ValoracionCAD
-
-        _IValoracionCAD.ModificarValoracion (valoracionEN);
-}
-
-public void BorrarValoracion (int id
-                              )
-{
-        _IValoracionCAD.BorrarValoracion (id);
-}
-
 public ValoracionEN DameValoracionOID (int id
                                        )
 {

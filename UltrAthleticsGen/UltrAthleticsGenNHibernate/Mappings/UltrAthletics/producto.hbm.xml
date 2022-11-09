@@ -33,7 +33,10 @@
 						<element column="Imagen" type="string"/> 
     				</bag>
 					<property name="MediaValoracion" type="float"> 
-						<column name="mediaValoracion"  not-null="true"/>
+						<column name="mediaValoracion" />
+					</property>
+					<property name="TotalValoracion" type="integer"> 
+						<column name="totalValoracion" />
 					</property>
 			
 			
@@ -110,6 +113,8 @@
       						</many-to-many>
     					</bag>
 			
+			
+					
 					
 					
 					

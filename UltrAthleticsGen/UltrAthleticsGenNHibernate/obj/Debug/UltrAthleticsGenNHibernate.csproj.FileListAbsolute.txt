@@ -89,3 +89,23 @@ D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\Ul
 D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.CopyComplete
 D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.dll
 D:\ABEL\UNIVERSIDAD\INGENIERIA MULTIMEDIA\3 CURSO\DSM\practicas\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.pdb
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\hibernate.cfg.xml
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\UltrAthleticsGenNHibernate.dll.config
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\UltrAthleticsGenNHibernate.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\UltrAthleticsGenNHibernate.pdb
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\Castle.DynamicProxy2.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\jose-jwt.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\LinFu.DynamicProxy.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\Newtonsoft.Json.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\NHibernate.ByteCode.Castle.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\NHibernate.ByteCode.LinFu.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\NHibernate.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\Iesi.Collections.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\Antlr3.Runtime.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\log4net.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.CoreCompileInputs.cache
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.CopyComplete
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.pdb
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\IronBarCode.dll
+D:\Desktop\o4ria\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.AssemblyReference.cache

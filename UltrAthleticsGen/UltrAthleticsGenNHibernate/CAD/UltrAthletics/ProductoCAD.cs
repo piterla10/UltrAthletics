@@ -117,6 +117,9 @@ public void ModifyDefault (ProductoEN producto)
 
                 productoEN.MediaValoracion = producto.MediaValoracion;
 
+
+                productoEN.TotalValoracion = producto.TotalValoracion;
+
                 session.Update (productoEN);
                 SessionCommit ();
         }
@@ -275,9 +278,6 @@ public void ModificarProducto (ProductoEN producto)
 
 
                 productoEN.Imagen = producto.Imagen;
-
-
-                productoEN.MediaValoracion = producto.MediaValoracion;
 
                 session.Update (productoEN);
                 SessionCommit ();

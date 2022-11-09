@@ -59,7 +59,7 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
 {
         return _IProductoCAD.DameProductoPorFiltro (articulo);
 }
-public int CrearProducto (string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, System.Collections.Generic.IList<string> p_imagen, float p_mediaValoracion)
+public int CrearProducto (string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, System.Collections.Generic.IList<string> p_imagen)
 {
         ProductoEN productoEN = null;
         int oid;
@@ -78,15 +78,13 @@ public int CrearProducto (string p_nombre, string p_descripcion, float p_precio,
 
         productoEN.Imagen = p_imagen;
 
-        productoEN.MediaValoracion = p_mediaValoracion;
-
         //Call to ProductoCAD
 
         oid = _IProductoCAD.CrearProducto (productoEN);
         return oid;
 }
 
-public void ModificarProducto (int p_Producto_OID, string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, System.Collections.Generic.IList<string> p_imagen, float p_mediaValoracion)
+public void ModificarProducto (int p_Producto_OID, string p_nombre, string p_descripcion, float p_precio, int p_stock, float p_descuento, System.Collections.Generic.IList<string> p_imagen)
 {
         ProductoEN productoEN = null;
 
@@ -99,7 +97,6 @@ public void ModificarProducto (int p_Producto_OID, string p_nombre, string p_des
         productoEN.Stock = p_stock;
         productoEN.Descuento = p_descuento;
         productoEN.Imagen = p_imagen;
-        productoEN.MediaValoracion = p_mediaValoracion;
         //Call to ProductoCAD
 
         _IProductoCAD.ModificarProducto (productoEN);

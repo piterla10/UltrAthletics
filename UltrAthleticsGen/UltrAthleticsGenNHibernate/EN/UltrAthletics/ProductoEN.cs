@@ -103,6 +103,13 @@ private float mediaValoracion;
 
 
 
+/**
+ *	Atributo totalValoracion
+ */
+private int totalValoracion;
+
+
+
 
 
 
@@ -190,6 +197,12 @@ public virtual float MediaValoracion {
 
 
 
+public virtual int TotalValoracion {
+        get { return totalValoracion; } set { totalValoracion = value;  }
+}
+
+
+
 
 
 public ProductoEN()
@@ -204,20 +217,20 @@ public ProductoEN()
 
 
 
-public ProductoEN(int id, string nombre, string descripcion, float precio, int stock, float descuento, System.Collections.Generic.IList<string> imagen, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN> categoria, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN> valoracion, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> usuario, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN> peso, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN> sabor, float mediaValoracion
+public ProductoEN(int id, string nombre, string descripcion, float precio, int stock, float descuento, System.Collections.Generic.IList<string> imagen, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN> categoria, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN> valoracion, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> usuario, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN> peso, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN> sabor, float mediaValoracion, int totalValoracion
                   )
 {
-        this.init (Id, nombre, descripcion, precio, stock, descuento, imagen, categoria, valoracion, lineaPedido, usuario, peso, sabor, mediaValoracion);
+        this.init (Id, nombre, descripcion, precio, stock, descuento, imagen, categoria, valoracion, lineaPedido, usuario, peso, sabor, mediaValoracion, totalValoracion);
 }
 
 
 public ProductoEN(ProductoEN producto)
 {
-        this.init (Id, producto.Nombre, producto.Descripcion, producto.Precio, producto.Stock, producto.Descuento, producto.Imagen, producto.Categoria, producto.Valoracion, producto.LineaPedido, producto.Usuario, producto.Peso, producto.Sabor, producto.MediaValoracion);
+        this.init (Id, producto.Nombre, producto.Descripcion, producto.Precio, producto.Stock, producto.Descuento, producto.Imagen, producto.Categoria, producto.Valoracion, producto.LineaPedido, producto.Usuario, producto.Peso, producto.Sabor, producto.MediaValoracion, producto.TotalValoracion);
 }
 
 private void init (int id
-                   , string nombre, string descripcion, float precio, int stock, float descuento, System.Collections.Generic.IList<string> imagen, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN> categoria, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN> valoracion, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> usuario, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN> peso, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN> sabor, float mediaValoracion)
+                   , string nombre, string descripcion, float precio, int stock, float descuento, System.Collections.Generic.IList<string> imagen, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.CategoriaEN> categoria, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ValoracionEN> valoracion, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> usuario, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PesoEN> peso, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.SaborEN> sabor, float mediaValoracion, int totalValoracion)
 {
         this.Id = id;
 
@@ -247,6 +260,8 @@ private void init (int id
         this.Sabor = sabor;
 
         this.MediaValoracion = mediaValoracion;
+
+        this.TotalValoracion = totalValoracion;
 }
 
 public override bool Equals (object obj)

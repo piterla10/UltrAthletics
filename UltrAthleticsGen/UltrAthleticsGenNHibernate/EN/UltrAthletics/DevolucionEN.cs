@@ -26,6 +26,13 @@ private string motivo;
 
 
 
+/**
+ *	Atributo creacion
+ */
+private string creacion;
+
+
+
 
 
 
@@ -47,6 +54,12 @@ public virtual string Motivo {
 
 
 
+public virtual string Creacion {
+        get { return creacion; } set { creacion = value;  }
+}
+
+
+
 
 
 public DevolucionEN()
@@ -55,20 +68,20 @@ public DevolucionEN()
 
 
 
-public DevolucionEN(int id, UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN pedido, string motivo
+public DevolucionEN(int id, UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN pedido, string motivo, string creacion
                     )
 {
-        this.init (Id, pedido, motivo);
+        this.init (Id, pedido, motivo, creacion);
 }
 
 
 public DevolucionEN(DevolucionEN devolucion)
 {
-        this.init (Id, devolucion.Pedido, devolucion.Motivo);
+        this.init (Id, devolucion.Pedido, devolucion.Motivo, devolucion.Creacion);
 }
 
 private void init (int id
-                   , UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN pedido, string motivo)
+                   , UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN pedido, string motivo, string creacion)
 {
         this.Id = id;
 
@@ -76,6 +89,8 @@ private void init (int id
         this.Pedido = pedido;
 
         this.Motivo = motivo;
+
+        this.Creacion = creacion;
 }
 
 public override bool Equals (object obj)

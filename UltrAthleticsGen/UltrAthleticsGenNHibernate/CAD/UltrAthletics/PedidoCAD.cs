@@ -112,6 +112,9 @@ public void ModifyDefault (PedidoEN pedido)
 
 
 
+
+                pedidoEN.Total = pedido.Total;
+
                 session.Update (pedidoEN);
                 SessionCommit ();
         }
@@ -315,6 +318,36 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("PedidoENverCarritoHQL");
                 query.SetParameter ("usu", usu);
+
+                result = query.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in PedidoCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> DamePedidoUsuarioUltimoMes (string usuario)
+{
+        System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM PedidoEN self where FROM PedidoEN as ped WHERE ped.Usuario.Email = :usuario AND month(ped.Fecha) = month(GETDATE()) AND year(ped.Fecha) = year(GETDATE())";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENdamePedidoUsuarioUltimoMesHQL");
+                query.SetParameter ("usuario", usuario);
 
                 result = query.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN>();
                 SessionCommit ();

@@ -40,8 +40,6 @@ void AsignarCategoria (int p_Producto_OID, System.Collections.Generic.IList<stri
 
 void DesasignarCategoria (int p_Producto_OID, System.Collections.Generic.IList<string> p_categoria_OIDs);
 
-
-
 void AnyadirPeso (int p_Producto_OID, System.Collections.Generic.IList<string> p_peso_OIDs);
 
 void AnyadirSabor (int p_Producto_OID, System.Collections.Generic.IList<string> p_sabor_OIDs);

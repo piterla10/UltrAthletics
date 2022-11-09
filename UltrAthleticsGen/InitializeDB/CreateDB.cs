@@ -83,9 +83,13 @@ public static void InitializeData ()
                 UsuarioCEN usuarioCEN = new UsuarioCEN ();
                 ProductoCEN productoCEN = new ProductoCEN ();
                 ValoracionCEN valoracionCEN = new ValoracionCEN ();
+                ValoracionCP valoracionCP = new ValoracionCP ();
                 PedidoCEN pedidoCEN = new PedidoCEN ();
                 LineaPedidoCEN lineaPedidoCEN = new LineaPedidoCEN ();
                 CategoriaCEN categoriaCEN = new CategoriaCEN ();
+                PedidoCP pedidoCP = new PedidoCP ();
+                FacturaCEN facturaCEN = new FacturaCEN ();
+                DevolucionCEN devolucionCEN = new DevolucionCEN ();
 
 
                 //creamos todos los objetos CP
@@ -112,11 +116,11 @@ public static void InitializeData ()
 
                 //Creando productos
                 ProductoEN pro1EN = new ProductoEN ();
-                int idpro1 = productoCEN.CrearProducto ("proteina", "grande", 100, 5, 0, null, 0);
+                int idpro1 = productoCEN.CrearProducto ("proteina", "grande", 100, 5, 0, null);
                 pro1EN = productoCEN.DameProductoOID (idpro1);
 
                 ProductoEN pro2EN = new ProductoEN ();
-                int idpro2 = productoCEN.CrearProducto ("mancuerna", "pequeña", 30, 2, 0, null, 0);
+                int idpro2 = productoCEN.CrearProducto ("mancuerna", "pequeña", 30, 2, 0, null);
                 pro2EN = productoCEN.DameProductoOID (idpro2);
 
 
@@ -127,10 +131,10 @@ public static void InitializeData ()
 
 
                 //creando valoraciones
-                valoracionCEN.CrearValoracion ("muy bueno", 4, idUsuario, idpro1);
-                valoracionCEN.CrearValoracion ("perfecto", 5, idJuan, idpro1);
-                valoracionCEN.CrearValoracion("uma delisia", 5, "usuarioCEN@correo", idpro1);
-                valoracionCEN.CrearValoracion("uma delisia", 10, "usuarioCEN@correo", idpro1);
+                int val4 = valoracionCP.CrearValoracion ("muy bueno", 4, idUsuario, idpro1).Id;
+                int val51 = valoracionCP.CrearValoracion ("perfecto", 5, idJuan, idpro1).Id;
+                int val52 = valoracionCP.CrearValoracion ("uma delisia", 5, "usuarioCEN@correo", idpro1).Id;
+                int val10 = valoracionCP.CrearValoracion ("uma delisia", 10, "usuarioCEN@correo", idpro1).Id;
 
 
                 //creamos una categoria
@@ -145,14 +149,6 @@ public static void InitializeData ()
                 if (usuarioCEN.IniciarSesion ("usuarioCEN@correo", "1234") != null) {
                         Console.WriteLine ("Inicio de sesion correcto");
                 }
-
-
-                //probamos el total de las valoraciones
-                Console.WriteLine ("***********************************");
-                Console.WriteLine ("Probamos el metodo getTotalValoraciones");
-                pro1EN = productoCEN.DameProductoOID (idpro1);
-                Console.WriteLine ("producto: " + pro1EN.Id + " " + pro1EN.Nombre);
-                Console.WriteLine ("Total valoraciones: " + productoCP.GetTotalValoraciones (idpro1));
 
 
                 //decrementas el stock
@@ -188,16 +184,6 @@ public static void InitializeData ()
                 //anyadienco productos a deseados y los mostramos por pantalla
                 usuarioCEN.AnyadirDeseado ("usuarioCEN@correo", new List<int> { idpro1, idpro2 });
 
-                /*
-                 * Console.WriteLine("***********************************");
-                 * Console.WriteLine("Probamos el metodo dameDeseados para el usuario " + usuarioEN.Email);
-                 * IList<ProductoEN> listDeseados =  usuarioCP.DameDeseados(idUsuario);
-                 * foreach (ProductoEN pro in listDeseados)
-                 * {
-                 * Console.WriteLine("Producto : " + pro.Nombre);
-                 * }
-                 */
-
                 //probamos el metodo para RecuperarContrasenya
                 //Console.WriteLine("***********************************");
                 //usuarioCEN.RecuperarContrasenya(idUsuario);
@@ -219,7 +205,7 @@ public static void InitializeData ()
 
                 Console.WriteLine ("***********************************");
                 Console.WriteLine ("Probamos el metodo GetTotal del pedido anterior ");
-                pedidoCEN.GetTotal (idped);
+                pedidoCP.CalcularTotal (idped);
 
 
                 Console.WriteLine ("***********************************");
@@ -236,9 +222,22 @@ public static void InitializeData ()
                 Console.WriteLine ("El estado inicial del pedido es" + pedEN.Estado);
 
                 Console.WriteLine ("Probamos el metodo PagarPedido ");
-                pedidoCEN.PagarPedido (idped);
+                pedidoCEN.PagarPedido (idped, "aqui", "esta", 0);
                 pedEN = pedidoCEN.DamePedidoOID (idped);
                 Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
+
+
+                Console.WriteLine ("***");
+                Console.WriteLine (pedEN.Fecha);
+                Console.WriteLine ("Probamos el metodo damePedidoUusarioUltimoMes");
+                DateTime fechaActual = DateTime.Today;
+                Console.WriteLine ("pedidos de " + usuarioEN.Email + " en el mes: " + fechaActual.ToString ("MMMM"));
+                /*IList<PedidoEN> listaPedENMesActual = pedidoCEN.DamePedidoUsuarioUltimoMes (idUsuario);
+                 *
+                 * foreach (PedidoEN ped in listaPedENMesActual) {
+                 *      Console.WriteLine ("Pedido " + ped.Id + " fecha: " + ped.Fecha);
+                 * }*/
+
 
                 Console.WriteLine ("Probamos el metodo EnviarPedido ");
                 pedidoCEN.EnviarPedido (idped);
@@ -250,13 +249,52 @@ public static void InitializeData ()
                 pedEN = pedidoCEN.DamePedidoOID (idped);
                 Console.WriteLine ("El estado actual del pedido es: " + pedEN.Estado);
 
-                Console.WriteLine("***********************************");
-                Console.WriteLine("Probamos el metodo GetMediaValoraciones");
-                Console.WriteLine("Media de valoraciones:");
-                Console.WriteLine(productoCP.GetMediaValoraciones(idpro1));
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos el metodo GetMediaValoraciones");
+                Console.WriteLine ("Media de valoraciones:");
+                Console.WriteLine (pro1EN.MediaValoracion);
+                Console.WriteLine ("Total de valoraciones:");
+                Console.WriteLine (pro1EN.TotalValoracion);
+                valoracionCP.ModificarValoracion (val10, "no tan bueno", 9);
+                pro1EN = productoCEN.DameProductoOID (idpro1);
+                Console.WriteLine ("Media de valoraciones despues de modificar 10 a 9:");
+                Console.WriteLine (pro1EN.MediaValoracion);
+                Console.WriteLine ("Total de valoraciones despues de modificar 10 a 9:");
+                Console.WriteLine (pro1EN.TotalValoracion);
+                valoracionCP.BorrarValoracion (val4);
+                pro1EN = productoCEN.DameProductoOID (idpro1);
+                Console.WriteLine ("Media de valoraciones despues de borrar 4:");
+                Console.WriteLine (pro1EN.MediaValoracion);
+                Console.WriteLine ("Total de valoraciones despues de borrar 4:");
+                Console.WriteLine (pro1EN.TotalValoracion);
+
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos el metodo GenerarCodigoLocalizacion");
+                pedidoCEN.GenerarCodigoLocalizacion (idped);
+                pedEN = pedidoCEN.DamePedidoOID (idped);
+                Console.WriteLine ("LOCALIZACION: " + pedEN.Seguimiento);
+
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Creamos factura y devolucion");
+                int facid = facturaCEN.CrearFactura (idped);
+                int devid = devolucionCEN.CrearDevolucion (idped, "no me gusta");
+
+                DevolucionEN dev = devolucionCEN.DameDevolucionOID (devid);
+
+                Console.WriteLine ("ID de factura: " + facid);
+                Console.WriteLine ("ID de devolucion: " + devid);
+                Console.WriteLine ("Motivo de devolucion: " + dev.Motivo);
+
+                pedidoCEN.GetCodigoDevolucion (idped);
+
+                /*IList<ProductoEN> deseados = usuarioCEN.Operation();
+                 * foreach (ProductoEN pro in deseados)
+                 * {
+                 *  Console.WriteLine("Producto "+pro.Nombre);
+                 * }*/
 
                 /*PROTECTED REGION END*/
-            }
+        }
         catch (Exception ex)
         {
                 System.Console.WriteLine (ex.InnerException);

@@ -15,6 +15,9 @@
 					<property name="Motivo" type="string"> 
 						<column name="motivo"  not-null="true"/>
 					</property>
+					<property name="Creacion" type="string"> 
+						<column name="creacion" />
+					</property>
 			
 			
 			
@@ -24,6 +27,8 @@
 						</many-to-one>
 											 					
 			
+			
+					
 					
 					
 					

@@ -94,6 +94,9 @@ public void ModifyDefault (DevolucionEN devolucion)
 
                 devolucionEN.Motivo = devolucion.Motivo;
 
+
+                devolucionEN.Creacion = devolucion.Creacion;
+
                 session.Update (devolucionEN);
                 SessionCommit ();
         }

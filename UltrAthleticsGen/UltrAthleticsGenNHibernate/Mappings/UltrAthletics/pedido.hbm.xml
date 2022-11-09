@@ -30,6 +30,9 @@
 					<property name="Seguimiento" type="string"> 
 						<column name="seguimiento" />
 					</property>
+					<property name="Total" type="float"> 
+						<column name="total" />
+					</property>
 			
 			
 			
@@ -72,6 +75,8 @@
 							<one-to-many class="UltrAthleticsGenNHibernate.EN.UltrAthletics.DevolucionEN"/>
 					    </bag>
 					
+			
+					
 					
 					
 					
@@ -89,5 +94,6 @@
 		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
 		  <query name="PedidoENdamePedidoUsuarioHQL"><![CDATA[FROM PedidoEN as ped WHERE ped.Usuario.Email = :usuario]]></query>
 		  <query name="PedidoENverCarritoHQL"><![CDATA[SELECT ped FROM PedidoEN as ped INNER JOIN ped.Usuario usu WHERE ped.Estado = 4 AND usu.Email = :usu]]></query>
+		  <query name="PedidoENdamePedidoUsuarioUltimoMesHQL"><![CDATA[FROM PedidoEN as ped WHERE ped.Usuario.Email = :usuario AND month(ped.Fecha) = month(GETDATE()) AND year(ped.Fecha) = year(GETDATE())]]></query>
 		</hibernate-mapping>
 	
