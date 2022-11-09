@@ -143,6 +143,40 @@ public static void InitializeData ()
                 categoriaEN = categoriaCEN.DameCategoriaOID (idCategoria1);
 
 
+                //creaar pesos
+                PesoCEN pesoCEN = new PesoCEN ();
+                string idPes1 = pesoCEN.CrearPeso ("5");
+                string idPes2 = pesoCEN.CrearPeso ("2");
+
+
+
+                //crear sabor
+                SaborCEN saborCEN = new SaborCEN ();
+                string idSab2 = saborCEN.CrearSabor ("limon");
+
+                string idSab1 = saborCEN.CrearSabor ("azul");
+
+                productoCEN.AnyadirPeso (idpro1, new List<string> { idPes1, idPes2 });
+                productoCEN.AnyadirSabor (idpro1, new List<string> { idSab1, idSab2 });
+
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos los readFilter de sabor y peso de los productos");
+
+                IList<ProductoEN> productoPeso = productoCEN.DameProductoPorPeso (idPes1);
+                Console.WriteLine ("Productos con peso= " + idPes1);
+                foreach (ProductoEN pro in productoPeso) {
+                        Console.WriteLine (pro.Nombre);
+                }
+                Console.WriteLine ("***********************************");
+
+                IList<ProductoEN> productoSabor = productoCEN.DameProductoPorSabor (idSab2);
+                Console.WriteLine ("Productos con sabor= " + idSab2);
+                foreach (ProductoEN pro in productoSabor) {
+                        Console.WriteLine (pro.Nombre);
+                }
+                Console.WriteLine ("***********************************");
+
+
                 //probamos el inicio de sesion
                 Console.WriteLine ("***********************************");
                 Console.WriteLine ("Probamos si se inicia sesion con el usuairo " + usuarioEN.Email);
@@ -204,8 +238,8 @@ public static void InitializeData ()
 
 
                 Console.WriteLine ("***********************************");
-                Console.WriteLine ("Probamos el metodo GetTotal del pedido anterior ");
-                pedidoCP.CalcularTotal (idped);
+                Console.WriteLine ("Probamos el metodo CalcularTotal(CP) y getTotalLinea(CP) del pedido anterior ");
+               Console.WriteLine("TOTAL = " + pedidoCP.CalcularTotal (idped));
 
 
                 Console.WriteLine ("***********************************");
@@ -287,11 +321,14 @@ public static void InitializeData ()
 
                 pedidoCEN.GetCodigoDevolucion (idped);
 
-                /*IList<ProductoEN> deseados = usuarioCEN.Operation();
-                 * foreach (ProductoEN pro in deseados)
-                 * {
-                 *  Console.WriteLine("Producto "+pro.Nombre);
-                 * }*/
+/*
+                Console.WriteLine("***********************************");
+                Console.WriteLine("Obtenemos los deseados (CP)");
+                IList<ProductoEN> deseados = usuarioCP.DameDeseados("usuarioCEN@correo");
+                foreach (ProductoEN pro in deseados) {
+                        Console.WriteLine ("Producto " + pro.Nombre);
+                }
+*/
 
                 /*PROTECTED REGION END*/
         }

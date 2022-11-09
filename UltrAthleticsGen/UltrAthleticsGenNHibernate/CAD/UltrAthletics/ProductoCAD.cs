@@ -588,7 +588,7 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM ProductoEN self where SELECT pro FROM ProductoEN as pro INNER JOIN pro.Sabor as sab WHERE sab.Nombre = :sabor";
+                //String sql = @"FROM ProductoEN self where SELECT pro FROM ProductoEN as pro INNER JOIN pro.Sabor as sab WHERE sab.Nombre = :sabo";
                 //IQuery query = session.CreateQuery(sql);
                 IQuery query = (IQuery)session.GetNamedQuery ("ProductoENdameProductoPorSaborHQL");
                 query.SetParameter ("sabo", sabo);

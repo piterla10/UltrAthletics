@@ -37,11 +37,12 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
                 usuarioCAD = new UsuarioCAD (session);
                 usuarioCEN = new  UsuarioCEN (usuarioCAD);
 
-                UsuarioEN usuarioEN = usuarioCEN.DameUsuarioOID (usuario);
+                UsuarioEN usuarioEN = usuarioCEN.DameUsuarioOID(usuario);
 
                 result = usuarioEN.ListaDeseados;
 
                 SessionCommit ();
+                return result;
         }
         catch (Exception ex)
         {

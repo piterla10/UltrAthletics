@@ -251,7 +251,7 @@
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_jrPQoFPSEe2zE8Mr6MOh-Q" name="dameProductoPorCategoria" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_7o1OAE73Ee2WscYf4oqJUQ" filter="SELECT pro FROM ProductoEN as pro INNER JOIN pro.Categoria as cat WHERE cat.Nombre = :categoria" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_nPurEFPSEe2zE8Mr6MOh-Q" name="categoria" type="OID" typeObject="_pHmSAE74Ee2WscYf4oqJUQ"/>
       </operations>
-      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_jqKdIFPTEe2zE8Mr6MOh-Q" name="dameProductoPorSabor" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_7o1OAE73Ee2WscYf4oqJUQ" filter="SELECT pro FROM ProductoEN as pro INNER JOIN pro.Sabor as sab WHERE sab.Nombre = :sabor" automaticSynchronize="false">
+      <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_jqKdIFPTEe2zE8Mr6MOh-Q" name="dameProductoPorSabor" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_7o1OAE73Ee2WscYf4oqJUQ" filter="SELECT pro FROM ProductoEN as pro INNER JOIN pro.Sabor as sab WHERE sab.Nombre = :sabo" automaticSynchronize="false">
         <arguments xmi:type="es.ua.dlsi.ooh:Argument" xmi:id="_mA_xoFPTEe2zE8Mr6MOh-Q" name="sabo" type="OID" typeObject="_I5dgMFMiEe2wlY0lRfq90Q"/>
       </operations>
       <operations xmi:type="es.ua.dlsi.ooh:Operation" xmi:id="_1rf7oFPTEe2zE8Mr6MOh-Q" name="dameProductoPorPeso" operationType="ReadFilter" type="Object" collectionType="List" typeObject="_7o1OAE73Ee2WscYf4oqJUQ" filter="SELECT pro FROM ProductoEN as pro INNER JOIN pro.Peso as pes WHERE pes.Cantidad = :peso" automaticSynchronize="false">

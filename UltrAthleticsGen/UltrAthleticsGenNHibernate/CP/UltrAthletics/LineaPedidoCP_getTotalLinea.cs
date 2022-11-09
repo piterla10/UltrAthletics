@@ -33,9 +33,9 @@ public float GetTotalLinea (int p_oid)
 
         try
         {
-                SessionInitializeTransaction();
-                lineaPedidoCAD = new LineaPedidoCAD(session);
-                lin1 = new LineaPedidoCEN(lineaPedidoCAD);
+                SessionInitializeTransaction ();
+                lineaPedidoCAD = new LineaPedidoCAD (session);
+                lin1 = new LineaPedidoCEN (lineaPedidoCAD);
 
 
 
@@ -45,36 +45,34 @@ public float GetTotalLinea (int p_oid)
                 //PRECONDICIONES
 
                 if (p_oid == 0)
-                    throw new Exception("Ninguna linea proporcionado");
+                        throw new Exception ("Ninguna linea proporcionado");
 
-                if (lin1.DameLineaPedidoOID(p_oid) == null)
-                    throw new Exception("La  linea de pedido " + p_oid + " no existe");
+                if (lin1.DameLineaPedidoOID (p_oid) == null)
+                        throw new Exception ("La  linea de pedido " + p_oid + " no existe");
 
 
-                LineaPedidoEN linEN = lin1.DameLineaPedidoOID(p_oid);
+                LineaPedidoEN linEN = lin1.DameLineaPedidoOID (p_oid);
 
 
                 // float total = 0;
 
-                if (linEN.Pedido.Estado == Enumerated.UltrAthletics.EstadoPedidoEnum.carrito)
-                {
-                    total = linEN.Unidades * linEN.Producto.Precio;
+                if (linEN.Pedido.Estado == Enumerated.UltrAthletics.EstadoPedidoEnum.carrito) {
+                        total = linEN.Unidades * linEN.Producto.Precio;
                 }
-                else
-                {
-                    total = linEN.Unidades * linEN.Precio;
+                else{
+                        total = linEN.Unidades * linEN.Precio;
                 }
 
-                Console.WriteLine(linEN.Unidades + " de " + linEN.Producto.Nombre + " EL precio total de la linea es: " + total);
+                Console.WriteLine (linEN.Unidades + " de " + linEN.Producto.Nombre + " EL precio total de la linea es: " + total);
 
 
                 if (total == 0)
-                    throw new NotImplementedException("Method GetTotalLinea() not yet implemented.");
+                        throw new NotImplementedException ("Method GetTotalLinea() not yet implemented.");
 
-                SessionCommit();
+                SessionCommit ();
 
                 return total;
-            }
+        }
         catch (Exception ex)
         {
                 SessionRollBack ();

@@ -23,42 +23,41 @@ public partial class PedidoCP : BasicCP
 {
 public float CalcularTotal (int p_oid)
 {
-            /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CP.UltrAthletics_Pedido_calcularTotal) ENABLED START*/
+        /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CP.UltrAthletics_Pedido_calcularTotal) ENABLED START*/
 
-            IPedidoCAD pedidoCAD = null;
-            PedidoCEN pedidoCEN = null;
-            PedidoEN pedidoEN = null;
+        IPedidoCAD pedidoCAD = null;
+        PedidoCEN pedidoCEN = null;
+        PedidoEN pedidoEN = null;
 
-            LineaPedidoCP LineaCP = null;
+        LineaPedidoCP LineaCP = null;
 
-            float result = 0;
-
-
-            try{
-                SessionInitializeTransaction();
-                pedidoCAD = new PedidoCAD(session);
-                pedidoCEN = new PedidoCEN(pedidoCAD);
-
-                LineaCP = new LineaPedidoCP(session);
+        float result = 0;
 
 
-                pedidoEN = pedidoCEN.DamePedidoOID(p_oid);
+        try{
+                SessionInitializeTransaction ();
+                pedidoCAD = new PedidoCAD (session);
+                pedidoCEN = new PedidoCEN (pedidoCAD);
+
+                LineaCP = new LineaPedidoCP (session);
+
+
+                pedidoEN = pedidoCEN.DamePedidoOID (p_oid);
 
                 IList<LineaPedidoEN> lineas = pedidoEN.LineaPedido;
 
-                foreach (LineaPedidoEN lin in lineas)
-                {
-                    result += LineaCP.GetTotalLinea(lin.Id);
+                foreach (LineaPedidoEN lin in lineas) {
+                        result += LineaCP.GetTotalLinea (lin.Id);
                 }
 
                 pedidoEN.Total = result;
-                Console.WriteLine("dentro del codigo: " + pedidoEN.Total);
+                //Console.WriteLine ("dentro del codigo: " + pedidoEN.Total);
 
-                pedidoCAD.ModifyDefault(pedidoEN);
+                pedidoCAD.ModifyDefault (pedidoEN);
 
-                Console.WriteLine("dentro del codigo: " + pedidoEN.Total);
+               // Console.WriteLine ("dentro del codigo: " + pedidoEN.Total);
 
-                SessionCommit();
+                SessionCommit ();
 
                 return result;
         }
