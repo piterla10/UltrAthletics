@@ -129,6 +129,10 @@ public void EliminarDeseado (string p_Usuario_OID, System.Collections.Generic.IL
 
         _IUsuarioCAD.EliminarDeseado (p_Usuario_OID, p_listaDeseados_OIDs);
 }
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> DameUsuarioPorCategoria (string categoria)
+{
+        return _IUsuarioCAD.DameUsuarioPorCategoria (categoria);
+}
 
 
 

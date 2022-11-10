@@ -461,5 +461,35 @@ public void EliminarDeseado (string p_Usuario_OID, System.Collections.Generic.IL
                 SessionClose ();
         }
 }
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> DameUsuarioPorCategoria (string categoria)
+{
+        System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> result;
+        try
+        {
+                SessionInitializeTransaction ();
+                //String sql = @"FROM UsuarioEN self where SELECT us FROM UsuarioEN as us INNER JOIN us.Categoria as cat WHERE cat.Nombre = :categoria";
+                //IQuery query = session.CreateQuery(sql);
+                IQuery query = (IQuery)session.GetNamedQuery ("UsuarioENdameUsuarioPorCategoriaHQL");
+                query.SetParameter ("categoria", categoria);
+
+                result = query.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN>();
+                SessionCommit ();
+        }
+
+        catch (Exception ex) {
+                SessionRollBack ();
+                if (ex is UltrAthleticsGenNHibernate.Exceptions.ModelException)
+                        throw ex;
+                throw new UltrAthleticsGenNHibernate.Exceptions.DataLayerException ("Error in UsuarioCAD.", ex);
+        }
+
+
+        finally
+        {
+                SessionClose ();
+        }
+
+        return result;
+}
 }
 }

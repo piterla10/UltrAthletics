@@ -105,9 +105,9 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
 {
         return _IPedidoCAD.VerCarrito (usu);
 }
-public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> DamePedidoUsuarioUltimoMes (string usuario)
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> DamePedidoPorUsuarioYMes (string usuario, int? mes, int ? anno)
 {
-        return _IPedidoCAD.DamePedidoUsuarioUltimoMes (usuario);
+        return _IPedidoCAD.DamePedidoPorUsuarioYMes (usuario, mes, anno);
 }
 }
 }

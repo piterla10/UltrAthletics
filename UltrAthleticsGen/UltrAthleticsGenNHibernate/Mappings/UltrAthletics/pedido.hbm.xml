@@ -12,7 +12,7 @@
 						</id>
 			
 					
-					<property name="Fecha" type="string"> 
+					<property name="Fecha" type="date"> 
 						<column name="fecha" />
 					</property>
 					<property name="Direccion" type="string"> 
@@ -94,6 +94,6 @@
 		  <query name="PedidoENReadAllHQL">from PedidoEN</query>
 		  <query name="PedidoENdamePedidoUsuarioHQL"><![CDATA[FROM PedidoEN as ped WHERE ped.Usuario.Email = :usuario]]></query>
 		  <query name="PedidoENverCarritoHQL"><![CDATA[SELECT ped FROM PedidoEN as ped INNER JOIN ped.Usuario usu WHERE ped.Estado = 4 AND usu.Email = :usu]]></query>
-		  <query name="PedidoENdamePedidoUsuarioUltimoMesHQL"><![CDATA[FROM PedidoEN as ped WHERE ped.Usuario.Email = :usuario AND month(ped.Fecha) = month(GETDATE()) AND year(ped.Fecha) = year(GETDATE())]]></query>
+		  <query name="PedidoENdamePedidoPorUsuarioYMesHQL"><![CDATA[FROM PedidoEN as ped WHERE ped.Usuario.Email = :usuario AND month(ped.Fecha) = :mes AND year(ped.Fecha) = :anno]]></query>
 		</hibernate-mapping>
 	

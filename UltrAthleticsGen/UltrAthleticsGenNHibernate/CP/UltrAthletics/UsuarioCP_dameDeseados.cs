@@ -25,8 +25,8 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CP.UltrAthletics_Usuario_dameDeseados) ENABLED START*/
 
-        IUsuarioCAD usuarioCAD = null;
-        UsuarioCEN usuarioCEN = null;
+        IProductoCAD productoCAD = null;
+        ProductoCEN productoCEN = null;
 
         System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN>  result = null;
 
@@ -34,15 +34,12 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
         try
         {
                 SessionInitializeTransaction ();
-                usuarioCAD = new UsuarioCAD (session);
-                usuarioCEN = new  UsuarioCEN (usuarioCAD);
+                productoCAD = new ProductoCAD (session);
+                productoCEN = new ProductoCEN (productoCAD);
 
-                UsuarioEN usuarioEN = usuarioCEN.DameUsuarioOID(usuario);
-
-                result = usuarioEN.ListaDeseados;
+                result = productoCEN.DameDeseadosPorUsuario (usuario);
 
                 SessionCommit ();
-                return result;
         }
         catch (Exception ex)
         {

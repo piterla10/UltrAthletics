@@ -156,5 +156,13 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
 {
         return _IProductoCAD.DameProductoPorPeso (peso);
 }
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorPrecio (int? maximo, int ? minimo)
+{
+        return _IProductoCAD.DameProductoPorPrecio (maximo, minimo);
+}
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameDeseadosPorUsuario (string user)
+{
+        return _IProductoCAD.DameDeseadosPorUsuario (user);
+}
 }
 }

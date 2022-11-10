@@ -29,10 +29,14 @@ public void PagarPedido (int p_oid, string direccion, string tarjeta, double des
 
         if (pedEN.Estado != Enumerated.UltrAthletics.EstadoPedidoEnum.carrito) throw new Exception ("El estado del pedido no es carrito");
 
+        pedidoCEN.GenerarCodigoLocalizacion (p_oid);
+        pedEN = pedidoCEN.DamePedidoOID (p_oid);
+
+        Console.WriteLine ("Codigo de seguimiento: " + pedEN.Seguimiento);
 
         pedEN.Estado = Enumerated.UltrAthletics.EstadoPedidoEnum.preparando;
 
-        pedEN.Fecha = DateTime.Today.ToString ("f");
+        pedEN.Fecha = DateTime.Today.Date;
         pedEN.Direccion = direccion;
         pedEN.Tarjeta = tarjeta;
         pedEN.Descuento = descuento;

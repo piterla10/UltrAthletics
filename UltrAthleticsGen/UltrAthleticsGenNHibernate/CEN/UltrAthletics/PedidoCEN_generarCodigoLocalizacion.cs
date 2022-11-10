@@ -27,7 +27,7 @@ public void GenerarCodigoLocalizacion (int p_oid)
         PedidoCEN ped1 = new PedidoCEN ();
         PedidoEN pedEN = ped1.DamePedidoOID (p_oid);
 
-        if (pedEN.Estado == Enumerated.UltrAthletics.EstadoPedidoEnum.carrito) {
+        if (pedEN.Estado != Enumerated.UltrAthletics.EstadoPedidoEnum.carrito) {
                 throw new Exception ();
         }
 

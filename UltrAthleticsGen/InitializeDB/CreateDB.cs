@@ -90,6 +90,7 @@ public static void InitializeData ()
                 PedidoCP pedidoCP = new PedidoCP ();
                 FacturaCEN facturaCEN = new FacturaCEN ();
                 DevolucionCEN devolucionCEN = new DevolucionCEN ();
+                EventoCEN eventoCEN = new EventoCEN ();
 
 
                 //creamos todos los objetos CP
@@ -97,7 +98,7 @@ public static void InitializeData ()
                 UsuarioCP usuarioCP = new UsuarioCP ();
 
                 //creando usuarios
-                String idUsuario = usuarioCEN.CrearUsuario ("usuarioCEN@correo", "1234", RolesEnum.admin);
+                String idUsuario = usuarioCEN.CrearUsuario ("correoChuli@correo", "1234", RolesEnum.admin);
                 String idJuan = usuarioCEN.CrearUsuario ("juan@correo", "1234", RolesEnum.cliente);
 
                 UsuarioEN usuarioEN = new UsuarioEN ();
@@ -108,7 +109,7 @@ public static void InitializeData ()
 
 
                 //Creando pedidos
-                int idped = pedidoCEN.CrearPedido (EstadoPedidoEnum.carrito, "usuarioCEN@correo");
+                int idped = pedidoCEN.CrearPedido (EstadoPedidoEnum.carrito, "correoChuli@correo");
                 PedidoEN pedEN = pedidoCEN.DamePedidoOID (idped);
 
 
@@ -123,6 +124,10 @@ public static void InitializeData ()
                 int idpro2 = productoCEN.CrearProducto ("mancuerna", "pequeña", 30, 2, 0, null);
                 pro2EN = productoCEN.DameProductoOID (idpro2);
 
+                ProductoEN pro3EN = new ProductoEN ();
+                int idpro3 = productoCEN.CrearProducto ("batido", "mediano", 40, 4, 0, null);
+                pro3EN = productoCEN.DameProductoOID (idpro3);
+
 
                 //creando lineas de pedido
                 int idLinea1 = lineaPedidoCEN.CrearLinea (3, idped, 50, idpro1);
@@ -133,8 +138,8 @@ public static void InitializeData ()
                 //creando valoraciones
                 int val4 = valoracionCP.CrearValoracion ("muy bueno", 4, idUsuario, idpro1).Id;
                 int val51 = valoracionCP.CrearValoracion ("perfecto", 5, idJuan, idpro1).Id;
-                int val52 = valoracionCP.CrearValoracion ("uma delisia", 5, "usuarioCEN@correo", idpro1).Id;
-                int val10 = valoracionCP.CrearValoracion ("uma delisia", 10, "usuarioCEN@correo", idpro1).Id;
+                int val52 = valoracionCP.CrearValoracion ("uma delisia", 5, "correoChuli@correo", idpro1).Id;
+                int val10 = valoracionCP.CrearValoracion ("uma delisia", 10, "correoChuli@correo", idpro1).Id;
 
 
                 //creamos una categoria
@@ -180,7 +185,7 @@ public static void InitializeData ()
                 //probamos el inicio de sesion
                 Console.WriteLine ("***********************************");
                 Console.WriteLine ("Probamos si se inicia sesion con el usuairo " + usuarioEN.Email);
-                if (usuarioCEN.IniciarSesion ("usuarioCEN@correo", "1234") != null) {
+                if (usuarioCEN.IniciarSesion ("correoChuli@correo", "1234") != null) {
                         Console.WriteLine ("Inicio de sesion correcto");
                 }
 
@@ -212,15 +217,15 @@ public static void InitializeData ()
                 //uso calcular macronutrientes
                 Console.WriteLine ("***********************************");
                 Console.WriteLine ("Pruebo el metodo calcularMacronutrientes");
-                usuarioCEN.CalcularMacronutrientes (EstiloVidaEnum.fuerte, ObjetivosEnum.volumen, 92, 180, SexoEnum.hombre, "usuarioCEN@correo", 21);
+                usuarioCEN.CalcularMacronutrientes (EstiloVidaEnum.fuerte, ObjetivosEnum.volumen, 92, 180, SexoEnum.hombre, "correoChuli@correo", 21);
 
 
                 //anyadienco productos a deseados y los mostramos por pantalla
-                usuarioCEN.AnyadirDeseado ("usuarioCEN@correo", new List<int> { idpro1, idpro2 });
+                usuarioCEN.AnyadirDeseado ("correoChuli@correo", new List<int> { idpro1, idpro2 });
 
                 //probamos el metodo para RecuperarContrasenya
-                //Console.WriteLine("***********************************");
-                //usuarioCEN.RecuperarContrasenya(idUsuario);
+                //Console.WriteLine ("***********************************");
+                //usuarioCEN.RecuperarContrasenya (idUsuario);
 
 
                 pedEN = pedidoCEN.DamePedidoOID (idped);
@@ -239,7 +244,7 @@ public static void InitializeData ()
 
                 Console.WriteLine ("***********************************");
                 Console.WriteLine ("Probamos el metodo CalcularTotal(CP) y getTotalLinea(CP) del pedido anterior ");
-               Console.WriteLine("TOTAL = " + pedidoCP.CalcularTotal (idped));
+                Console.WriteLine ("TOTAL = " + pedidoCP.CalcularTotal (idped));
 
 
                 Console.WriteLine ("***********************************");
@@ -266,11 +271,11 @@ public static void InitializeData ()
                 Console.WriteLine ("Probamos el metodo damePedidoUusarioUltimoMes");
                 DateTime fechaActual = DateTime.Today;
                 Console.WriteLine ("pedidos de " + usuarioEN.Email + " en el mes: " + fechaActual.ToString ("MMMM"));
-                /*IList<PedidoEN> listaPedENMesActual = pedidoCEN.DamePedidoUsuarioUltimoMes (idUsuario);
-                 *
-                 * foreach (PedidoEN ped in listaPedENMesActual) {
-                 *      Console.WriteLine ("Pedido " + ped.Id + " fecha: " + ped.Fecha);
-                 * }*/
+                IList<PedidoEN> listaPedENMesActual = pedidoCEN.DamePedidoPorUsuarioYMes (idUsuario, DateTime.Today.Month,DateTime.Today.Year);
+
+                foreach (PedidoEN ped in listaPedENMesActual) {
+                        Console.WriteLine ("Pedido " + ped.Id + " fecha: " + ped.Fecha);
+                }
 
 
                 Console.WriteLine ("Probamos el metodo EnviarPedido ");
@@ -303,12 +308,6 @@ public static void InitializeData ()
                 Console.WriteLine (pro1EN.TotalValoracion);
 
                 Console.WriteLine ("***********************************");
-                Console.WriteLine ("Probamos el metodo GenerarCodigoLocalizacion");
-                pedidoCEN.GenerarCodigoLocalizacion (idped);
-                pedEN = pedidoCEN.DamePedidoOID (idped);
-                Console.WriteLine ("LOCALIZACION: " + pedEN.Seguimiento);
-
-                Console.WriteLine ("***********************************");
                 Console.WriteLine ("Creamos factura y devolucion");
                 int facid = facturaCEN.CrearFactura (idped);
                 int devid = devolucionCEN.CrearDevolucion (idped, "no me gusta");
@@ -321,14 +320,61 @@ public static void InitializeData ()
 
                 pedidoCEN.GetCodigoDevolucion (idped);
 
-/*
-                Console.WriteLine("***********************************");
-                Console.WriteLine("Obtenemos los deseados (CP)");
-                IList<ProductoEN> deseados = usuarioCP.DameDeseados("usuarioCEN@correo");
+                Console.WriteLine ("ID de factura: " + facid);
+                Console.WriteLine ("ID de devolucion: " + devid);
+                Console.WriteLine ("Motivo de devolucion: " + dev.Motivo);
+
+                pedidoCEN.GetCodigoDevolucion (idped);
+
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos ReadFilter DameProductoPorPrecio");
+                IList<ProductoEN> preciolis = productoCEN.DameProductoPorPrecio (90, 30);
+                foreach (ProductoEN pro in preciolis) {
+                        Console.WriteLine ("Producto : " + pro.Nombre);
+                }
+
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos ReadFilter DameEventosPorMes");
+                eventoCEN.CrearEvento (DateTime.Today, "aquimismo.com", "una chula", "Tour de Francia");
+                eventoCEN.CrearEvento (DateTime.Today.AddDays (-31), "aquimismo.com", "una chula", "Tour de Francia");
+                IList<EventoEN> eventos = eventoCEN.DameEventoPorMes (2022, 10);
+                foreach (EventoEN ev in eventos) {
+                        Console.WriteLine ("Evento : " + ev.Nombre);
+                }
+
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos ReadFilter DameEventosPorDia");
+                eventos = eventoCEN.DameEventoPorDia (2022, 11, 10);
+                foreach (EventoEN ev in eventos) {
+                        Console.WriteLine ("Evento : " + ev.Nombre);
+                }
+
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Probamos ReadFilter DameUsuarioPorCategoria y los Relationer/Unrelationer anyadir y eliminar CategoriaPreferencia");
+                IList<UsuarioEN> usuarios = usuarioCEN.DameUsuarioPorCategoria ("natación");
+                Console.WriteLine ("Antes de anyadir:");
+                foreach (UsuarioEN ev in usuarios) {
+                        Console.WriteLine ("Usuario : " + ev.Email);
+                }
+                usuarioCEN.AnyadirCategoriaPreferencia ("correoChuli@correo", new List<String> { "natación" });
+                usuarios = usuarioCEN.DameUsuarioPorCategoria ("natación");
+                Console.WriteLine ("Despues de anyadir:");
+                foreach (UsuarioEN ev in usuarios) {
+                        Console.WriteLine ("Usuario : " + ev.Email);
+                }
+                usuarioCEN.EliminarCategoriaPreferencia ("correoChuli@correo", new List<String> { "natación" });
+                usuarios = usuarioCEN.DameUsuarioPorCategoria ("natación");
+                Console.WriteLine ("Despues de eliminar:");
+                foreach (UsuarioEN ev in usuarios) {
+                        Console.WriteLine ("Usuario : " + ev.Email);
+                }
+
+                Console.WriteLine ("***********************************");
+                Console.WriteLine ("Obtenemos los deseados (CP)");
+                IList<ProductoEN> deseados = usuarioCP.DameDeseados ("correoChuli@correo");
                 foreach (ProductoEN pro in deseados) {
                         Console.WriteLine ("Producto " + pro.Nombre);
                 }
-*/
 
                 /*PROTECTED REGION END*/
         }

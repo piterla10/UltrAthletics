@@ -43,5 +43,7 @@ void EliminarCategoriaPreferencia (string p_Usuario_OID, System.Collections.Gene
 void AnyadirDeseado (string p_Usuario_OID, System.Collections.Generic.IList<int> p_listaDeseados_OIDs);
 
 void EliminarDeseado (string p_Usuario_OID, System.Collections.Generic.IList<int> p_listaDeseados_OIDs);
+
+System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN> DameUsuarioPorCategoria (string categoria);
 }
 }

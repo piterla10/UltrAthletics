@@ -52,5 +52,7 @@
 		  
 		  <query name="EventoENReadAllHQL">from EventoEN</query>
 		  <query name="EventoENdameEventoPorCategoriaHQL"><![CDATA[SELECT ev FROM EventoEN as ev INNER JOIN ev.Categoria as cate where cate.Nombre = :categ]]></query>
+		  <query name="EventoENdameEventoPorMesHQL"><![CDATA[FROM EventoEN as ev WHERE month(ev.Fecha) = :mes AND year(ev.Fecha) = :anno]]></query>
+		  <query name="EventoENdameEventoPorDiaHQL"><![CDATA[FROM EventoEN as ev WHERE day(ev.Fecha) = :dia AND month(ev.Fecha) = :mes AND year(ev.Fecha) = :anno]]></query>
 		</hibernate-mapping>
 	

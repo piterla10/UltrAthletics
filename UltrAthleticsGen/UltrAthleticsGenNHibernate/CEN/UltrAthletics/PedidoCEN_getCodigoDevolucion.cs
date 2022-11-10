@@ -50,7 +50,6 @@ public string GetCodigoDevolucion (int p_oid)
          * return p_oid + ".jpg";
          */
         return "";
-
         /*PROTECTED REGION END*/
 }
 }

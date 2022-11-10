@@ -15,7 +15,7 @@ private int id;
 /**
  *	Atributo fecha
  */
-private string fecha;
+private Nullable<DateTime> fecha;
 
 
 
@@ -98,7 +98,7 @@ public virtual int Id {
 
 
 
-public virtual string Fecha {
+public virtual Nullable<DateTime> Fecha {
         get { return fecha; } set { fecha = value;  }
 }
 
@@ -174,7 +174,7 @@ public PedidoEN()
 
 
 
-public PedidoEN(int id, string fecha, string direccion, string tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum estado, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario, double descuento, string seguimiento, UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN factura, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.DevolucionEN> devolver, float total
+public PedidoEN(int id, Nullable<DateTime> fecha, string direccion, string tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum estado, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario, double descuento, string seguimiento, UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN factura, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.DevolucionEN> devolver, float total
                 )
 {
         this.init (Id, fecha, direccion, tarjeta, estado, lineaPedido, usuario, descuento, seguimiento, factura, devolver, total);
@@ -187,7 +187,7 @@ public PedidoEN(PedidoEN pedido)
 }
 
 private void init (int id
-                   , string fecha, string direccion, string tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum estado, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario, double descuento, string seguimiento, UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN factura, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.DevolucionEN> devolver, float total)
+                   , Nullable<DateTime> fecha, string direccion, string tarjeta, UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.EstadoPedidoEnum estado, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.LineaPedidoEN> lineaPedido, UltrAthleticsGenNHibernate.EN.UltrAthletics.UsuarioEN usuario, double descuento, string seguimiento, UltrAthleticsGenNHibernate.EN.UltrAthletics.FacturaEN factura, System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.DevolucionEN> devolver, float total)
 {
         this.Id = id;
 

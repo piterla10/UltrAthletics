@@ -338,16 +338,18 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
 
         return result;
 }
-public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> DamePedidoUsuarioUltimoMes (string usuario)
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> DamePedidoPorUsuarioYMes (string usuario, int? mes, int ? anno)
 {
         System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> result;
         try
         {
                 SessionInitializeTransaction ();
-                //String sql = @"FROM PedidoEN self where FROM PedidoEN as ped WHERE ped.Usuario.Email = :usuario AND month(ped.Fecha) = month(GETDATE()) AND year(ped.Fecha) = year(GETDATE())";
+                //String sql = @"FROM PedidoEN self where FROM PedidoEN as ped WHERE ped.Usuario.Email = :usuario AND month(ped.Fecha) = :mes AND year(ped.Fecha) = :anno";
                 //IQuery query = session.CreateQuery(sql);
-                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENdamePedidoUsuarioUltimoMesHQL");
+                IQuery query = (IQuery)session.GetNamedQuery ("PedidoENdamePedidoPorUsuarioYMesHQL");
                 query.SetParameter ("usuario", usuario);
+                query.SetParameter ("mes", mes);
+                query.SetParameter ("anno", anno);
 
                 result = query.List<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN>();
                 SessionCommit ();

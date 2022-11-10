@@ -62,16 +62,15 @@ public void RecuperarContrasenya (string p_oid)
                 usuEN.Pass = "nuevacontrase�a";
                 _IUsuarioCAD.ModifyDefault (usuEN);
 
-
-
-                mailMessage.From = new MailAddress ("el que manda el correo", "CAMBIO DE PASSWORD");
+                mailMessage.From = new MailAddress ("officiala23yemilio@gmail.com", "CAMBIO DE PASSWORD");
 
                 using (SmtpClient cliente = new SmtpClient ())
                 {
                         cliente.UseDefaultCredentials = false;
-                        cliente.Credentials = new NetworkCredential ("el que manda el correo", " el password");
+                        cliente.Credentials = new NetworkCredential ("officiala23yemilio@gmail.com", "ae123456789");
                         cliente.Port = 587;
                         cliente.EnableSsl = true;
+                        cliente.DeliveryMethod = SmtpDeliveryMethod.Network;
 
 
                         cliente.Host = "smtp.gmail.com";

@@ -102,5 +102,13 @@ public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthlet
 {
         return _IEventoCAD.DameEventoPorCategoria (categ);
 }
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.EventoEN> DameEventoPorMes (int? anno, int ? mes)
+{
+        return _IEventoCAD.DameEventoPorMes (anno, mes);
+}
+public System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.EventoEN> DameEventoPorDia (int? anno, int? mes, int ? dia)
+{
+        return _IEventoCAD.DameEventoPorDia (anno, mes, dia);
+}
 }
 }

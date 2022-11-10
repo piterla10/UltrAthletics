@@ -44,6 +44,6 @@ System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.Ped
 
 
 
-System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> DamePedidoUsuarioUltimoMes (string usuario);
+System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.PedidoEN> DamePedidoPorUsuarioYMes (string usuario, int? mes, int ? anno);
 }
 }

@@ -135,6 +135,7 @@
 			
 			
 			
+			
 	<Compile Include="EN\UltrAthletics\PedidoEN.cs" />
 	<Compile Include="CEN\UltrAthletics\PedidoCEN.cs" />
 	<Compile Include="CAD\UltrAthletics\IPedidoCAD.cs" />
@@ -199,6 +200,8 @@
 			
 			
 			
+			
+			
 	<Compile Include="EN\UltrAthletics\CategoriaEN.cs" />
 	<Compile Include="CEN\UltrAthletics\CategoriaCEN.cs" />
 	<Compile Include="CAD\UltrAthletics\ICategoriaCAD.cs" />
@@ -227,6 +230,8 @@
 	<Compile Include="CAD\UltrAthletics\IEventoCAD.cs" />
 	<Compile Include="CAD\UltrAthletics\EventoCAD.cs" />
 	<Compile Include="CP\UltrAthletics\EventoCP.cs" />
+			
+			
 			
 			
 			

@@ -55,7 +55,7 @@ public float CalcularTotal (int p_oid)
 
                 pedidoCAD.ModifyDefault (pedidoEN);
 
-               // Console.WriteLine ("dentro del codigo: " + pedidoEN.Total);
+                // Console.WriteLine ("dentro del codigo: " + pedidoEN.Total);
 
                 SessionCommit ();
 

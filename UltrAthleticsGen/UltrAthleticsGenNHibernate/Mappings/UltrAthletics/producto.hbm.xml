@@ -137,5 +137,7 @@
 		  <query name="ProductoENdameProductoPorCategoriaHQL"><![CDATA[SELECT pro FROM ProductoEN as pro INNER JOIN pro.Categoria as cat WHERE cat.Nombre = :categoria]]></query>
 		  <query name="ProductoENdameProductoPorSaborHQL"><![CDATA[SELECT pro FROM ProductoEN as pro INNER JOIN pro.Sabor as sab WHERE sab.Nombre = :sabo]]></query>
 		  <query name="ProductoENdameProductoPorPesoHQL"><![CDATA[SELECT pro FROM ProductoEN as pro INNER JOIN pro.Peso as pes WHERE pes.Cantidad = :peso]]></query>
+		  <query name="ProductoENdameProductoPorPrecioHQL"><![CDATA[FROM ProductoEN pro WHERE pro.Precio >= :minimo AND pro.Precio <= :maximo]]></query>
+		  <query name="ProductoENdameDeseadosPorUsuarioHQL"><![CDATA[SELECT pro FROM ProductoEN as pro INNER JOIN pro.Usuario as us WHERE  us.Email = :user]]></query>
 		</hibernate-mapping>
 	

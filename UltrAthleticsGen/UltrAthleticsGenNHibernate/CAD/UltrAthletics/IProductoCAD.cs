@@ -55,5 +55,11 @@ System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.Pro
 
 
 System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorPeso (string peso);
+
+
+System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameProductoPorPrecio (int? maximo, int ? minimo);
+
+
+System.Collections.Generic.IList<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN> DameDeseadosPorUsuario (string user);
 }
 }

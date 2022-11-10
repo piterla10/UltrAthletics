@@ -158,5 +158,6 @@
 		 </class>	
 		  
 		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		  <query name="UsuarioENdameUsuarioPorCategoriaHQL"><![CDATA[SELECT us FROM UsuarioEN as us INNER JOIN us.Categoria as cat WHERE cat.Nombre = :categoria]]></query>
 		</hibernate-mapping>
 	
