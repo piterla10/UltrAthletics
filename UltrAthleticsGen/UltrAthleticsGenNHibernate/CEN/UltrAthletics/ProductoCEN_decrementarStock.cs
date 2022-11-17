@@ -19,7 +19,12 @@ namespace UltrAthleticsGenNHibernate.CEN.UltrAthletics
 {
 public partial class ProductoCEN
 {
-public void DecrementarStock (int p_oid, int cant)
+        public void DameProductoTodos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DecrementarStock (int p_oid, int cant)
 {
         /*PROTECTED REGION ID(UltrAthleticsGenNHibernate.CEN.UltrAthletics_Producto_decrementarStock) ENABLED START*/
 

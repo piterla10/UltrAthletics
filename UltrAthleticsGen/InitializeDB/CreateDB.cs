@@ -271,7 +271,7 @@ public static void InitializeData ()
                 Console.WriteLine ("Probamos el metodo damePedidoUusarioUltimoMes");
                 DateTime fechaActual = DateTime.Today;
                 Console.WriteLine ("pedidos de " + usuarioEN.Email + " en el mes: " + fechaActual.ToString ("MMMM"));
-                IList<PedidoEN> listaPedENMesActual = pedidoCEN.DamePedidoPorUsuarioYMes (idUsuario, DateTime.Today.Month,DateTime.Today.Year);
+                IList<PedidoEN> listaPedENMesActual = pedidoCEN.DamePedidoPorUsuarioYMes (idUsuario, DateTime.Today.Month, DateTime.Today.Year);
 
                 foreach (PedidoEN ped in listaPedENMesActual) {
                         Console.WriteLine ("Pedido " + ped.Id + " fecha: " + ped.Fecha);
