@@ -14,8 +14,10 @@ namespace UltrAthelitcs.Assemblers
         {
             ProductoViewModel pro = new ProductoViewModel();
             pro.idProducto = en.Id;
-            pro.Nombre = en.Nombre;
-
+            pro.nombre = en.Nombre;
+            pro.descripcion = en.Descripcion;
+            pro.precio = en.Precio;
+            pro.imagenes = en.Imagen;
             return pro;
 
         }

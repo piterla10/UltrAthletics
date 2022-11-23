@@ -1,34 +1,27 @@
 ﻿@model IEnumerable<UltrAthelitcs.Models.ProductoViewModel>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th></th>
-    </tr>
+<div class="container" >
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+	@foreach (var item in Model)
+	{
 
-</table>
+		<div class="col col-md-4">
+			<div class="card" style="border: 1px solid #000; padding: 0.5rem;">
+				<img src="../assets/img/proteina.png" class="card-img-top img-thumbnail" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">@Html.DisplayFor(modelItem => item.nombre)</h5>
+					<p class="card-text">@Html.DisplayFor(modelItem => item.descripcion)</p>
+					<p class="card-text">@Html.DisplayFor(modelItem => item.precio)</p>
+					<a href="#" class="btn btn-primary">Comprar</a>
+				</div>
+			</div>
+		</div>
+	}
+</div>

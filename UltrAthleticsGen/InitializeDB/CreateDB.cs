@@ -117,15 +117,15 @@ public static void InitializeData ()
 
                 //Creando productos
                 ProductoEN pro1EN = new ProductoEN ();
-                int idpro1 = productoCEN.CrearProducto ("proteina", "grande", 100, 5, 0, null);
+                int idpro1 = productoCEN.CrearProducto ("proteina", "grande", 36, 5, 0, new List<String>{ "../assets/img/proteina.jpg"});
                 pro1EN = productoCEN.DameProductoOID (idpro1);
 
                 ProductoEN pro2EN = new ProductoEN ();
-                int idpro2 = productoCEN.CrearProducto ("mancuerna", "pequeña", 30, 2, 0, null);
+                int idpro2 = productoCEN.CrearProducto ("mancuerna", "pequeña", 30, 2, 0, new List<String> { "../assets/img/mancuerna.jpg", "../assets/img/mancuerna1.jpg" });
                 pro2EN = productoCEN.DameProductoOID (idpro2);
 
                 ProductoEN pro3EN = new ProductoEN ();
-                int idpro3 = productoCEN.CrearProducto ("batido", "mediano", 40, 4, 0, null);
+                int idpro3 = productoCEN.CrearProducto ("batido", "mediano", 40, 4, 0, new List<String> { "../assets/img/batido mediano.jpg" });
                 pro3EN = productoCEN.DameProductoOID (idpro3);
 
 
