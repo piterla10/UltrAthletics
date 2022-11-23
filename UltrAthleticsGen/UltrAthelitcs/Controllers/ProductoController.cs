@@ -11,16 +11,11 @@ using UltrAthleticsGenNHibernate.EN.UltrAthletics;
 
 namespace UltrAthelitcs.Controllers
 {
-<<<<<<< Updated upstream:UltrAthleticsGen/UltrAthelitcs/Controllers/ProductoController.cs
     public class ProductoController : BasicController
-=======
-    public class PedidoController : BasicController
->>>>>>> Stashed changes:UltrAthleticsGen/UltrAthelitcs/Controllers/PedidoController.cs
     {
-        // GET: Pedido
+        // GET: Producto
         public ActionResult Index()
         {
-<<<<<<< Updated upstream:UltrAthleticsGen/UltrAthelitcs/Controllers/ProductoController.cs
 
             SessionInitialize();
             ProductoCAD proCAD = new ProductoCAD(session);
@@ -28,42 +23,31 @@ namespace UltrAthelitcs.Controllers
 
             IList<ProductoEN> listEn = proCEN.DameProductoTodos(0, -1);
             IEnumerable<ProductoViewModel> listViewModel = new ProductoAssembler().ConvertListENToModel(listEn).ToList();
-=======
-            SessionInitialize();
-            PedidoCAD pedCAD = new PedidoCAD(session);
-            PedidoCEN pedCEN = new PedidoCEN(pedCAD);
-
-            IList<PedidoEN> listEN = pedCEN.DamePedidoTodos(0, 10);
-            IEnumerable<PedidoViewModel> listViewModel = new PedidoAssembler().ConvertListENToModel(listEN).ToList();
->>>>>>> Stashed changes:UltrAthleticsGen/UltrAthelitcs/Controllers/PedidoController.cs
             SessionClose();
 
             return View(listViewModel);
         }
 
-        // GET: Pedido/Details/5
+        // GET: Producto/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Pedido/Create
+        // GET: Producto/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Pedido/Create
+        // POST: Producto/Create
         [HttpPost]
-        public ActionResult Create(PedidoViewModel ped)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
-                SessionInitialize();
-                PedidoCAD pedCAD = new PedidoCAD(session);
-                PedidoCEN pedCEN = new PedidoCEN(pedCAD);
-                pedCEN.CrearPedido(ped.Estado,ped.Usuario.Nombre);
-                SessionClose();
+                // TODO: Add insert logic here
+
                 return RedirectToAction("Index");
             }
             catch
@@ -72,13 +56,13 @@ namespace UltrAthelitcs.Controllers
             }
         }
 
-        // GET: Pedido/Edit/5
+        // GET: Producto/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Pedido/Edit/5
+        // POST: Producto/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -94,13 +78,13 @@ namespace UltrAthelitcs.Controllers
             }
         }
 
-        // GET: Pedido/Delete/5
+        // GET: Producto/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Pedido/Delete/5
+        // POST: Producto/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
