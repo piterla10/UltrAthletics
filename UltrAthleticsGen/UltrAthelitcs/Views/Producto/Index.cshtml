@@ -1,4 +1,4 @@
-﻿@model IEnumerable<UltrAthleticsGenNHibernate.EN.UltrAthletics.ProductoEN>
+﻿@model IEnumerable<UltrAthelitcs.Models.ProductoViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -15,24 +15,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Precio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Stock)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descuento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MediaValoracion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalValoracion)
-        </th>
         <th></th>
     </tr>
 
@@ -42,27 +24,9 @@
             @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Precio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descuento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MediaValoracion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalValoracion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

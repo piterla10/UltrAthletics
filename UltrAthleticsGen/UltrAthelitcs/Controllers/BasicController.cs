@@ -1,89 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using NHibernate;
+using UltrAthleticsGenNHibernate.Exceptions;
+using UltrAthleticsGenNHibernate.CAD.UltrAthletics;
 
-namespace UltrAthelitcs.Controllers
+public class BasicController : Controller
 {
-    public class BasicController : Controller
+    protected ISession session;
+
+    protected BasicController()
     {
-        // GET: Basic
-        public ActionResult Index()
+    }
+
+    protected void SessionInitialize()
+    {
+        if (session == null)
         {
-            return View();
+            session = NHibernateHelper.OpenSession();
         }
+    }
 
-        // GET: Basic/Details/5
-        public ActionResult Details(int id)
+
+    protected void SessionClose()
+    {
+        if (session != null && session.IsOpen)
         {
-            return View();
-        }
-
-        // GET: Basic/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Basic/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Basic/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Basic/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Basic/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Basic/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            session.Close();
+            session.Dispose();
+            session = null;
         }
     }
 }

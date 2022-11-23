@@ -3,19 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UltrAthelitcs.Assemblers;
+using UltrAthelitcs.Models;
+using UltrAthleticsGenNHibernate.CAD.UltrAthletics;
 using UltrAthleticsGenNHibernate.CEN.UltrAthletics;
 using UltrAthleticsGenNHibernate.EN.UltrAthletics;
 
 namespace UltrAthelitcs.Controllers
 {
-    public class ProductoController : Controller
+    public class ProductoController : BasicController
     {
         // GET: Producto
         public ActionResult Index()
         {
-            ProductoCEN productocen = new ProductoCEN();
-            List<ProductoEN> lista = productocen.DameProductoTodos(0, 10).ToList();
-            return View(lista);
+
+            SessionInitialize();
+            ProductoCAD proCAD = new ProductoCAD(session);
+            ProductoCEN proCEN = new ProductoCEN(proCAD);
+
+            IList<ProductoEN> listEn = proCEN.DameProductoTodos(0, -1);
+            IEnumerable<ProductoViewModel> listViewModel = new ProductoAssembler().ConvertListENToModel(listEn).ToList();
+            SessionClose();
+
+            return View(listViewModel);
         }
 
         // GET: Producto/Details/5
