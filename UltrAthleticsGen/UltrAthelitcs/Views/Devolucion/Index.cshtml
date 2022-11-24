@@ -1,4 +1,4 @@
-﻿@model IEnumerable<UltrAthelitcs.Models.ValoracionViewModel>
+﻿@model IEnumerable<UltrAthelitcs.Models.DevolucionViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -13,13 +13,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idValoracion)
+            @Html.DisplayNameFor(model => model.idDevolucion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Comentario)
+            @Html.DisplayNameFor(model => model.Pedido.Id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Valor)
+            @Html.DisplayNameFor(model => model.Motivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Creacion)
         </th>
         <th></th>
     </tr>
@@ -27,13 +30,16 @@
 @foreach (var item in Model) {
 <tr>
     <td>
-        @Html.DisplayFor(modelItem => item.idValoracion)
+        @Html.DisplayFor(modelItem => item.idDevolucion)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.Comentario)
+        @Html.DisplayFor(modelItem => item.Pedido.Id)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.Valor)
+        @Html.DisplayFor(modelItem => item.Motivo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Creacion)
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

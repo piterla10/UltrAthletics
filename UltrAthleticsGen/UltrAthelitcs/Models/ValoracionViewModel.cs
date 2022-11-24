@@ -8,7 +8,9 @@ namespace UltrAthelitcs.Models
 {
     public class ValoracionViewModel
     {
-        [ScaffoldColumn(false)]
+        [Display(Prompt = "ID del producto", Description = "ID del producto", Name = "Id: ")]
+        [Required(ErrorMessage = "Debe indicar un id para la valoracion")]
+        [DataType(DataType.Text, ErrorMessage = "El ID debe ser un valor")]
         public int idValoracion { get; set; }
 
 
