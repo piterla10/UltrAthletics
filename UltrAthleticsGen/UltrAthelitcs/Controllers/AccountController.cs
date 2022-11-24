@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using UltrAthelitcs.Models;
+using UltrAthleticsGenNHibernate.CEN.UltrAthletics;
+using UltrAthleticsGenNHibernate.EN.UltrAthletics;
 
 namespace UltrAthelitcs.Controllers
 {
@@ -70,7 +72,21 @@ namespace UltrAthelitcs.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                UsuarioCEN usuCEN = new UsuarioCEN();
+                string token = usuCEN.IniciarSesion(model.Email,model.Password);
+
+                UsuarioEN usuEN = usuCEN.DameUsuarioOID(model.Email);
+
+                if (usuEN != null)
+                    Session["Usuario"] = usuEN;
+
+                if (token != null)
+                    return RedirectToLocal(returnUrl);
+                else
+                {
+                    ModelState.AddModelError("", "Intento de inicio de sesión no válido");
+                    return View(model);
+                }
             }
 
             // No cuenta los errores de inicio de sesión para el bloqueo de la cuenta
@@ -156,6 +172,10 @@ namespace UltrAthelitcs.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
+                    UsuarioCEN usuCEN = new UsuarioCEN();
+                    string usuId = usuCEN.CrearUsuario(model.Email,model.Password,UltrAthleticsGenNHibernate.Enumerated.UltrAthletics.RolesEnum.cliente);
+                    Session["Usuario"] = usuCEN.DameUsuarioOID(usuId);
                     
                     // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo

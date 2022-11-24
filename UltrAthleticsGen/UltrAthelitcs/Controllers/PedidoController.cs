@@ -11,6 +11,7 @@ using UltrAthleticsGenNHibernate.EN.UltrAthletics;
 
 namespace UltrAthelitcs.Controllers
 {
+    [Authorize]
     public class PedidoController : BasicController
     {
         // GET: Pedido
@@ -48,7 +49,7 @@ namespace UltrAthelitcs.Controllers
                 SessionInitialize();
                 PedidoCAD pedCAD = new PedidoCAD(session);
                 PedidoCEN pedCEN = new PedidoCEN(pedCAD);
-                pedCEN.CrearPedido(ped.Estado,ped.Usuario.Nombre);
+                pedCEN.CrearPedido(ped.Estado, "patata");
                 SessionClose();
                 return RedirectToAction("Index");
             }
