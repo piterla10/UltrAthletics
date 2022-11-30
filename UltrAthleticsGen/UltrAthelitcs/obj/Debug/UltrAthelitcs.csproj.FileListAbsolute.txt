@@ -1,4 +1,3 @@
-C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\obj\Debug\UltrAthelitcs.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\bin\hibernate.cfg.xml
 C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\bin\UltrAthelitcs.dll.config
 C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\bin\UltrAthelitcs.dll
@@ -135,7 +134,8 @@ C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAt
 C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\bin\es\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\bin\es\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\obj\Debug\UltrAthelitcs.csproj.AssemblyReference.cache
+C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\obj\Debug\UltrAthelitcs.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\obj\Debug\UltrAthelitcs.csproj.CopyComplete
 C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\obj\Debug\UltrAthelitcs.dll
 C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\obj\Debug\UltrAthelitcs.pdb
-C:\Users\Usuario\OneDrive\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthelitcs\obj\Debug\UltrAthelitcs.csproj.AssemblyReference.cache

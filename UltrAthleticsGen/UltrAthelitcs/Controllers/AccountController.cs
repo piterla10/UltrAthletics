@@ -95,7 +95,14 @@ namespace UltrAthelitcs.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    UsuarioCEN usu = new UsuarioCEN();
+                    string token = usu.IniciarSesion(model.Email, model.Password);
+                    if (token != null) return RedirectToLocal(returnUrl);
+                    else
+                    {
+                        ModelState.AddModelError("", "Intento de inicio de sesión no válido");
+                        return View(model);
+                    }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -163,7 +170,7 @@ namespace UltrAthelitcs.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(UsuarioViewModel model)
         {
             if (ModelState.IsValid)
             {
