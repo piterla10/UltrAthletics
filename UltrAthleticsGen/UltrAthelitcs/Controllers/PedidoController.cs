@@ -20,9 +20,25 @@ namespace UltrAthelitcs.Controllers
             SessionInitialize();
             PedidoCAD pedCAD = new PedidoCAD(session);
             PedidoCEN pedCEN = new PedidoCEN(pedCAD);
+            LineaPedidoCAD linCAD = new LineaPedidoCAD(session);
+            LineaPedidoCEN linCEN = new LineaPedidoCEN(linCAD);
 
             IList<PedidoEN> listEN = pedCEN.DamePedidoTodos(0, 10);
             IEnumerable<PedidoViewModel> listViewModel = new PedidoAssembler().ConvertListENToModel(listEN).ToList();
+
+            var i = 0;
+            foreach(var pedido in listEN)
+            {
+                IList<LineaPedidoEN> aux = pedido.LineaPedido;
+                List<LineaPedidoEN> linEN = new List<LineaPedidoEN>();
+                foreach (var linea in aux)
+                {
+                    LineaPedidoEN auxL = new LineaPedidoEN(linea);
+                    linEN.Add(auxL);
+                }
+                ViewData["LineaPedido" + i] = linEN;
+                i++;
+            }
             SessionClose();
 
             return View(listViewModel);
