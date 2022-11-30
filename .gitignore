@@ -1,3 +1,3 @@
-.metadata/
-UltrAthletics\UltrAthleticsGen\UltrAthleticsGenHibernate\bin
-UltrAthletics\UltrAthleticsGen\InitializeDB\bin
+.metadata
+UltrAthleticsGen/UltrAthleticsGenNHibernate/bin
+UltrAthletics/UltrAthleticsGen/InitializeDB/bin
