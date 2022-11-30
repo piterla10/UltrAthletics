@@ -145,3 +145,4 @@ C:\Users\Arctic\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthleticsGen
 C:\Users\Arctic\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.CopyComplete
 C:\Users\Arctic\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.dll
 C:\Users\Arctic\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.pdb
+C:\Users\Jose Manuel\Desktop\DSM\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.AssemblyReference.cache
