@@ -4,8 +4,6 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var pedidoIndex = 0;
-    var lineaPedido = (IList<LineaPedidoEN>)ViewData["LineaPedido" + pedidoIndex];
 }
 
 <style>
@@ -52,11 +50,6 @@
                 </span>
             </div>
             <div class="pedidoBody">
-                @foreach (var producto in lineaPedido)
-                {
-                    <div class="producto">
-                    </div>
-                }
             </div>
         </div>
     }

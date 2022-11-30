@@ -1,3 +1,4 @@
 .metadata
 UltrAthleticsGen/UltrAthleticsGenNHibernate/bin
 UltrAthletics/UltrAthleticsGen/InitializeDB/bin
+*.dll

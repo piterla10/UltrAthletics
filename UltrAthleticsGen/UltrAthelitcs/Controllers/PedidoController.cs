@@ -44,9 +44,14 @@ namespace UltrAthelitcs.Controllers
                 i++;
             }
             /* añadir a index
+              @foreach (var producto in lineaPedido)
+                {
+                    <div class="producto">
                         <h4>@Html.DisplayFor(modelItem => producto.Producto.Nombre)</h4>
                         <img src="@Html.DisplayFor(modelItem => producto.Producto.Imagen)"
                         <p>@Html.DisplayFor(modelItem => producto.Producto.Precio)</p>
+                    </div>
+                }
              */
             SessionClose();
 
