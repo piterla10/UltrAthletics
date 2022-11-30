@@ -18,6 +18,10 @@ namespace UltrAthelitcs.Assemblers
             pro.descripcion = en.Descripcion;
             pro.precio = en.Precio;
             pro.imagenes = en.Imagen;
+            pro.mediaValoracion = en.MediaValoracion;
+            pro.stock = en.Stock;
+            pro.totalValoracion = en.TotalValoracion;
+            pro.descuento = en.Descuento;
             return pro;
 
         }
