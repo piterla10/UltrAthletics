@@ -147,6 +147,9 @@ public static void InitializeData ()
                 String idCategoria1 = categoriaCEN.CrearCategoria ("natación", "deportes de natación");
                 categoriaEN = categoriaCEN.DameCategoriaOID (idCategoria1);
 
+                CategoriaEN categoria2EN = new CategoriaEN();
+                String idCategoria2 = categoriaCEN.CrearCategoria("futbol", "deportes de futbol");
+                categoria2EN = categoriaCEN.DameCategoriaOID(idCategoria2);
 
                 //creaar pesos
                 PesoCEN pesoCEN = new PesoCEN ();
@@ -335,8 +338,20 @@ public static void InitializeData ()
 
                 Console.WriteLine ("***********************************");
                 Console.WriteLine ("Probamos ReadFilter DameEventosPorMes");
-                eventoCEN.CrearEvento (DateTime.Today, "aquimismo.com", "una chula", "Tour de Francia");
-                eventoCEN.CrearEvento (DateTime.Today.AddDays (-31), "aquimismo.com", "una chula", "Tour de Francia");
+
+
+                /*
+                 ProductoEN pro1EN = new ProductoEN ();
+                int idpro1 = productoCEN.CrearProducto ("proteina", "grande", 36, 5, 0, new List<String>{ "../assets/img/proteina.jpg"});
+                pro1EN = productoCEN.DameProductoOID (idpro1);
+                 */
+                EventoEN eve1EN = new EventoEN();
+                EventoEN eve2EN = new EventoEN();
+                int ideve1 = eventoCEN.CrearEvento (DateTime.Today, "aquimismo.com", "una chula", "Tour de Francia");
+                int ideve2 = eventoCEN.CrearEvento (DateTime.Today.AddDays (-31), "aquimismo.com", "una chula", "Mundial");
+                eve1EN = eventoCEN.DameEventoOID(ideve1);
+                eve2EN = eventoCEN.DameEventoOID(ideve2);
+
                 IList<EventoEN> eventos = eventoCEN.DameEventoPorMes (2022, 10);
                 foreach (EventoEN ev in eventos) {
                         Console.WriteLine ("Evento : " + ev.Nombre);
