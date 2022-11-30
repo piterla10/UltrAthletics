@@ -41,11 +41,14 @@ namespace UltrAthelitcs.Controllers
 
         // POST: Peso/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(PesoViewModel pes)
         {
             try
             {
                 // TODO: Add insert logic here
+                PesoCEN pesCEN = new PesoCEN();
+                pesCEN.CrearPeso(pes.Cantidad);
+
 
                 return RedirectToAction("Index");
             }
