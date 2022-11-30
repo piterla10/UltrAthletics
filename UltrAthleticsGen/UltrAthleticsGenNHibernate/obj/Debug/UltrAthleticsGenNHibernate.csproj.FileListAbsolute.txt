@@ -161,7 +161,6 @@ D:\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\bi
 D:\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\Iesi.Collections.dll
 D:\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\Antlr3.Runtime.dll
 D:\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\bin\Debug\log4net.dll
-D:\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.AssemblyReference.cache
 D:\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.CoreCompileInputs.cache
 D:\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.csproj.CopyComplete
 D:\Documents\GitHub\UltrAthletics\UltrAthleticsGen\UltrAthleticsGenNHibernate\obj\Debug\UltrAthleticsGenNHibernate.dll
