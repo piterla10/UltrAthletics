@@ -42,11 +42,12 @@ namespace UltrAthelitcs.Controllers
 
         // POST: Producto/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(ProductoViewModel pro)
         {
             try
             {
-                // TODO: Add insert logic here
+                ProductoCEN proCEN = new ProductoCEN();
+                proCEN.CrearProducto(pro.nombre, pro.descripcion, pro.precio, pro.stock, pro.descuento, pro.imagenes);
 
                 return RedirectToAction("Index");
             }

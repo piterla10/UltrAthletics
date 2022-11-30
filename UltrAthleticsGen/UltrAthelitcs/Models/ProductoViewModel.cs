@@ -11,6 +11,9 @@ namespace UltrAthelitcs.Models
         [ScaffoldColumn(false)]
         public int idProducto { get; set; }
 
+        [ScaffoldColumn(false)]
+        public int stock { get; set; }
+
 
         [Display(Prompt = "Nombre del producto", Description = "Nombre del producto", Name = "Nombre: ")]
         [Required(ErrorMessage = "Debe indicar un nombre para el producto")]
@@ -30,6 +33,21 @@ namespace UltrAthelitcs.Models
         [DataType(DataType.Currency, ErrorMessage = "El precio debe ser un valor numérico")]
         [Range(minimum: 0, maximum: 999999999, ErrorMessage = "El precio debe ser mayor que cero")]
         public float precio { get; set; }
+
+        [Display(Prompt = "Descuento del producto", Description = "Descuento del producto", Name = "Descuento: ")]
+        [Required(ErrorMessage = "Debe indicar un descuento para el producto")]
+        [Range(minimum: 0, maximum: 100, ErrorMessage = "El descuento debe ser  de 0 a 100")]
+        public float descuento { get; set; }
+
+        [Display(Prompt = "Valoracion media del producto", Description = "Valoracion media del producto", Name = "Valoracion media: ")]
+        [Required(ErrorMessage = "Debe indicar una valoracion media para el producto")]
+        [Range(minimum: 0, maximum: 5, ErrorMessage = "La valoracion media debe ser  de 0 a 5")]
+        public float mediaValoracion { get; set; }
+
+        [Display(Prompt = "Numero total de valoraciones del producto", Description = "Numero total de valoraciones del producto", Name = "Numero total de valoraciones: ")]
+        [Required(ErrorMessage = "Debe indicar un numero total de valoraciones para el producto")]
+        [Range(minimum: 0, maximum: 999999999, ErrorMessage = "El numero total de valoraciones debe ser mayor que 0")]
+        public int totalValoracion { get; set; }
 
         [Display(Prompt = "Lista de imagenes del producto", Description = "Lista de imagenes del producto", Name = "Lista de imagenes: ")]
         [Required(ErrorMessage = "Debe subir una imagen para el producto")]

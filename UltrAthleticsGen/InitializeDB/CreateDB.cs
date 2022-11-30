@@ -117,7 +117,7 @@ public static void InitializeData ()
 
                 //Creando productos
                 ProductoEN pro1EN = new ProductoEN ();
-                int idpro1 = productoCEN.CrearProducto ("proteina", "grande", 36, 5, 0, new List<String>{ "../assets/img/proteina.jpg"});
+                int idpro1 = productoCEN.CrearProducto ("proteina", "grande", 36, 5, 0, new List<String>{ "../assets/img/proteina.png"});
                 pro1EN = productoCEN.DameProductoOID (idpro1);
 
                 ProductoEN pro2EN = new ProductoEN ();
