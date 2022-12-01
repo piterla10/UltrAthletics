@@ -22,8 +22,19 @@ namespace UltrAthelitcs.Assemblers
             ped.Total = en.Total;
             ped.Devolver = en.Devolver;
             ped.Factura = en.Factura;
-            ped.LineaPedido = en.LineaPedido;
             ped.Usuario = en.Usuario;
+
+            List<lineaPedidoResumen> pro = new List<lineaPedidoResumen>();
+            foreach(var lin in en.LineaPedido)
+            {
+                lineaPedidoResumen aux = new lineaPedidoResumen();
+                aux.Nombre = lin.Producto.Nombre;
+                aux.Imagen = lin.Producto.Imagen[0];
+                aux.Unidades = lin.Unidades;
+                aux.Total = lin.Precio;
+                pro.Add(aux);
+            }
+            ped.productos = pro;
 
             return ped;
         }

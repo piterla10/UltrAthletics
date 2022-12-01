@@ -24,35 +24,9 @@ namespace UltrAthelitcs.Controllers
             LineaPedidoCEN linCEN = new LineaPedidoCEN(linCAD);
 
             IList<PedidoEN> listEN = pedCEN.DamePedidoTodos(0, 10);
+
             IEnumerable<PedidoViewModel> listViewModel = new PedidoAssembler().ConvertListENToModel(listEN).ToList();
 
-            var i = 0;
-            foreach(var pedido in listEN)
-            {
-                IList<LineaPedidoEN> aux = pedido.LineaPedido;
-                List<LineaPedidoEN> linEN = new List<LineaPedidoEN>();
-
-                var j = 0;
-                foreach (var linea in aux)
-                {
-                    LineaPedidoEN auxL = new LineaPedidoEN(linea);
-                    ViewData["LineaPedido" + i + "Producto" + j] = auxL.Producto;
-                    j++;
-                    linEN.Add(auxL);
-                }
-                ViewData["LineaPedido" + i] = linEN;
-                i++;
-            }
-            /* añadir a index
-              @foreach (var producto in lineaPedido)
-                {
-                    <div class="producto">
-                        <h4>@Html.DisplayFor(modelItem => producto.Producto.Nombre)</h4>
-                        <img src="@Html.DisplayFor(modelItem => producto.Producto.Imagen)"
-                        <p>@Html.DisplayFor(modelItem => producto.Producto.Precio)</p>
-                    </div>
-                }
-             */
             SessionClose();
 
             return View(listViewModel);

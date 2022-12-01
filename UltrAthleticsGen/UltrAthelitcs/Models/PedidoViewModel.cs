@@ -46,7 +46,7 @@ namespace UltrAthelitcs.Models
         public FacturaEN Factura { get; set; }
 
         [Display(Prompt = "Lineas del pedido", Description = "Lineas del pedido", Name = "Lineas ")]
-        public IList<LineaPedidoEN> LineaPedido { get; set; }
+        public IList<lineaPedidoResumen> productos { get; set; }
 
         [Display(Prompt = "Usuario del pedido", Description = "Usuario del pedido", Name = "Usuario ")]
         [Required(ErrorMessage = "Debe indicar un usuario")]

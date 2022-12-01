@@ -50,6 +50,14 @@
                 </span>
             </div>
             <div class="pedidoBody">
+                @foreach (var producto in pedido.productos)
+                {
+                <div class="producto">
+                    <h4>@producto.Nombre</h4>
+                    <img src=@producto.Imagen/>
+                    <p>@producto.Total $</p>
+                </div>
+                }
             </div>
         </div>
     }
