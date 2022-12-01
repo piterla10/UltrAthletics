@@ -110,6 +110,7 @@ public static void InitializeData ()
 
                 //Creando pedidos
                 int idped = pedidoCEN.CrearPedido (EstadoPedidoEnum.carrito, "correoChuli@correo");
+                int idped2 = pedidoCEN.CrearPedido(EstadoPedidoEnum.carrito, "correoChuli@correo");
                 PedidoEN pedEN = pedidoCEN.DamePedidoOID (idped);
 
 
@@ -135,6 +136,10 @@ public static void InitializeData ()
                 int idLinea1 = lineaPedidoCEN.CrearLinea (3, idped, 50, idpro1);
                 LineaPedidoEN linea1EN = lineaPedidoCEN.DameLineaPedidoOID (idLinea1);
                 int idLinea2 = lineaPedidoCEN.CrearLinea (1, idped, 15, idpro2);
+
+                int idLinea3 = lineaPedidoCEN.CrearLinea(3, idped2, 50, idpro1);
+                LineaPedidoEN linea2EN = lineaPedidoCEN.DameLineaPedidoOID(idLinea3);
+                int idLinea4 = lineaPedidoCEN.CrearLinea(1, idped2, 15, idpro2);
 
 
                 //creando valoraciones

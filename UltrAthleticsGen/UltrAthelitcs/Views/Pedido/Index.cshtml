@@ -1,21 +1,25 @@
 ﻿@model IEnumerable<UltrAthelitcs.Models.PedidoViewModel>
 @using UltrAthleticsGenNHibernate.EN.UltrAthletics;
+@using UltrAthleticsGenNHibernate.Enumerated.UltrAthletics;
+@using UltrAthelitcs.Models;
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    List<lineaPedidoResumen> anteriores = new List<lineaPedidoResumen>();
 }
 
 <style>
     .pedido {
         border: 1px solid black;
         border-radius: 20px;
+        margin-bottom: 20px;
     }
 
     .pedidoHeader {
         border: 1px solid black;
         border-radius: 20px;
-        background-color: gray;
+        background-color: lightgray;
         display: flex;
     }
 
@@ -23,6 +27,11 @@
             margin: 0px 20px 20px 10px;
             justify-content: center;
         }
+
+    .anteriores {
+        border: 1px solid black;
+        border-radius: 20px;
+    }
 </style>
 
 <h2>Mis pedidos</h2>
@@ -34,15 +43,24 @@
 <div class="container">
     @foreach (var pedido in Model)
     {
+
+
         <div class="pedido">
             <div class="pedidoHeader">
                 <span>
-                    <h3>Pedido Realizado</h3>
-                    <p>@Html.DisplayFor(modelItem => pedido.Fecha)</p>
+                    @if (pedido.Estado != EstadoPedidoEnum.carrito)
+                    {
+                        <h3>Pedido en carrito</h3>
+                        <p>@Html.DisplayFor(modelItem => pedido.Fecha)</p>
+                    }
+                    else
+                    {
+                        <h3>Pedido Realizado</h3>
+                    }
                 </span>
                 <span>
                     <h3>Total</h3>
-                    <p>@Html.DisplayFor(modelItem => pedido.Total) $</p>
+                    <p>@Html.DisplayFor(modelItem => pedido.Total) €</p>
                 </span>
                 <span style="margin-left: auto;">
                     <h3>Pedido número @Html.DisplayFor(modelItem => pedido.Id)</h3>
@@ -50,15 +68,46 @@
                 </span>
             </div>
             <div class="pedidoBody">
+                <div class="estado">
+                    @{
+                        switch (pedido.Estado)
+                        {
+                            case EstadoPedidoEnum.preparando:
+                                <h3>El pedido se está preparando</h3>
+                                break;
+                            case EstadoPedidoEnum.enCamino:
+                                <h3>El pedido está en camino</h3>
+                                break;
+                            case EstadoPedidoEnum.entregado:
+                                <h3>El pedido ha sido entregado en @pedido.Direccion</h3>
+                                break;
+                            case EstadoPedidoEnum.carrito:
+                                <h3>El pedido está en carrito</h3>
+                                break;
+                        }
+                    }
+                </div>
                 @foreach (var producto in pedido.productos)
                 {
-                <div class="producto">
-                    <h4>@producto.Nombre</h4>
-                    <img src=@producto.Imagen/>
-                    <p>@producto.Total $</p>
-                </div>
+                    if (!anteriores.Any(prod => prod.Nombre == producto.Nombre)) { anteriores.Add(producto); }
+                    <div class="producto">
+                        <img src=@producto.Imagen />
+                        <h4>@producto.Nombre</h4>
+                        <p>Unidades: @producto.Unidades</p>
+                        <p>Total: @producto.Total €</p>
+                    </div>
                 }
             </div>
         </div>
     }
+<div class="anteriores">
+    @foreach (var anterior in anteriores)
+    {
+        <div class="producto">
+            <img src=@anterior.Imagen />
+            <h4>@anterior.Nombre</h4>
+            <p>Total: @anterior.Total €</p>
+        </div>
+    }
+</div>
 </div>

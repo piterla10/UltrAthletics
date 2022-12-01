@@ -13,7 +13,10 @@ namespace UltrAthelitcs.Assemblers
         {
             PedidoViewModel ped = new PedidoViewModel();
             ped.Id = en.Id;
-            ped.Fecha = (DateTime)en.Fecha;
+            if (en.Fecha!=null)
+            {
+                ped.Fecha = (DateTime)en.Fecha;
+            }
             ped.Direccion = en.Direccion;
             ped.Tarjeta = en.Tarjeta;
             ped.Estado = en.Estado;
@@ -25,13 +28,15 @@ namespace UltrAthelitcs.Assemblers
             ped.Usuario = en.Usuario;
 
             List<lineaPedidoResumen> pro = new List<lineaPedidoResumen>();
-            foreach(var lin in en.LineaPedido)
+          
+            foreach (var lin in en.LineaPedido)
             {
                 lineaPedidoResumen aux = new lineaPedidoResumen();
                 aux.Nombre = lin.Producto.Nombre;
                 aux.Imagen = lin.Producto.Imagen[0];
                 aux.Unidades = lin.Unidades;
                 aux.Total = lin.Precio;
+                
                 pro.Add(aux);
             }
             ped.productos = pro;

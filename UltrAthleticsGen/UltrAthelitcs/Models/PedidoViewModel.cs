@@ -12,7 +12,7 @@ namespace UltrAthelitcs.Models
     {
         public int Id { get; set; }
 
-        [Display(Prompt = "Fecha del pedido", Description = "Fecha del pedido", Name = "Fecha ")]
+        [Display(Prompt = "Fecha de entrega del pedido", Description = "Fecha de entrega del pedido", Name = "Fecha ")]
         [DataType(DataType.Date, ErrorMessage = "La fecha debe ser un valor Date")]
         public DateTime Fecha { get; set; }
 
